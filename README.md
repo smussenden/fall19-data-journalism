@@ -1,4 +1,4 @@
-# Data Journalism
+overview# Data Journalism
 
 This is the repo for JOUR 472/772 (Data Journalism), a course taught at the University of Maryland Philip Merrill College of Journalism.
 
@@ -23,11 +23,11 @@ After successfully completing this course, we expect you to be able to:
 
 * Use spreadsheets and data programming languages to “interview” data stored in structured and unstructured digital formats. You will learn a systematic approach to finding patterns, promising leads and stories in data and to discover what no one has ever known before, documenting your work in a way that is reproducible and transparent.
 
-* Understand how to obtain data from government agencies through public information act requests, to use online databases, to access information through APIs and basic web scraping.  
+* Understand how to obtain and responsibly vet data: from government agencies through public information act requests; through online and offline databases; to access information through APIs; and basic web scraping.  
 
 * Think about the limitations of a particular data set, work around those limitations and develop an understanding of what your data can and cannot show by using documentation and other sources. You will also learn to clean and prepare data for analysis.
 
-* Understand how you might use the results of your data analysis as the foundation of or supplement to additional material in a news story (text, audio, video, graphics) and what additional work you'll need to do prior to publication.
+* Understand how you might use the results of your data analysis as the foundation of or supplement to additional material in a news story and what additional work you'll need to do prior to publication.
 
 * Understand how, despite advances in technology, the fundamentals of basic reporting still apply in data journalism. These include a devotion to accuracy, clarity, fairness, solid news value and, ultimately, good storytelling.
 
@@ -46,7 +46,7 @@ Readings from selected sources will be posted to ELMS or linked to online.
 
 **Accounts**
 
-You will need the following accounts:
+You will need the following free accounts:
 
 * [GitHub](https://education.github.com/pack) - lots of free benefits for students.
 * [Google Drive](https://www.google.com/drive/) - y'all should have this, I guess.
@@ -71,9 +71,9 @@ The tutorials were written using these specific software programs, so if you use
 ### Grading
 
 * Participation - 5%
-* Data Acquisition Project - 25%
-* Data Analysis Project - 40%
-* Homework and In-Class Lab Assignments - 40% (Not Turned In/Unsatisfactory/Satisfactory)
+* Data Acquisition Project - 20%
+* Data Analysis Project - 30%
+* Homework and In-Class Lab Assignments - 45% (Not Turned In (0)/Unsatisfactory (1)/Satisfactory(2))
 * Note: there is no final exam in this course.
 
 Minus and plus grading will be assessed as follows:
@@ -94,13 +94,11 @@ Minus and plus grading will be assessed as follows:
 
 ### Attendance and assignment deadlines
 
-Because much of the learning in this course will be hands-on, it is important that you attend *every* class and show up on time. Showing up on time means you should be in your seat, your mobile device put away, logged in to a campus computer (or your own if you prefer) and ready to begin participating *before* class starts. Missing class or arriving late will affect your participation grade.
+Because much of the learning in this course will be hands-on, it is important that you attend *every* class and show up on time. Showing up on time means you should be in your seat, your mobile device put away, logged in to a campus computer (or your own if you prefer) and ready to begin participating *before* class starts. Missing class or arriving late will affect your participation grade. It is also important to complete all of the online labs on time.
 
 Unless I note otherwise, in-class labs are due at the end of class. You must be physically present in class to complete in-class lab assignments. If you are seriously ill and will miss class, let me know before class, by email or text. Unless you have my approval in advance, lab work cannot be made up. At my discretion, I may request a doctor's note before granting approval.
 
-Unless I note otherwise, assigned homework is due by midnight prior to the next class session. As in, homework assigned at the end of class on Tuesday is due by midnight before class on Thursday.
-
-Late assignments -- even one minute late -- will not be graded and given a zero. This includes all kinds of assignments, including major assignments.  Please take care to turn things in on time. Exceptions can be made on case-by-case basis in cases of serious illness or genuine emergency.
+This is journalism. Deadlines matter. Late assignments -- even one minute late -- will not be graded and given a zero. This includes major assignments.  Please take care to turn things in on time. Exceptions can be made on case-by-case basis in cases of serious illness or genuine emergency.  You are much more likely to get an exception if you notify me in advance of the deadline that you will not meet it.
 
 Unless I note otherwise, weather-based closures of the university do not change assignment deadlines.   
 
@@ -132,106 +130,302 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 
 ### Schedule
 
+#### Week 1 - August 27**
 
-**Week 1 - August 27**
-* Course introduction and syllabus review
-* The practice and art of data journalism
-* Introduction to journalistic data analysis with spreadsheets
-  * Basics of using a spreadsheet tool
-  * Using formulas
-* Readings: https://fivethirtyeight.com/features/what-the-fox-knows/ https://themarkup.org/about.html https://onlinejournalismblog.com/2011/07/07/the-inverted-pyramid-of-data-journalism/ https://datajournalism.com/read/handbook/one/introduction/why-is-data-journalism-important https://datajournalism.com/read/handbook/one/introduction/why-journalists-should-use-data https://docs.google.com/document/d/13JYB19XekRAV8rSUisZMEjSTM-XPFeRPBwhbUqiWYZQ/edit
-* Readings: 7 types of data stories.
-* Readings: Opioids project: find https://www.washingtonpost.com/national/2019/07/20/opioid-files/ https://www.washingtonpost.com/investigations/76-billion-opioid-pills-newly-released-federal-data-unmasks-the-epidemic/2019/07/16/5f29fd62-a73e-11e9-86dd-d7f0e60391e9_story.html  Find five facts you think were the product of data analysis. https://www.washingtonpost.com/health/how-an-epic-legal-battle-brought-a-secret-drug-database-to-light/2019/08/02/3bc594ce-b3d4-11e9-951e-de024209545d_story.html
-* Thursday Lab: Using Google Sheets.
+*Tuesday Class*
+* Introductions, course introduction and syllabus review.
+* What is data journalism?
+
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* Data journalism basics with spreadsheets.
+* Optional, if you feel like you need additional help with basics: [DataCamp Spreadsheet Basics](https://www.datacamp.com/courses/spreadsheet-basics), [Data Analysis with Spreadsheets](https://www.datacamp.com/courses/data-analysis-with-spreadsheets).
+
+*Readings for Homework*
+* [76 billion opioid pills: Newly released federal data unmasks the epidemic | Washington Post](https://www.washingtonpost.com/investigations/76-billion-opioid-pills-newly-released-federal-data-unmasks-the-epidemic/2019/07/16/5f29fd62-a73e-11e9-86dd-d7f0e60391e9_story.html)
+* [Data Stories Brainstorming Guide | NYT Training](https://docs.google.com/document/d/13JYB19XekRAV8rSUisZMEjSTM-XPFeRPBwhbUqiWYZQ/edit) and [Examples of Census Data Stories | NYT Training](https://docs.google.com/document/d/18R26TlL9iguN-iv17QjpSqOnUpsYvjqFTQf0tIEMXik/edit)
+* [Why Journalists Should Use Data](https://datajournalism.com/read/handbook/one/introduction/why-journalists-should-use-data), [Why is Data Journalism Important | Data Journalism Handbook](https://datajournalism.com/read/handbook/one/introduction/why-is-data-journalism-important).
+* [What the Fox Knows | FiveThirtyEight ](https://fivethirtyeight.com/features/what-the-fox-knows/), [The Inverted Pyramid of Data Journalism](https://onlinejournalismblog.com/2011/07/07/the-inverted-pyramid-of-data-journalism/), [About the Markup | Ethics Policy ](https://themarkup.org/ethics.html)
+
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+
+* Forum Post 1: We will spend much of the semester working with a newly-released database of opioid shipments, made available by the Washington Post. The Washington Post has been breaking stories of national importance holding the government, drug companies, pharmacies and others to account for their role in the deadly opioid epidemic that killed nearly 100,000 people in the U.S. between 2006 and 2012. Carefully read the story "76 billion opioid pills: Newly released federal data unmasks the epidemic." In a forum post of 300 words or less, do the following:
+  * Based on the information in the story, briefly explain the nature of the database analyzed by the Post.  What is it called? What information does it include?
+  * Identify two sentences in the story -- facts -- that you think were the most important products of original data analysis by the Post.  
+  * Google the people named in the story bylines and contribution line at the bottom of the story? What are the names and job titles of people you think worked on the analysis in the story?    
+* Forum Post 2: Skim through "The Data Stories Brainstorming" guide and "Data Stories: Census examples" from NYT Training include common types of "data stories" -- i.e. (contrasting two things, drilling down, outliers).  On your own, go out and find a news story that includes a bit of data analysis that fits into one of these "data story" frames.  In less than 100 words, provide a link and explain how the story fits into that frame.
+* Forum Post 3: The boundaries of what qualifies as "data journalism" are not easily defined. Read "Why Journalists Should Use Data" and "Why Data Journalism is Important".  In 200 words or less, explain what you think data journalism is, why you are interested in learning it, and how you hope to incorporate it in the journalism work you do going forward.
+* Forum Post 4: We'll talk a lot about the process of data journalism in this course, the work data journalists do that ends with the release of a story founded on original data analysis.  Read "What the Fox Knows", "The Inverted Pyramid of Data Journalism" and "About the Markup."  Each of these offers some insight into the process of doing data journalism work, from the very detailed -- Nate Silver's breakdown -- to the less detailed -- Paul Bradshaw's take -- to the very short: "Our journalism is guided by the scientific method; we develop hypotheses and collect data to test those hypotheses," from the Markup. In 200 words or less, do your best at describing the process by which data journalists go from nothing to story.
+
+*Assignments for subsequent weeks will be updated as semester goes on*
+
+####Week 2 - Sept 3
+
+*Tuesday Class*
+* Discussion: The process of data journalism; data journalism requires reporting.
+* Major assignment task: Data acquisition assignment introduced
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* Advanced data journalism with spreadsheets (pivot tables).
+* Optional, if you feel like you need additional help: [DataCamp Spreadsheet Basics]()
+
+*Readings for Homework*
+* [Bussed out: How America moves its homeless | Guardian](https://www.theguardian.com/us-news/ng-interactive/2017/dec/20/bussed-out-america-moves-homeless-people-country-study)
+* [38 Excuses](https://www.poynter.org/archive/2002/the-top-38-excuses-government-agencies-give-for-not-being-able-to-fulfill-your-data-request/)
+* [How an epic legal battle brought a secret drug database to light](https://www.washingtonpost.com/health/how-an-epic-legal-battle-brought-a-secret-drug-database-to-light/2019/08/02/3bc594ce-b3d4-11e9-951e-de024209545d_story.html)
+* Selections from Maryland Public Information Act Manual.
+
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+* Forum Post 1: Update on reporting done for data acquisition project.
+* Forum Post 2: Post on Bussed Out.
+* Forum Post 3: Post on WaPo legal battle to get ARCOS data.
+
+####Week 3 - Sept 10
+
+*Tuesday Class*
+* Discussion: The best data isn't online yet; getting data from a reluctant government  
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* Brief overview of R and R Studio.
+
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* Data Analysis in R (Setting up the environment; R markdown files; Loading packages; Loading data; Tidyverse; basic functions)
+* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
+
+*Readings for Homework*
+* Reproducible data journalism.
+
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+* TBD
+
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+* Update on reporting for data acquisition project
+
+####Week 4 - Sept 17
+
+*Tuesday Class*
+* Discussion: The importance of documenting your work, reproducible data journalism.
+* In-class lab: finding stories in opioid data, with R.
+
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* Data Analysis in R (More functions, filtering, summarization, pivot table equivalents)
+* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
+
+*Readings for Homework*
+* TBD
+
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+* TBD
+
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+* TBD
+
+####Week 5 - Sept 24
+
+*Tuesday Class*
+* Discussion: me
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* Data Analysis in R (Joins and Enterprise Joins)
+* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
+
+*Readings for Homework*
+*
+
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
+
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+* Update on reporting for data acquisition project
+
+####Week 6 - Oct 1
+
+*Tuesday Class*
+* Discussion:
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* Data Analysis in R (Working with strings and dates)
+* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
+
+*Readings for Homework*
+*
+
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
+
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+* Draft public records request for data acquisition project.
+
+####Week 7 - Oct 8
+
+*Tuesday Class*
+* Discussion:
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* Data analysis project introduced
+
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* Data Analysis in R (exploratory visualization)
+* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
+
+*Readings for Homework*
+*
+
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
+
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+* Send public records request for data acquisition project.
 
 
-**Week 2 - Sept 3**
-* Data analysis with spreadsheets
-  * Filtering, Pivot Tables
-* Introduction of Data Acquisition Project
-* Readings: Guardian's homeless project, 38 excuses.  
-* Readings: TBD
+####Week 8 - Oct 15
 
-**Week 3 - Sept 10**
-* Data Analysis in R
---Setting up environment and basics: R Project, R Markdown, Packages, Reading in data, first basic command in R.
+*Tuesday Class*
+* Discussion:
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
 
-**Week 4 - Sept 17**
---Data Analysis in R
---Repeat first lesson learned in spreadsheets (formulas, etc...), plus pivot tables.
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* Data Analysis in R (working with geographic data)
+* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
-**Week 5 - Sept 24**
---Data Analysis in R continued
---Joins and Enterprise Joins
+*Readings for Homework*
+*
 
-**Week 6 - Oct 1**
---Data Analysis in R continued
---Misc, Working with Date Times, Case When.
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
 
-**Week 7 - Oct 8**
---Data Analysis in R continued
---Exploratory Visualization
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+*
 
-**Week 8 - Oct 15**
---Data Analysis in R continued
---Working with Geographic data
+####Week 9 - Oct 22
 
-**Week 9 - Oct 22**
---Data Cleaning
+*Tuesday Class*
+* Discussion:
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
 
-**Week 10 - Oct 29**
---Data Cleaning
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* Data Cleaning in R
+* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
-**Week 11 - Nov 5**
---Data Acquisition - Working with APIs
+*Readings for Homework*
+*
 
-**Week 12 - Nov 12**
---Data Acquisition - Working with Databases
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
 
-**Week 13 - Nov 19**
---Data Acquisition - Web Scraping
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+* Update on exploratory analysis and draft markdown file.
 
-**Week 13 - Nov 26**
---Work on final data analysis project
+####Week 10 - Oct 29
 
-**Week 14 - Dec 3**
---Work on final data analysis project
+*Tuesday Class*
+* Discussion:
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
 
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* Data Cleaning in R
+* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
+*Readings for Homework*
+*
 
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
 
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+* Update on post-request follow-up for data acquisition project.
 
-<!--- https://docs.google.com/spreadsheets/d/1HA7snfUJeozVNdVZ281B6sjtgBmVUVwxhupbv3wDiE8/edit#gid=883698375 and https://jakebathman.github.io/Markdown-Table-Generator/-->
-**Session**|**Weekday**|**Date**|**Class Outline**|**Major Assignment Components Due Before Class (Midnight)**|**Homework Due Before Class Session (Midnight)**|**In-Class Discussion/Lecture**|**In-Class Lab**|**Homework Assigned at End of Class**
------|-----|-----|-----|-----|-----|-----|-----|-----
-1|Tuesday|1/29|[Link](sessions/01/readme.md)|None.|None|Data journalism for investigative reporting. Introductions. Course overview. Syllabus review. |None. |Read the syllabus in detail and complete syllabus quiz (ELMS).  Complete students skills survey (ELMS). Complete and upload academic integrity pledge (ELMS). Get course textbook.
-2|Thursday|1/31|[Link](sessions/02/readme.md)|None.|Read the syllabus in detail and complete syllabus quiz (ELMS).  Complete students skills survey (ELMS). Complete and upload academic integrity pledge (ELMS). All due next session. |Introduction to basic data analysis. |Excel Lab 1: Introduction to spreadsheets and Microsoft Excel. Using Excel to calculate change, percent change, rank and share of total. |Excel Assignment 1. Data journalism in the newsroom reading and writing assignment. All due next session.
-3|Tuesday|2/5|[Link](sessions/03/readme.md)|None.|Excel Assignment 1. Data journalism in the newsroom reading and writing assignment.|Review of Excel Assignment 1. Data journalism in the newsroom. Notable data-driven journalism projects. The role of the data journalists. |None.|The Investigative Reporter's Handbook reading and writing assignment. Review outline for data acquisition project. All due next session.
-4|Thursday|2/7|[Link](sessions/04/readme.md)|None.|The Investigative Reporter's Handbook reading and writing assignment. Review outline for data acquisition project.|Overview of data acquisition project. Discussion of data used in investigative reporting projects from forum post. |Start Excel Assignment 2. |Excel Assignment 2, which will be started in-class. Read Poynter's 38 Excuses. Reading from Data Literacy and quiz. Both due next session.
-5|Tuesday|2/12|[Link](sessions/05/readme.md)|None.|Excel Assignment 2. Read Poynter's 38 Excuses.  Read chapter 1 and 2 from Data Literacy and Quiz.|Review of Excel Assignment 2. Discussion of Public Information Act.  38 Excuses Discussion. Clues that databases exist.|Database Hunt. |Excel Assignment 3. Crime in Context reading and writing assignment. All due next session.
-6|Thursday|2/14|[Link](sessions/06/readme.md)|None.|Excel Assignment 3. Crime in Context reading and writing assignment. Reading Chapter 3 and 5 from Data Literacy and quiz. |Review of Excel Assignment 3. Continuation of data acquisition discussion. Using open data, evaluating web data. |Excel Lab 2: Summarizing with Pivot Tables. Filters. Functions.|Excel Assignment 4. Due next session.
-7|Tuesday|2/19|[Link](sessions/07/readme.md)|Data Acquisition Project | Status Memo 1 Forum Post|Excel Assignment 4.|Review Excel Assignment 4. Continuation of data acquisition discussion. Creating structured data from unstructured data. building databases in-house.|Excel Lab 3: Additional practice with Pivot Tables, Filters and Functions.|Complete exam review worksheet. Due next session.
-8|Thursday|2/21|[Link](sessions/08/readme.md)|None.|Complete exam review worksheet.|Review exam worksheet, additional exam review. |None|Study for exam.
-9|Tuesday|2/26|[Link](sessions/09/readme.md)|Exam 1 (given in-class)|Study for exam.|None.|Exam 1.|None.
-10|Thursday|2/28|[Link](sessions/10/readme.md)|Data Acquisition Project | Status Memo 2 Forum Post|None.|Introduction to relational databases.|SQL Lab 1: Introduction to MySQL Workbench. Basic SELECT queries. Filtering with WHERE and wildcards.|SQL Assignment 1. Due next session.
-11|Tuesday|3/5|[Link](sessions/11/readme.md)|None.|SQL Assignment 1.|Review of SQL assignment 1.|SQL Lab 2: Summarizing, grouping, calculating totals.|SQL Assignment 2.  Due next session.
-12|Thursday|3/7|[Link](sessions/12/readme.md)|NO|CLASS|SEAN |AT |NICAR
-13|Tuesday|3/12|[Link](sessions/13/readme.md)|Data Acquisition Project | Status Memo 3 Forum Post (PIA Letter)|SQL Assignment 2.|Review of SQL assignment 2.|SQL Lab 3: Linking tables with JOIN|SQL Assignment 3.  Due next session.
-14|Thursday|3/14|[Link](sessions/14/readme.md)|None.|SQL Assignment 3.|Review of SQL assignment 3.|SQL Lab 4: Advanced filtering with HAVING, WITH ROLLUP.|SQL Assignment 4.  Due next session.
-X|Tuesday|3/19| |NO|CLASS|SPRING|BREAK|
-X|Thursday|3/21| |NO|CLASS|SPRING|BREAK|
-15|Tuesday|3/26|[Link](sessions/15/readme.md)|None.|SQL Assignment 4.|Review of SQL assignment 4.|SQL Lab 5: Advanced practice.|Exam 2 review.  Due next session.
-16|Thursday|3/28|[Link](sessions/16/readme.md)|None.|Exam 2 review|Exam 2 Review Discussion.|None.|Take Home Exam 2 handed out.
-17|Tuesday|4/2|[Link](sessions/17/readme.md)|Exam 2 take home, Memo Forum 4|Work on Exam 2 take home| | |Reading and writing assignment on data analysis.  Due next session.
-18|Thursday|4/4|[Link](sessions/18/readme.md)|Data Acquisition Project | Status Memo 3 Forum Post|Reading and writing assignment on data analysis. Status memo 3 for data acquisition project.|Introduction to data analysis project. Approaches to data analysis. |Data analysis lab 1: pitch stories based on original analysis of a sample data set.|Complete data analysis lab 1. Reading and short writing assignment on data documentation. Both due before next class.
-19|Tuesday|4/9|[Link](sessions/19/readme.md)|None.|Complete data analysis lab 1. Reading and short writing assignment on data documentation. |Review of data analysis lab 1. The importance of documentation, understanding what data can and cannot show you, understanding how and why data was created.|Data analysis lab 2: read documentation and pitch ideas for further analysis.|Readings and quiz on data visualization.  Due next session.
-20|Thursday|4/11|[Link](sessions/20/readme.md)|Data Analysis Project | Status Memo 1 Forum Post|Readings and quiz on data visualization. Status memo 1 for data analysis project due.|Using visualization to help with analysis.|Data analysis lab 3: using Excel to build basic charts.|Reading and writing assignment on data visualization projects. Review of interesting projects, selection of one project for small group discussions.  Due next session.
-21|Tuesday|4/16|[Link](sessions/21/readme.md)|None.|Reading and writing assignment on data visualization projects. Review of interesting projects, selection of one project for small group discussions.|Small group discussion of data visualization projects.|None.|Readings on the reality of data journalism in newsroom, data cleaning and flawed data. Review of Quartz bad data guide and short writing assignment.  Due next session.
-22|Thursday|4/18|[Link](sessions/22/readme.md)|None.|Readings on the reality of data journalism in newsroom, data cleaning and flawed data. Review of Quartz bad data guide and short writing assignment.|Dealing with dirty data, errors, missing values and other problems.|Data preparation lab 1: using Excel. |Readings on data cleaning, data quality.  Due next session.
-23|Tuesday|4/23|[Link](sessions/23/readme.md)|None.|Readings on data cleaning, data quality. |Continuation of dirty data discussion, standardizing values.|Data preparation lab 2: using OpenRefine.|Readings on data cleaning, data quality.  Due next session.
-24|Thursday|4/25|[Link](sessions/24/readme.md)|Data Analysis Project | Status Memo 2 Forum Post|Readings on data cleaning, data quality.  Status memo 2 for data analysis project due.|Continuation of dirty data discussion, loading data.|Data preparation lab 3: loading data into MySQL Workbench.|Readings on data workflow, reproducability, fact-checking.  Due next session.
-25|Tuesday|4/30|[Link](sessions/25/readme.md)|None.|Readings on data workflow, reproducability, fact-checking.|Towards a reproducible, well-documented data cleaning and data analysis process that can be fact-checked.|Data process lab 1: fact-checking someone else's work.|None.
-26|Thursday|5/2|[Link](sessions/26/readme.md)|Data Acquisition Project | Final Paper Due. Data Acquisition Project | Final In-Class Presentation Part 1|Data Acquisition Paper Due|First data acquisition presentations.|None scheduled. If time, open hours to work on final analysis project.|None. Work on analysis project.
-27|Tuesday|5/7|[Link](sessions/27/readme.md)|Data Acquisition Project | Final In-Class Presentation Part 2|None. Work on analysis project.|Second data acquisition presentations.|None scheduled. If time, open hours to work on final analysis project.|None. Work on analysis project.
-28|Thursday|5/9|[Link](sessions/28/readme.md)|None.|None. Work on analysis project.|None.|Data analysis project open lab|None. Work on analysis project.
-29|Tuesday|5/14|[Link](sessions/29/readme.md)|Data Analysis Project | Final Memo Due (at end of class)|None. Work on analysis project.|None.|Data analysis project open lab|None.
+####Week 11 - Nov 5
+
+*Tuesday Class*
+* Discussion:
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* Data Acquisition in R (Working with APIs)
+* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
+
+*Readings for Homework*
+*
+
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
+
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+* Slide deck for data acquisition project presentation.
+
+####Week 12 - Nov 12
+
+*Tuesday Class*
+* Presentations: Data acquisition project.
+* In-class lab:
+
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* Data Acquisition in R (Working with Databases)
+* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
+
+*Readings for Homework*
+*
+
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
+
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+*
+
+####Week 13 - Nov 19
+
+*Tuesday Class*
+* Presentations: Data acquisition project.
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* Data Acquisition in R (Basic Web scraping)
+* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
+
+*Readings for Homework*
+*
+
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
+
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+* * Update on targeted data analysis, draft markdown file, supporting research and reporting.
+
+####Week 14 - Nov 26
+
+*Tuesday Class*
+* Discussion:
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* None, work on final project.
+
+*Readings for Homework*
+*
+
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
+
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+*
+
+* Week 14 - Story pitch memo due and "pitch your editor" short presentation.   
+
+####Week 15 - Dec 3
+
+*Tuesday Class*
+* Discussion:
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* None
+
+*Readings for Homework*
+*
+
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
+
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+*
