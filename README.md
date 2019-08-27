@@ -134,31 +134,30 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 
 *Tuesday Class*
 * Introductions, course introduction and syllabus review.
-  * Google form with preferred email address for signing up for DataCamp.   
+  * [Google form with preferred email address for signing up for DataCamp](https://docs.google.com/forms/d/e/1FAIpQLSffbYAQmq7Gv25d955x9xgI1GNexIsqVkcSIG1Tf69oQzsJlg/viewform?usp=sf_link).   
 * What is data journalism?
-  * Group Exercise: Shared Google Doc, what does the phrase "data journalism" mean to you?
-    * Everyone write it in.
-    * Break up into groups of four, lets jointly come up with a definition and then present to class.
-  * Slides:
+  * Group Exercise: [What does the phrase "data journalism" mean to you?](https://docs.google.com/document/d/14umxQK1mYVqQ6wd7yyTZMEaiM28RLK3bvTfmS8dsj-E/edit#)
+  * Slides: don't look at these yet! [Link](https://docs.google.com/presentation/d/1Wol-o16bhaGAbUbd6LmmMrzlFYmOO2sMk-Bu4I4eyWU/edit#slide=id.g6056882942_0_5)
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * [Data journalism basics with spreadsheets](https://www.youtube.com/watch?v=vJz3KauqY_0).
   * Follow along with the exercise step-by-step.
   * Either download the data directly from the Washington Post opioid files website, as I did.  Or, if you have trouble with that, [download it from here](labs/labs_01/arcos-wv-mingo-54059-pharmacy.tsv).
-  * Upload a link to your completed Google Sheet workbook to ELMS.  
+  * Upload a link to your completed Google Sheet workbook to ELMS.
+  * Completed Sheet: will be posted Monday morning.  
 * Here are links mentioned in the video:
   * [Google Drive](https://drive.google.com/drive/u/0/my-drive)
   * [Drilling into the DEA's pain pill database | Washington Post](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/?noredirect=on)
   * [Chain drug stores brought millions of opioids to WV as overdoses surged | Charleston (Wv.) Gazette-Mail](https://www.wvgazettemail.com/news/health/chain-drug-stores-brought-millions-of-opioids-to-wv-as/article_258d176e-c87d-5c96-bd29-2402dc844b30.html)
   * [76 billion opioid pills: Newly released federal data unmasks the epidemic | Washington Post](https://www.washingtonpost.com/investigations/76-billion-opioid-pills-newly-released-federal-data-unmasks-the-epidemic/2019/07/16/5f29fd62-a73e-11e9-86dd-d7f0e60391e9_story.html)
   * [The Post released the DEA’s data on pain pills. Here’s what local journalists are using it for](https://www.washingtonpost.com/national/2019/08/12/post-released-deas-data-pain-pills-heres-what-local-journalists-are-using-it/)
-* Optional lessons if you are struggling with the tutorial feel like you need additional help with basics: [DataCamp Spreadsheet Basics](https://www.datacamp.com/courses/spreadsheet-basics), [Data Analysis with Spreadsheets](https://www.datacamp.com/courses/data-analysis-with-spreadsheets).
+* Optional lessons if you are struggling with the tutorial and feel like you need additional help with basics: [DataCamp Spreadsheet Basics](https://www.datacamp.com/courses/spreadsheet-basics), [Data Analysis with Spreadsheets](https://www.datacamp.com/courses/data-analysis-with-spreadsheets).
 
-*Readings for Homework*
-* [76 billion opioid pills: Newly released federal data unmasks the epidemic | Washington Post](https://www.washingtonpost.com/investigations/76-billion-opioid-pills-newly-released-federal-data-unmasks-the-epidemic/2019/07/16/5f29fd62-a73e-11e9-86dd-d7f0e60391e9_story.html)
-* [Data Stories Brainstorming Guide | NYT Training](https://docs.google.com/document/d/13JYB19XekRAV8rSUisZMEjSTM-XPFeRPBwhbUqiWYZQ/edit) and [Examples of Census Data Stories | NYT Training](https://docs.google.com/document/d/18R26TlL9iguN-iv17QjpSqOnUpsYvjqFTQf0tIEMXik/edit)
-* [Why Journalists Should Use Data](https://datajournalism.com/read/handbook/one/introduction/why-journalists-should-use-data), [Why is Data Journalism Important | Data Journalism Handbook](https://datajournalism.com/read/handbook/one/introduction/why-is-data-journalism-important).
-* [What the Fox Knows | FiveThirtyEight ](https://fivethirtyeight.com/features/what-the-fox-knows/), [The Inverted Pyramid of Data Journalism](https://onlinejournalismblog.com/2011/07/07/the-inverted-pyramid-of-data-journalism/), [About the Markup | Ethics Policy ](https://themarkup.org/ethics.html)
+*Readings (and a Podcast) for Homework | Complete by Sunday at 11:59 p.m.*
+* Opioid Data Material: [76 billion opioid pills: Newly released federal data unmasks the epidemic | Washington Post](https://www.washingtonpost.com/investigations/76-billion-opioid-pills-newly-released-federal-data-unmasks-the-epidemic/2019/07/16/5f29fd62-a73e-11e9-86dd-d7f0e60391e9_story.html) and [Scott Higham Interview | Fresh Air](https://www.npr.org/sections/health-shots/2019/08/22/753114950/tales-of-corporate-painkiller-pushing-the-death-rates-just-soared)
+* Journalists and Data: [Why Journalists Should Use Data | Data Journalism Handbook](https://datajournalism.com/read/handbook/one/introduction/why-journalists-should-use-data) and [Why is Data Journalism Important | Data Journalism Handbook](https://datajournalism.com/read/handbook/one/introduction/why-is-data-journalism-important).
+* The Data Journalism Process: [What the Fox Knows | FiveThirtyEight](https://fivethirtyeight.com/features/what-the-fox-knows/) and [The Inverted Pyramid of Data Journalism](https://onlinejournalismblog.com/2011/07/07/the-inverted-pyramid-of-data-journalism/) and [About the Markup | The Markup](https://themarkup.org/ethics.html)
+* 7 Types of Data Stories: [Data Stories Brainstorming Guide | NYT Training](https://docs.google.com/document/d/13JYB19XekRAV8rSUisZMEjSTM-XPFeRPBwhbUqiWYZQ/edit) and [Examples of Census Data Stories | NYT Training](https://docs.google.com/document/d/18R26TlL9iguN-iv17QjpSqOnUpsYvjqFTQf0tIEMXik/edit)
 
 *Forum Posts | Due by Sunday at 11:59 p.m.*
 
