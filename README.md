@@ -40,6 +40,7 @@ After successfully completing this course, we expect you to be able to:
 ### Required Texts, Materials and Software
 
 **Textbook**
+
 There is no book to buy for this class.
 
 Readings from selected sources will be posted to ELMS or linked to online.
@@ -142,7 +143,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * [Data journalism basics with spreadsheets](https://www.youtube.com/watch?v=vJz3KauqY_0).
   * Follow along with the exercise step-by-step.
-  * Either download the data directly from the Washington Post opioid files website, as I did.  Or, if you have trouble with that, [download it from here](labs/labs_01/arcos-wv-mingo-54059-pharmacy.tsv).
+  * Either download the data directly from the Washington Post opioid files website, as I did.  Or, if you have trouble with that, [download it from here](labs/lab_01/arcos-wv-mingo-54059-pharmacy.tsv).
   * Upload a link to your completed Google Sheet workbook to ELMS.
   * Completed Sheet: will be posted Monday morning.  
 * Here are links mentioned in the video:
