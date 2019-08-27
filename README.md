@@ -156,7 +156,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 * Forum Post 3: The boundaries of what qualifies as "data journalism" are not easily defined. Read "Why Journalists Should Use Data" and "Why Data Journalism is Important".  In 200 words or less, explain what you think data journalism is, why you are interested in learning it, and how you hope to incorporate it in the journalism work you do going forward.
 * Forum Post 4: We'll talk a lot about the process of data journalism in this course, the work data journalists do that ends with the release of a story founded on original data analysis.  Read "What the Fox Knows", "The Inverted Pyramid of Data Journalism" and "About the Markup."  Each of these offers some insight into the process of doing data journalism work, from the very detailed -- Nate Silver's breakdown -- to the less detailed -- Paul Bradshaw's take -- to the very short, from the Markup: "Our journalism is guided by the scientific method; we develop hypotheses and collect data to test those hypotheses." In 200 words or less, describe the process by which data journalists go from nothing to published story. There is no wrong answer here, I just want your best guess.
 
-*Assignments for subsequent weeks will be updated as semester goes on*
+**Assignments, readings and class details for subsequent weeks will be updated as semester goes on**
 
 #### Week 2 - Sept 3
 
@@ -192,7 +192,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-* Reproducible data journalism.
+* Reproducible data journalism readings.
 
 *Forum Posts | Complete by Sunday at 11:59 p.m.*
 * TBD
@@ -217,7 +217,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 * TBD
 
 *Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
-* TBD
+* None
 
 #### Week 5 - Sept 24
 
@@ -241,18 +241,18 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 #### Week 6 - Oct 1
 
 *Tuesday Class*
-* Discussion:
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* Discussion: TBD
+* In-class lab: finding stories in opioid data, with R
 
 *Online tutorial lab | Complete by Sunday at 11:59 p.m.*
 * Data Analysis in R (Working with strings and dates)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-*
+* TBD
 
 *Forum Posts | Complete by Sunday at 11:59 p.m.*
-*
+* TBD
 
 *Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
 * Draft public records request for data acquisition project.
@@ -260,8 +260,8 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 #### Week 7 - Oct 8
 
 *Tuesday Class*
-* Discussion:
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* Discussion: TBD
+* In-class lab: finding stories in opioid data, with R
 * Data analysis project introduced
 
 *Online tutorial lab | Complete by Sunday at 11:59 p.m.*
@@ -269,10 +269,10 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-*
+* TBD
 
 *Forum Posts | Complete by Sunday at 11:59 p.m.*
-*
+* TBD
 
 *Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
 * Send public records request for data acquisition project.
@@ -281,37 +281,37 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 #### Week 8 - Oct 15
 
 *Tuesday Class*
-* Discussion:
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* Discussion: TBD
+* In-class lab: visualizing stories in opioid data, with R
 
 *Online tutorial lab | Complete by Sunday at 11:59 p.m.*
 * Data Analysis in R (working with geographic data)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-*
+* TBD
 
 *Forum Posts | Complete by Sunday at 11:59 p.m.*
-*
+* TBD
 
 *Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
-*
+* None
 
 #### Week 9 - Oct 22
 
 *Tuesday Class*
-* Discussion:
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* Discussion: TBD
+* In-class lab: finding stories in opioid data, with R
 
 *Online tutorial lab | Complete by Sunday at 11:59 p.m.*
 * Data Cleaning in R
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-*
+* TBD
 
 *Forum Posts | Complete by Sunday at 11:59 p.m.*
-*
+* TBD
 
 *Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
 * Update on exploratory analysis and draft markdown file.
@@ -319,18 +319,18 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 #### Week 10 - Oct 29
 
 *Tuesday Class*
-* Discussion:
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* Discussion: TBD
+* In-class lab: cleaning opioid data in R
 
 *Online tutorial lab | Complete by Sunday at 11:59 p.m.*
 * Data Cleaning in R
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-*
+* TBD
 
 *Forum Posts | Complete by Sunday at 11:59 p.m.*
-*
+* TBD
 
 *Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
 * Update on post-request follow-up for data acquisition project.
@@ -338,18 +338,18 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 #### Week 11 - Nov 5
 
 *Tuesday Class*
-* Discussion:
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* Discussion: TBD
+* In-class lab: cleaning opioid data, in R
 
 *Online tutorial lab | Complete by Sunday at 11:59 p.m.*
 * Data Acquisition in R (Working with APIs)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-*
+* TBD
 
 *Forum Posts | Complete by Sunday at 11:59 p.m.*
-*
+* TBD
 
 *Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
 * Slide deck for data acquisition project presentation.
@@ -358,20 +358,20 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 
 *Tuesday Class*
 * Presentations: Data acquisition project.
-* In-class lab:
+* In-class lab: Workign with APIs in R.
 
 *Online tutorial lab | Complete by Sunday at 11:59 p.m.*
 * Data Acquisition in R (Working with Databases)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-*
+* TBD
 
 *Forum Posts | Complete by Sunday at 11:59 p.m.*
-*
+* TBD
 
 *Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
-*
+* None.
 
 #### Week 13 - Nov 19
 
@@ -384,48 +384,45 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-*
+* TBD
 
 *Forum Posts | Complete by Sunday at 11:59 p.m.*
-*
+* TBD
 
 *Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
-* * Update on targeted data analysis, draft markdown file, supporting research and reporting.
+* Update on targeted data analysis, draft markdown file, supporting research and reporting.
 
 #### Week 14 - Nov 26
 
 *Tuesday Class*
-* Discussion:
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* Discussion: none.
+* In-class lab: open work period for final project.
 
 *Online tutorial lab | Complete by Sunday at 11:59 p.m.*
 * None, work on final project.
 
 *Readings for Homework*
-*
+* None
 
 *Forum Posts | Complete by Sunday at 11:59 p.m.*
-*
+* None
 
 *Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
-*
-
-* Week 14 - Story pitch memo due and "pitch your editor" short presentation.   
+* Analysis project story pitch memo due and slide deck for presentation.
 
 #### Week 15 - Dec 3
 
 *Tuesday Class*
-* Discussion:
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* "Pitch your editor" presentations from data analysis project.
 
 *Online tutorial lab | Complete by Sunday at 11:59 p.m.*
 * None
 
 *Readings for Homework*
-*
+* None
 
 *Forum Posts | Complete by Sunday at 11:59 p.m.*
-*
+* None
 
 *Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
-*
+* None
