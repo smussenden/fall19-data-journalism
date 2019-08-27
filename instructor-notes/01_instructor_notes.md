@@ -8,8 +8,10 @@
 
 ### Electronic files and links to have up
 1. Course Canvas Page
-2. Course GitHub Page
-3. Download GitHub Folder to Desktop.
+2. Course GitHub Page on Syllabus
+3. Slides
+4. Document for What is Data Journalism
+5. Download GitHub Folder to Desktop.
 
 ### Openers
 1. Make sure everyone is here for JOUR472/772, Introduction to Data Journalism.
