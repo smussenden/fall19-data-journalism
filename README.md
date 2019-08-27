@@ -15,7 +15,7 @@ It is designed for use by students at the University of Maryland but anyone is f
 
 ### Objective
 
-This is a practical, hands-on, skill-based course in the basics of data journalism. It is a journalism class that teaches students how to use software tools, statistical analysis, data programming, computational thinking and other techniques to unearth key facts, patterns and proof in the service of investigative reporting.
+This is a practical, hands-on, skill-based course in the basics of data journalism. It is a journalism class that teaches students to use software tools, statistical analysis, data programming, computational thinking and other techniques. It teaches the transparent application of social science statistical methods to the analysis of structured and unstructured digital information as part of the investigative reporting process, a meticulous, community-based approach to unearthing key facts, patterns and proof in the service of telling stories.  
 
 ### Learning Outcomes
 
@@ -169,7 +169,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 * Forum Post 3: The boundaries of what qualifies as "data journalism" are not easily defined. Read "Why Journalists Should Use Data" and "Why Data Journalism is Important".  In 200 words or less, explain what you think data journalism is, why you are interested in learning it, and how you hope to incorporate it in the journalism work you do going forward.
 * Forum Post 4: We'll talk a lot about the process of data journalism in this course, the work data journalists do that ends with the release of a story founded on original data analysis.  Read "What the Fox Knows", "The Inverted Pyramid of Data Journalism" and "About the Markup."  Each of these offers some insight into the process of doing data journalism work, from the very detailed -- Nate Silver's breakdown -- to the less detailed -- Paul Bradshaw's take -- to the very short: "Our journalism is guided by the scientific method; we develop hypotheses and collect data to test those hypotheses," from the Markup. In 200 words or less, do your best at describing the process by which data journalists go from nothing to story.
 
-*Assignments for subsequent weeks will be updated as semester goes on*
+**Assignments for subsequent weeks will be updated as semester goes on**
 
 ####Week 2 - Sept 3
 
