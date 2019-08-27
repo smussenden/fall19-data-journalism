@@ -1,4 +1,4 @@
-# Data Journalism
+overview# Data Journalism
 
 This is the repo for JOUR 472/772 (Data Journalism), a course taught at the University of Maryland Philip Merrill College of Journalism.
 
@@ -7,9 +7,9 @@ It is designed for use by students at the University of Maryland but anyone is f
 ## Course Syllabus
 
 * **JOUR472/772 | Data Journalism**
-* **Tuesday 11:30am - 1:50pm + Weekly Asynchronous Online Lab**
+* **Tuesday 11:30am - 1:50pm + Asynchronous Online labs**
 * **1101 Knight Hall**
-* **Sean Mussenden, professor of data and computational journalism; Data editor, Howard Center for Investigative Journalism**
+* **Sean Mussenden, data and computational journalism professor and data editor, Howard Center for Investigative Journalism**
 * **smussend@umd.edu | 202-590-2190 (call or text) | @smussenden on Twitter | I'll do my best to respond within 24 hours.**
 * **Office hours by appointment. Email me to set up.  My office is in the Howard Center for Investigative Journalism on the third floor of Knight Hall.**
 
@@ -21,7 +21,7 @@ This is a practical, hands-on, skill-based course in the basics of data journali
 
 After successfully completing this course, we expect you to be able to:
 
-* Use spreadsheets and data programming languages to “interview” data stored in digital formats. You will learn a systematic approach to finding patterns, promising leads and stories in data. You will learn how to discover what no one has ever known before as part of the reporting process, documenting your work in a way that is reproducible and transparent.
+* Use spreadsheets and data programming languages to “interview” data stored in structured and unstructured digital formats. You will learn a systematic approach to finding patterns, promising leads and stories in data and to discover what no one has ever known before, documenting your work in a way that is reproducible and transparent.
 
 * Understand how to obtain and responsibly vet data: from government agencies through public information act requests; through online and offline databases; to access information through APIs; and basic web scraping.  
 
@@ -74,7 +74,7 @@ The tutorials were written using these specific software programs, so if you use
 * Data Acquisition Project - 20%
 * Data Analysis Project - 30%
 * Homework and In-Class Lab Assignments - 45% (Not Turned In (0)/Unsatisfactory (1)/Satisfactory(2))
-* Note: there are no exams in this course.
+* Note: there is no final exam in this course.
 
 Minus and plus grading will be assessed as follows:
 
@@ -130,23 +130,37 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 
 ### Schedule
 
-#### Week 1 - August 27
+#### Week 1 - August 27**
 
 *Tuesday Class*
 * Introductions, course introduction and syllabus review.
+  * Google form with preferred email address for signing up for DataCamp.   
 * What is data journalism?
+  * Group Exercise: Shared Google Doc, what does the phrase "data journalism" mean to you?
+    * Everyone write it in.
+    * Break up into groups of four, lets jointly come up with a definition and then present to class.
+  * Slides:
 
-*Online tutorial lab | Complete by Sunday at 11:59 p.m.*
-* Data journalism basics with spreadsheets.
-* Optional, only if you feel like you need additional help with basics: [DataCamp Spreadsheet Basics](https://www.datacamp.com/courses/spreadsheet-basics), [Data Analysis with Spreadsheets](https://www.datacamp.com/courses/data-analysis-with-spreadsheets).
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* [Data journalism basics with spreadsheets](https://www.youtube.com/watch?v=vJz3KauqY_0).
+  * Follow along with the exercise step-by-step.
+  * Either download the data directly from the Washington Post opioid files website, as I did.  Or, if you have trouble with that, [download it from here](labs/labs_01/arcos-wv-mingo-54059-pharmacy.tsv).
+  * Upload a link to your completed Google Sheet workbook to ELMS.  
+* Here are links mentioned in the video:
+  * [Google Drive](https://drive.google.com/drive/u/0/my-drive)
+  * [Drilling into the DEA's pain pill database | Washington Post](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/?noredirect=on)
+  * [Chain drug stores brought millions of opioids to WV as overdoses surged | Charleston (Wv.) Gazette-Mail](https://www.wvgazettemail.com/news/health/chain-drug-stores-brought-millions-of-opioids-to-wv-as/article_258d176e-c87d-5c96-bd29-2402dc844b30.html)
+  * [76 billion opioid pills: Newly released federal data unmasks the epidemic | Washington Post](https://www.washingtonpost.com/investigations/76-billion-opioid-pills-newly-released-federal-data-unmasks-the-epidemic/2019/07/16/5f29fd62-a73e-11e9-86dd-d7f0e60391e9_story.html)
+  * [The Post released the DEA’s data on pain pills. Here’s what local journalists are using it for](https://www.washingtonpost.com/national/2019/08/12/post-released-deas-data-pain-pills-heres-what-local-journalists-are-using-it/)
+* Optional lessons if you are struggling with the tutorial feel like you need additional help with basics: [DataCamp Spreadsheet Basics](https://www.datacamp.com/courses/spreadsheet-basics), [Data Analysis with Spreadsheets](https://www.datacamp.com/courses/data-analysis-with-spreadsheets).
 
-*Readings (and a Podcast) for Homework | Complete by Sunday at 11:59 p.m.*
-* Opioid Data Material: [76 billion opioid pills: Newly released federal data unmasks the epidemic | Washington Post](https://www.washingtonpost.com/investigations/76-billion-opioid-pills-newly-released-federal-data-unmasks-the-epidemic/2019/07/16/5f29fd62-a73e-11e9-86dd-d7f0e60391e9_story.html) and [Scott Higham Interview | Fresh Air](https://www.npr.org/sections/health-shots/2019/08/22/753114950/tales-of-corporate-painkiller-pushing-the-death-rates-just-soared)
-* Journalists and Data: [Why Journalists Should Use Data | Data Journalism Handbook](https://datajournalism.com/read/handbook/one/introduction/why-journalists-should-use-data) and [Why is Data Journalism Important | Data Journalism Handbook](https://datajournalism.com/read/handbook/one/introduction/why-is-data-journalism-important).
-* The Data Journalism Process: [What the Fox Knows | FiveThirtyEight](https://fivethirtyeight.com/features/what-the-fox-knows/) and [The Inverted Pyramid of Data Journalism](https://onlinejournalismblog.com/2011/07/07/the-inverted-pyramid-of-data-journalism/) and [About the Markup | The Markup](https://themarkup.org/ethics.html)
-* 7 Types of Data Stories: [Data Stories Brainstorming Guide | NYT Training](https://docs.google.com/document/d/13JYB19XekRAV8rSUisZMEjSTM-XPFeRPBwhbUqiWYZQ/edit) and [Examples of Census Data Stories | NYT Training](https://docs.google.com/document/d/18R26TlL9iguN-iv17QjpSqOnUpsYvjqFTQf0tIEMXik/edit)
+*Readings for Homework*
+* [76 billion opioid pills: Newly released federal data unmasks the epidemic | Washington Post](https://www.washingtonpost.com/investigations/76-billion-opioid-pills-newly-released-federal-data-unmasks-the-epidemic/2019/07/16/5f29fd62-a73e-11e9-86dd-d7f0e60391e9_story.html)
+* [Data Stories Brainstorming Guide | NYT Training](https://docs.google.com/document/d/13JYB19XekRAV8rSUisZMEjSTM-XPFeRPBwhbUqiWYZQ/edit) and [Examples of Census Data Stories | NYT Training](https://docs.google.com/document/d/18R26TlL9iguN-iv17QjpSqOnUpsYvjqFTQf0tIEMXik/edit)
+* [Why Journalists Should Use Data](https://datajournalism.com/read/handbook/one/introduction/why-journalists-should-use-data), [Why is Data Journalism Important | Data Journalism Handbook](https://datajournalism.com/read/handbook/one/introduction/why-is-data-journalism-important).
+* [What the Fox Knows | FiveThirtyEight ](https://fivethirtyeight.com/features/what-the-fox-knows/), [The Inverted Pyramid of Data Journalism](https://onlinejournalismblog.com/2011/07/07/the-inverted-pyramid-of-data-journalism/), [About the Markup | Ethics Policy ](https://themarkup.org/ethics.html)
 
-*Forum Posts | Complete by Sunday at 11:59 p.m.*
+*Forum Posts | Due by Sunday at 11:59 p.m.*
 
 * Forum Post 1: We will spend much of the semester working with a newly-released database of opioid shipments, made available by the Washington Post. The Washington Post has been breaking stories of national importance holding the government, drug companies, pharmacies and others to account for their role in the deadly opioid epidemic that killed nearly 100,000 people in the U.S. between 2006 and 2012. Carefully read the story "76 billion opioid pills: Newly released federal data unmasks the epidemic." In a forum post of 300 words or less, do the following:
   * Based on the information in the story, briefly explain the nature of the database analyzed by the Post.  What is it called? What information does it include?
@@ -154,20 +168,20 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
   * Google the people named in the story bylines and contribution line at the bottom of the story? What are the names and job titles of people you think worked on the analysis in the story?    
 * Forum Post 2: Skim through "The Data Stories Brainstorming" guide and "Data Stories: Census examples" from NYT Training include common types of "data stories" -- i.e. (contrasting two things, drilling down, outliers).  On your own, go out and find a news story that includes a bit of data analysis that fits into one of these "data story" frames.  In less than 100 words, provide a link and explain how the story fits into that frame.
 * Forum Post 3: The boundaries of what qualifies as "data journalism" are not easily defined. Read "Why Journalists Should Use Data" and "Why Data Journalism is Important".  In 200 words or less, explain what you think data journalism is, why you are interested in learning it, and how you hope to incorporate it in the journalism work you do going forward.
-* Forum Post 4: We'll talk a lot about the process of data journalism in this course, the work data journalists do that ends with the release of a story founded on original data analysis.  Read "What the Fox Knows", "The Inverted Pyramid of Data Journalism" and "About the Markup."  Each of these offers some insight into the process of doing data journalism work, from the very detailed -- Nate Silver's breakdown -- to the less detailed -- Paul Bradshaw's take -- to the very short, from the Markup: "Our journalism is guided by the scientific method; we develop hypotheses and collect data to test those hypotheses." In 200 words or less, describe the process by which data journalists go from nothing to published story. There is no wrong answer here, I just want your best guess.
+* Forum Post 4: We'll talk a lot about the process of data journalism in this course, the work data journalists do that ends with the release of a story founded on original data analysis.  Read "What the Fox Knows", "The Inverted Pyramid of Data Journalism" and "About the Markup."  Each of these offers some insight into the process of doing data journalism work, from the very detailed -- Nate Silver's breakdown -- to the less detailed -- Paul Bradshaw's take -- to the very short: "Our journalism is guided by the scientific method; we develop hypotheses and collect data to test those hypotheses," from the Markup. In 200 words or less, do your best at describing the process by which data journalists go from nothing to story.
 
-**Assignments, readings and class details for subsequent weeks will be updated as semester goes on**
+*Assignments for subsequent weeks will be updated as semester goes on*
 
-#### Week 2 - Sept 3
+####Week 2 - Sept 3
 
 *Tuesday Class*
-* Discussion: The process of data journalism; data journalism and reporting.
-* Major assignment task: Data acquisition assignment introduced.
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques.
+* Discussion: The process of data journalism; data journalism requires reporting.
+* Major assignment task: Data acquisition assignment introduced
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
 
-*Online tutorial lab | Complete by Sunday at 11:59 p.m.*
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Advanced data journalism with spreadsheets (pivot tables).
-* Optional, if you feel like you need additional help: [DataCamp]()
+* Optional, if you feel like you need additional help: [DataCamp Spreadsheet Basics]()
 
 *Readings for Homework*
 * [Bussed out: How America moves its homeless | Guardian](https://www.theguardian.com/us-news/ng-interactive/2017/dec/20/bussed-out-america-moves-homeless-people-country-study)
@@ -175,254 +189,257 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 * [How an epic legal battle brought a secret drug database to light](https://www.washingtonpost.com/health/how-an-epic-legal-battle-brought-a-secret-drug-database-to-light/2019/08/02/3bc594ce-b3d4-11e9-951e-de024209545d_story.html)
 * Selections from Maryland Public Information Act Manual.
 
-*Forum Posts | Complete by Sunday at 11:59 p.m.*
+*Forum Posts | Due by Sunday at 11:59 p.m.*
 * Forum Post 1: Update on reporting done for data acquisition project.
 * Forum Post 2: Post on Bussed Out.
 * Forum Post 3: Post on WaPo legal battle to get ARCOS data.
 
-#### Week 3 - Sept 10
+####Week 3 - Sept 10
 
 *Tuesday Class*
-* Discussion: The best data isn't online yet; getting data from a reluctant government bureaucracy.
-* In-class lab: finding stories in opioid data, with advanced spreadsheet techniques
+* Discussion: The best data isn't online yet; getting data from a reluctant government  
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
 * Brief overview of R and R Studio.
 
-*Online tutorial lab | Complete by Sunday at 11:59 p.m.*
-* Data Analysis in R (Setting up the environment; R markdown files; Loading packages; Loading data; Tidyverse introduction; basic functions)
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* Data Analysis in R (Setting up the environment; R markdown files; Loading packages; Loading data; Tidyverse; basic functions)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-* Reproducible data journalism readings.
+* Reproducible data journalism.
 
-*Forum Posts | Complete by Sunday at 11:59 p.m.*
+*Forum Posts | Due by Sunday at 11:59 p.m.*
 * TBD
 
-*Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * Update on reporting for data acquisition project
 
-#### Week 4 - Sept 17
+####Week 4 - Sept 17
 
 *Tuesday Class*
 * Discussion: The importance of documenting your work, reproducible data journalism.
 * In-class lab: finding stories in opioid data, with R.
 
-*Online tutorial lab | Complete by Sunday at 11:59 p.m.*
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Analysis in R (More functions, filtering, summarization, pivot table equivalents)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
 * TBD
 
-*Forum Posts | Complete by Sunday at 11:59 p.m.*
+*Forum Posts | Due by Sunday at 11:59 p.m.*
 * TBD
 
-*Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
-* None
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+* TBD
 
-#### Week 5 - Sept 24
+####Week 5 - Sept 24
 
 *Tuesday Class*
-* Discussion: TBD
-* In-class lab: finding stories in opioid data, with R.
+* Discussion: me
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
 
-*Online tutorial lab | Complete by Sunday at 11:59 p.m.*
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Analysis in R (Joins and Enterprise Joins)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-* TBD
+*
 
-*Forum Posts | Complete by Sunday at 11:59 p.m.*
-* TBD
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
 
-*Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * Update on reporting for data acquisition project
 
-#### Week 6 - Oct 1
+####Week 6 - Oct 1
 
 *Tuesday Class*
-* Discussion: TBD
-* In-class lab: finding stories in opioid data, with R
+* Discussion:
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
 
-*Online tutorial lab | Complete by Sunday at 11:59 p.m.*
-* Data Analysis in R (Working with strings and dates)
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
+* Data Analysis in R (Functions, Working with strings and dates)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-* TBD
+*
 
-*Forum Posts | Complete by Sunday at 11:59 p.m.*
-* TBD
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
 
-*Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * Draft public records request for data acquisition project.
 
-#### Week 7 - Oct 8
+####Week 7 - Oct 8
 
 *Tuesday Class*
-* Discussion: TBD
-* In-class lab: finding stories in opioid data, with R
+* Discussion:
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
 * Data analysis project introduced
 
-*Online tutorial lab | Complete by Sunday at 11:59 p.m.*
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Analysis in R (exploratory visualization)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-* TBD
+*
 
-*Forum Posts | Complete by Sunday at 11:59 p.m.*
-* TBD
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
 
-*Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * Send public records request for data acquisition project.
 
 
-#### Week 8 - Oct 15
+####Week 8 - Oct 15
 
 *Tuesday Class*
-* Discussion: TBD
-* In-class lab: visualizing stories in opioid data, with R
+* Discussion:
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
 
-*Online tutorial lab | Complete by Sunday at 11:59 p.m.*
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Analysis in R (working with geographic data)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-* TBD
+*
 
-*Forum Posts | Complete by Sunday at 11:59 p.m.*
-* TBD
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
 
-*Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
-* None
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+*
 
-#### Week 9 - Oct 22
+####Week 9 - Oct 22
 
 *Tuesday Class*
-* Discussion: TBD
-* In-class lab: finding stories in opioid data, with R
+* Discussion:
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
 
-*Online tutorial lab | Complete by Sunday at 11:59 p.m.*
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Cleaning in R
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-* TBD
+*
 
-*Forum Posts | Complete by Sunday at 11:59 p.m.*
-* TBD
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
 
-*Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * Update on exploratory analysis and draft markdown file.
 
-#### Week 10 - Oct 29
+####Week 10 - Oct 29
 
 *Tuesday Class*
-* Discussion: TBD
-* In-class lab: cleaning opioid data in R
+* Discussion:
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
 
-*Online tutorial lab | Complete by Sunday at 11:59 p.m.*
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Cleaning in R
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-* TBD
+*
 
-*Forum Posts | Complete by Sunday at 11:59 p.m.*
-* TBD
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
 
-*Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * Update on post-request follow-up for data acquisition project.
 
-#### Week 11 - Nov 5
+####Week 11 - Nov 5
 
 *Tuesday Class*
-* Discussion: TBD
-* In-class lab: cleaning opioid data, in R
+* Discussion:
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
 
-*Online tutorial lab | Complete by Sunday at 11:59 p.m.*
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Acquisition in R (Working with APIs)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-* TBD
+*
 
-*Forum Posts | Complete by Sunday at 11:59 p.m.*
-* TBD
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
 
-*Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * Slide deck for data acquisition project presentation.
 
-#### Week 12 - Nov 12
+####Week 12 - Nov 12
 
 *Tuesday Class*
 * Presentations: Data acquisition project.
-* In-class lab: Workign with APIs in R.
+* In-class lab:
 
-*Online tutorial lab | Complete by Sunday at 11:59 p.m.*
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Acquisition in R (Working with Databases)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-* TBD
+*
 
-*Forum Posts | Complete by Sunday at 11:59 p.m.*
-* TBD
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
 
-*Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
-* None.
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+*
 
-#### Week 13 - Nov 19
+####Week 13 - Nov 19
 
 *Tuesday Class*
 * Presentations: Data acquisition project.
 * In-class lab: finding stories in opioid data, with basic spreadsheet techniques
 
-*Online tutorial lab | Complete by Sunday at 11:59 p.m.*
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Acquisition in R (Basic Web scraping)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-* TBD
+*
 
-*Forum Posts | Complete by Sunday at 11:59 p.m.*
-* TBD
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
 
-*Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
-* Update on targeted data analysis, draft markdown file, supporting research and reporting.
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+* * Update on targeted data analysis, draft markdown file, supporting research and reporting.
 
-#### Week 14 - Nov 26
+####Week 14 - Nov 26
 
 *Tuesday Class*
-* Discussion: none.
-* In-class lab: open work period for final project.
+* Discussion:
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
 
-*Online tutorial lab | Complete by Sunday at 11:59 p.m.*
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * None, work on final project.
 
 *Readings for Homework*
-* None
+*
 
-*Forum Posts | Complete by Sunday at 11:59 p.m.*
-* None
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
 
-*Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
-* Analysis project story pitch memo due and slide deck for presentation.
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+*
 
-#### Week 15 - Dec 3
+* Week 14 - Story pitch memo due and "pitch your editor" short presentation.   
+
+####Week 15 - Dec 3
 
 *Tuesday Class*
-* "Pitch your editor" presentations from data analysis project.
+* Discussion:
+* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
 
-*Online tutorial lab | Complete by Sunday at 11:59 p.m.*
+*Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * None
 
 *Readings for Homework*
-* None
+*
 
-*Forum Posts | Complete by Sunday at 11:59 p.m.*
-* None
+*Forum Posts | Due by Sunday at 11:59 p.m.*
+*
 
-*Major Assignment Milestones | Complete by Sunday at 11:59 p.m.*
-* None
+*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
+*
