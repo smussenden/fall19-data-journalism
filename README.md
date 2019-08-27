@@ -130,7 +130,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 
 ### Schedule
 
-#### Week 1 - August 27**
+#### Week 1 - August 27
 
 *Tuesday Class*
 * Introductions, course introduction and syllabus review.
