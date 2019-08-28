@@ -138,7 +138,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
   * [Google form with preferred email address for signing up for DataCamp](https://docs.google.com/forms/d/e/1FAIpQLSffbYAQmq7Gv25d955x9xgI1GNexIsqVkcSIG1Tf69oQzsJlg/viewform?usp=sf_link).   
 * What is data journalism?
   * Group Exercise: [What does the phrase "data journalism" mean to you?](https://docs.google.com/document/d/14umxQK1mYVqQ6wd7yyTZMEaiM28RLK3bvTfmS8dsj-E/edit#)
-  * Slides: don't look at these yet! [Link](https://docs.google.com/presentation/d/1Wol-o16bhaGAbUbd6LmmMrzlFYmOO2sMk-Bu4I4eyWU/edit#slide=id.g6056882942_0_5)
+  * Slides: [Link](https://docs.google.com/presentation/d/1Wol-o16bhaGAbUbd6LmmMrzlFYmOO2sMk-Bu4I4eyWU/edit#slide=id.g6056882942_0_5)
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * [Data journalism basics with spreadsheets](https://www.youtube.com/watch?v=vJz3KauqY_0).
