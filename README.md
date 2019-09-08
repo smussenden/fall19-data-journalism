@@ -131,7 +131,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 
 ### Schedule
 
-#### Week 1 - August 27**
+#### Week 1 - August 27
 
 *Tuesday Class*
 * Introductions, course introduction and syllabus review.
@@ -172,7 +172,9 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 
 **Assignments for subsequent weeks will be updated as semester goes on**
 
-####Week 2 - Sept 3
+#### Week 2 - Sept 3 (no class, no labs)
+
+#### Week 3 - Sept 10
 
 *Tuesday Class*
 * Discussion: The process of data journalism; data journalism requires reporting.
@@ -194,7 +196,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 * Forum Post 2: Post on Bussed Out.
 * Forum Post 3: Post on WaPo legal battle to get ARCOS data.
 
-####Week 3 - Sept 10
+#### Week 4 - Sept 17
 
 *Tuesday Class*
 * Discussion: The best data isn't online yet; getting data from a reluctant government  
@@ -214,7 +216,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * Update on reporting for data acquisition project
 
-####Week 4 - Sept 17
+#### Week 5 - Sept 24
 
 *Tuesday Class*
 * Discussion: The importance of documenting your work, reproducible data journalism.
@@ -233,7 +235,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * TBD
 
-####Week 5 - Sept 24
+#### Week 6 - Oct 1
 
 *Tuesday Class*
 * Discussion: me
@@ -252,11 +254,11 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * Update on reporting for data acquisition project
 
-####Week 6 - Oct 1
+#### Week 7 - Oct 8
 
 *Tuesday Class*
 * Discussion:
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* In-class lab: finding stories in opioid data
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Analysis in R (Functions, Working with strings and dates)
@@ -271,11 +273,11 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * Draft public records request for data acquisition project.
 
-####Week 7 - Oct 8
+#### Week 8 - Oct 15
 
 *Tuesday Class*
 * Discussion:
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* In-class lab: finding stories in opioid data
 * Data analysis project introduced
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
@@ -292,7 +294,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 * Send public records request for data acquisition project.
 
 
-####Week 8 - Oct 15
+#### Week 9 - Oct 22
 
 *Tuesday Class*
 * Discussion:
@@ -311,7 +313,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 *
 
-####Week 9 - Oct 22
+#### Week 10 - Oct 29
 
 *Tuesday Class*
 * Discussion:
@@ -330,11 +332,11 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * Update on exploratory analysis and draft markdown file.
 
-####Week 10 - Oct 29
+#### Week 11 - Nov 5
 
 *Tuesday Class*
 * Discussion:
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* In-class lab: finding stories in opioid data
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Cleaning in R
@@ -349,11 +351,11 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * Update on post-request follow-up for data acquisition project.
 
-####Week 11 - Nov 5
+#### Week 12 - Nov 12
 
 *Tuesday Class*
 * Discussion:
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* In-class lab: finding stories in opioid data
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Acquisition in R (Working with APIs)
@@ -368,7 +370,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * Slide deck for data acquisition project presentation.
 
-####Week 12 - Nov 12
+#### Week 13 - Nov 19
 
 *Tuesday Class*
 * Presentations: Data acquisition project.
@@ -387,11 +389,11 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 *
 
-####Week 13 - Nov 19
+#### Week 14 - Nov 26
 
 *Tuesday Class*
 * Presentations: Data acquisition project.
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* In-class lab: finding stories in opioid data
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Acquisition in R (Basic Web scraping)
@@ -404,42 +406,28 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 *
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
-* * Update on targeted data analysis, draft markdown file, supporting research and reporting.
+* Update on targeted data analysis, draft markdown file, supporting research and reporting.
 
-####Week 14 - Nov 26
+#### Week 15 - Dec 3
 
 *Tuesday Class*
 * Discussion:
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* In-class lab: finding stories in opioid data
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * None, work on final project.
 
 *Readings for Homework*
-*
-
-*Forum Posts | Due by Sunday at 11:59 p.m.*
-*
-
-*Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
-*
-
-* Week 14 - Story pitch memo due and "pitch your editor" short presentation.   
-
-####Week 15 - Dec 3
-
-*Tuesday Class*
-* Discussion:
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
-
-*Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * None
 
-*Readings for Homework*
-*
-
 *Forum Posts | Due by Sunday at 11:59 p.m.*
-*
+* None
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
-*
+* Story pitch memo due and "pitch your editor" short presentation due.   
+
+####Week 16 (Exam Block) - Week of Dec 10
+
+*Class*
+* Story pitch presentations
+
