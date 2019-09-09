@@ -145,7 +145,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
   * Follow along with the exercise step-by-step.
   * Either download the data directly from the Washington Post opioid files website, as I did.  Or, if you have trouble with that, [download it from here](labs/lab_01/arcos-wv-mingo-54059-pharmacy.tsv).
   * Upload a link to your completed Google Sheet workbook to the [ELMS assignment](https://umd.instructure.com/courses/1268776/assignments/4977880?module_item_id=9690990).
-  * Completed Sheet: will be posted Monday morning.  
+  * Completed Sheet: [Link](https://docs.google.com/spreadsheets/d/1LeyQYLf8ybXPFabYRNTYYFex1zlsMBIHz1QPlcgqwGo/edit?usp=sharing).  
 * Here are links mentioned in the video:
   * [Google Drive](https://drive.google.com/drive/u/0/my-drive)
   * [Drilling into the DEA's pain pill database | Washington Post](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/?noredirect=on)
@@ -430,4 +430,3 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 
 *Class*
 * Story pitch presentations
-
