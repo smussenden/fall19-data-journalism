@@ -46,4 +46,4 @@ Answer the following questions.  You will need to create some new columns in the
 
 ## Turning it in
 
-Upload a link to your completed spreadsheet and memo on ELMS.  See the links on the syllabus. 
+Upload a link to your completed spreadsheet and memo on ELMS.  See the links on the syllabus.

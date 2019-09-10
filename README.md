@@ -170,37 +170,36 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 * [Forum Post 3](https://umd.instructure.com/courses/1268776/discussion_topics/3706531?module_item_id=9690996): The boundaries of what qualifies as "data journalism" are not easily defined. Read "Why Journalists Should Use Data" and "Why Data Journalism is Important".  In 200 words or less, write your own preferred definition, why you are interested in learning to do it, and how you hope to incorporate it in the journalism work you do going forward.
 * [Forum Post 4](https://umd.instructure.com/courses/1268776/discussion_topics/3706532?module_item_id=9690995): We'll talk a lot about the process of data journalism in this course, the work data journalists do that ends with the release of a story founded on original data analysis.  Read "What the Fox Knows", "The Inverted Pyramid of Data Journalism" and "About the Markup."  Each of these offers some insight into the process of doing data journalism work, from the very detailed -- Nate Silver's breakdown -- to the less detailed -- Paul Bradshaw's take -- to the very short: "Our journalism is guided by the scientific method; we develop hypotheses and collect data to test those hypotheses," from the Markup. In 200 words or less, do your best at describing the process by which data journalists go from nothing to story.
 
-**Assignments for subsequent weeks will be updated as semester goes on**
-
 #### Week 2 - Sept 3 (no class, no labs)
 
 #### Week 3 - Sept 10
 
 *Tuesday Class*
 * Discussion: The process of data journalism; data journalism requires reporting.
-* Major assignment task: Data acquisition assignment introduced
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* Major assignment task: [Data acquisition assignment introduced](major_assignments/data_acquisition_project/readme.md)
+* In-class lab: [finding stories in opioid data, with basic spreadsheet techniques](in_class_assignments/class_01/readme.md). [ELMS Link to turn in](https://umd.instructure.com/courses/1268776/assignments/4986688?module_item_id=9702483).
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Advanced data journalism with spreadsheets (pivot tables).
-* Optional, if you feel like you need additional help: [DataCamp Spreadsheet Basics]()
+* Optional, if you feel like you need additional help: [DataCamp Pivot Tables with Spreadsheets](https://www.datacamp.com/courses/pivot-tables-with-spreadsheets)
 
 *Readings for Homework*
 * [Bussed out: How America moves its homeless | Guardian](https://www.theguardian.com/us-news/ng-interactive/2017/dec/20/bussed-out-america-moves-homeless-people-country-study)
 * [38 Excuses](https://www.poynter.org/archive/2002/the-top-38-excuses-government-agencies-give-for-not-being-able-to-fulfill-your-data-request/)
 * [How an epic legal battle brought a secret drug database to light](https://www.washingtonpost.com/health/how-an-epic-legal-battle-brought-a-secret-drug-database-to-light/2019/08/02/3bc594ce-b3d4-11e9-951e-de024209545d_story.html)
-* Selections from Maryland Public Information Act Manual.
 
 *Forum Posts | Due by Sunday at 11:59 p.m.*
-* Forum Post 1: Update on reporting done for data acquisition project.
-* Forum Post 2: Post on Bussed Out.
-* Forum Post 3: Post on WaPo legal battle to get ARCOS data.
+* [Forum Post 1: Update on reporting done for data acquisition project](https://umd.instructure.com/courses/1268776/discussion_topics/3717116).
+* [Forum Post 2: Post on Bussed Out](https://umd.instructure.com/courses/1268776/discussion_topics/3717138). In 200 words, summarize the major findings of the Guardian's Bussed out story. Explain how the data they acquired served as the foundation for the story.  
+* [Forum Post 3: Getting hidden data](https://umd.instructure.com/courses/1268776/discussion_topics/3717151). There's lots of data available on the web.  But the truly good stuff, the data that will help you tell stories no one else has told, is only available with a fight. In 150 words, summarize how the Washington Post helped bring the ARCOS data to light. Then read the "38 excuses" post from Poynter, common responses from government officials for people seeking public records. I guarantee someone will tell you one of these things as you seek data for the data acquisition project. Pick an excuse and a sample response you like, and explain why you think that sample response is likely to be effective in less than 100 words.
+
+**Assignments for subsequent weeks will be updated as semester goes on**
 
 #### Week 4 - Sept 17
 
 *Tuesday Class*
-* Discussion: The best data isn't online yet; getting data from a reluctant government  
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* Discussion: The best data isn't online yet; getting data from a reluctant government. The data journalism process, from idea to execution (moved from week 3).  
+* In-class lab: finding stories in opioid data, with pivot tables
 * Brief overview of R and R Studio.
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
