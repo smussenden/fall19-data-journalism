@@ -42,6 +42,7 @@ Of the people who contributed to this story, I think Steven Rich, database edito
 -- LAUREN ANIKIS to read hers
 While I'm sure all three contributors worked on the analysis, I believe Steven Rich and Scott Higham did the most work with the raw numbers.  Steven Rich is a database editor, so he would work directly with the databases and analyzing the numbers.  This would probably include organizing the databases so that the journalists can understand what the numbers mean and where the main stories would be.  Higham is an investigative reporter, so he probably works to understand what the numbers mean and dive deeper into the story that the numbers make up.  Sari Horwitz is the third contributor, she is a reporter who cover the Justice Department and criminal justice.  She probably worked with the numbers after they had been analyzed, with her understanding of the Justice Department and criminal justice issues she would be able to put the numbers into proper context.
 
-#### Review Data Acquistion project
+#### Review Data Acquisition project
+--Assign
 
 #### Review lab for today
