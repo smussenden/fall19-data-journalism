@@ -6,7 +6,7 @@ Today's in-class assignment is designed to reinforce the techniques you learned 
 
 ## Setup
 
-1.  Download top pharmacy, distributor and manufacturer data for Logan County, West Virginia from the [Washington Post "Digging into the DEA's pain pill database" page](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/).  If you're having trouble, the data is available [in this folder](data/). 
+1.  Download top pharmacy, distributor and manufacturer data for Logan County, West Virginia from the [Washington Post "Digging into the DEA's pain pill database" page](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/).  If you're having trouble, the data is available [in this folder](data/).
 
 2.  Create a new Google Sheets workbook and name it "In_Class_Assignment_01 YOUR NAME Sheet".  Set the permissions to "anyone with link can edit".  
 
@@ -14,7 +14,7 @@ Today's in-class assignment is designed to reinforce the techniques you learned 
 
 4.  Set up each working sheet as you learned in the first video. Do a four-corners check looking for missing values.  Add a "record number" column to give each row a unique record number.  Freeze the first row. Format the numbers nicely.
 
-5.  Create a Google Doc called "In_Class_Assignment_01 YOUR NAME memo". Set the permissions to "anyone with the link can edit". Paste the questions below into this memo document.
+5.  Create a Google Doc called "In_Class_Assignment_01 YOUR NAME memo". Set the permissions to "anyone with the link can edit". Paste the questions below into this memo document. Also paste a link to your spreadsheet.
 
 ## Questions
 
