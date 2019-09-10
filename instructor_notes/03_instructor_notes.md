@@ -46,3 +46,14 @@ While I'm sure all three contributors worked on the analysis, I believe Steven R
 --Assign
 
 #### Review lab for today
+
+
+#### Lab guidelines
+
+Have open spreadsheet for Logan County WV we did for in class exercise.  
+
+Show how they were broken down into totals.  Not the raw data.  
+
+These were generated from the raw data. And if you really want to do this work, you need to start working with raw data.
+
+That's what we're going to do today, and we're going to use an incredibly powerful tool. Pivot tables.  

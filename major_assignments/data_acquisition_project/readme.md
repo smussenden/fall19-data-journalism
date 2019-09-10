@@ -12,7 +12,12 @@ There are two equally valid approaches to the project.  You can seek your own da
 
 #### Your own idea
 
-If you have an idea for a database you would like to acquire for this project please talk with me. The dataset must be stored in electronic form, but not be available online in its complete form.  It must be a data set from a U.S. state or local government agency. It cannot be a federal dataset (they take too long to get, for the purpose of this class). If you're unsure about whether a dataset exists, talk to me and we'll brainstorm some approaches.  
+If you have an idea for a database you would like to acquire for this project please talk with me. The dataset must be stored in electronic form, but not be available online in its complete form.  It must be a data set from a U.S. state or local government agency. It cannot be a federal dataset (they take too long to get, for the purpose of this class). If you're unsure about whether a dataset exists, talk to me and we'll brainstorm some approaches.
+
+* Jillian
+* Christine
+* Leah
+* Arya  
 
 #### Homeless bussing data
 
@@ -27,41 +32,41 @@ If you are in the CNS/Howard investigative bureau with Deb Nelson working on the
 
 **Bucket 1: Places we know have programs**
 
-* Portland, Oregon
-* Humboldt County, California
-* San Francisco, California
-* Santa Cruz County, California
-* Santa Cruz City, California
-* Santa Monica, California
-* Long Beach, California
-* Phoenix, California
-* Salt Lake City, Utah
-* Denver, Colorado
-* Reno, Nevada
-* New York City, NY
-* Sarasota, Florida
-* West Palm Beach, Florida
-* Key West, Florida
+* Portland, Oregon - Josh
+* Humboldt County, California - Meghan
+* San Francisco, California - Dimas
+* Santa Cruz County, California - Bryan
+* Santa Cruz City, California - Bryan
+* Santa Monica, California - Luciana
+* Long Beach, California - Miller
+* Phoenix, California - Ryan
+* Salt Lake City, Utah - Lauren
+* Denver, Colorado - Mia
+* Reno, Nevada - Emily
+* New York City, NY - Matt
+* Sarasota, Florida - Sara
+* West Palm Beach, Florida - Maya
+* Key West, Florida - Jazmin
 
 **Bucket 2: Places that have high homelessness rates that may have programs**
 
 * Monroe County, Florida and cities (Florida Keys)
 * Mendocino County, California and cities
-* Los Angeles, California
+* Los Angeles, California - Ryan
 * Seattle, Washington
-* San Diego, California
+* San Diego, California - Dana
 * San Jose, California
 * Monterey, California
-* Washington, D.C.
+* Washington, D.C. - Bryan
 * Boston, Mass.
 * Las Vegas, Nevada
-* Atlanta, Georgia
+* Atlanta, Georgia - Julia
 * Imperial County, California
 * Humboldt County, California
 * Pasco County, Florida
 * Tampa, Florida
 * St. Petersburg, Florida
-* Honolulu, Hawaii
+* Honolulu, Hawaii - Julia
 * Watsonville, California
 * Sonoma County, California and cities
 * Butte County, California and cities

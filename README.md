@@ -180,7 +180,15 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 * In-class lab: [finding stories in opioid data, with basic spreadsheet techniques](in_class_assignments/class_01/readme.md). [ELMS Link to turn in](https://umd.instructure.com/courses/1268776/assignments/4986688?module_item_id=9702483).
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Advanced data journalism with spreadsheets (pivot tables).
+* [Advanced data journalism with spreadsheets (pivot tables)](https://www.youtube.com/watch?v=pH1o89-ARmI&feature=youtu.be).
+  * Follow along with the exercise step-by-step.
+  * Either download the data directly from the Washington Post opioid files website, as I did.  Or, if you have trouble with that, [download it from here](labs/lab_02/arcos-wv-logan-54045-itemized.tsv).
+  * Modify the spreadsheet as I instruct in the video.  Note that you will have to create three pivot tables on your own.
+  * Upload a link to your completed Google Sheet workbook to the [ELMS assignment](https://umd.instructure.com/courses/1268776/assignments/4987180?module_item_id=9703169).
+  * A link to the completed sheet will be posted Monday.
+  * Here are links mentioned in the video:
+    * [Google Drive](https://drive.google.com/drive/u/0/my-drive)
+    * [Drilling into the DEA's pain pill database | Washington Post](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/?noredirect=on)
 * Optional, if you feel like you need additional help: [DataCamp Pivot Tables with Spreadsheets](https://www.datacamp.com/courses/pivot-tables-with-spreadsheets)
 
 *Readings for Homework*
