@@ -6,7 +6,7 @@ Today's in-class assignment is designed to reinforce the techniques you learned 
 
 ## Setup
 
-1.  Download top pharmacy, distributor and manufacturer data for Logan County, West Virginia from the [Washington Post "Digging into the DEA's pain pill database" page](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/)
+1.  Download top pharmacy, distributor and manufacturer data for Logan County, West Virginia from the [Washington Post "Digging into the DEA's pain pill database" page](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/).  If you're having trouble, the data is available [in this folder](data/). 
 
 2.  Create a new Google Sheets workbook and name it "In_Class_Assignment_01 YOUR NAME Sheet".  Set the permissions to "anyone with link can edit".  
 
