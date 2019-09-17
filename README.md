@@ -201,29 +201,26 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 * [Forum Post 2: Post on Bussed Out](https://umd.instructure.com/courses/1268776/discussion_topics/3717138). In 200 words, summarize the major findings of the Guardian's Bussed out story. Explain how the data they acquired served as the foundation for the story.  
 * [Forum Post 3: Getting hidden data](https://umd.instructure.com/courses/1268776/discussion_topics/3717151). There's lots of data available on the web.  But the truly good stuff, the data that will help you tell stories no one else has told, is only available with a fight. In 150 words, summarize how the Washington Post helped bring the ARCOS data to light. Then read the "38 excuses" post from Poynter, common responses from government officials for people seeking public records. I guarantee someone will tell you one of these things as you seek data for the data acquisition project. Pick an excuse and a sample response you like, and explain why you think that sample response is likely to be effective in less than 100 words.
 
-**Assignments for subsequent weeks will be updated as semester goes on**
-
 #### Week 4 - Sept 17
 
 *Tuesday Class*
-* Discussion: The best data isn't online yet; getting data from a reluctant government. The data journalism process, from idea to execution (moved from week 3).  
-* In-class lab: finding stories in opioid data, with pivot tables
-* In-class lab: [finding stories in opioid data, with basic spreadsheet techniques](in_class_assignments/class_02/readme.md). [ELMS Link to turn in]().
-
-* Brief overview of R and R Studio.
+* Discussion: The best data isn't online yet; getting data from a reluctant government.
+* In-class lab: [finding stories in opioid data, with advanced spreadsheet techniques](in_class_assignments/class_02/readme.md). [ELMS Link to turn in](https://umd.instructure.com/courses/1268776/assignments/4990507).
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Analysis in R (Setting up the environment; R markdown files; Loading packages; Loading data; Tidyverse; basic functions)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-* Reproducible data journalism.
+* None.
 
 *Forum Posts | Due by Sunday at 11:59 p.m.*
-* TBD
+* None, other than major assignment milestone below.
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
-* Update on reporting for data acquisition project
+* [Forum Post: Update on reporting done for data acquisition project](https://umd.instructure.com/courses/1268776/discussion_topics/3722277)
+
+**Assignments for subsequent weeks will be updated as semester goes on**
 
 #### Week 5 - Sept 24
 
@@ -247,7 +244,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 #### Week 6 - Oct 1
 
 *Tuesday Class*
-* Discussion: me
+* Discussion: The data journalism process, from idea to execution (moved from week 3).  
 * In-class lab: finding stories in opioid data, with basic spreadsheet techniques
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*

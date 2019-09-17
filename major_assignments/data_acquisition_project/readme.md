@@ -39,7 +39,7 @@ If you are in the CNS/Howard investigative bureau with Deb Nelson working on the
 * Santa Cruz City, California - Bryan
 * Santa Monica, California - Luciana
 * Long Beach, California - Miller
-* Phoenix, California - Ryan
+* Phoenix, Arizona - Ryan
 * Salt Lake City, Utah - Lauren
 * Denver, Colorado - Mia
 * Reno, Nevada - Emily
