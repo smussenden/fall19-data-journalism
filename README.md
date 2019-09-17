@@ -208,6 +208,8 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 *Tuesday Class*
 * Discussion: The best data isn't online yet; getting data from a reluctant government. The data journalism process, from idea to execution (moved from week 3).  
 * In-class lab: finding stories in opioid data, with pivot tables
+* In-class lab: [finding stories in opioid data, with basic spreadsheet techniques](in_class_assignments/class_02/readme.md). [ELMS Link to turn in]().
+
 * Brief overview of R and R Studio.
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
