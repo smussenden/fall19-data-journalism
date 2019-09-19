@@ -1,0 +1,168 @@
+---
+title: "Intro to R"
+author: "Sean Mussenden"
+date: "9/12/2019"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE, paged.print=TRUE)
+```
+
+## Introduction
+
+This R markdown document is designed to serve as an introduction to:
+
+* The R programming language
+* Working in the R Studio environment, including creating a "R Project" (.Rproj file)
+* Reproducible, documented data analysis using R markdown (.Rmd file)
+* The basics of journalistic data analysis in R, using the Tidyverse framework of packages
+* Working with data on opioid shipments in the U.S.
+
+### About R
+
+R is a programming language that is especially helpful for data programming, used by data journalists and data scientists around the world. The huge community of users is generally friendly, willing to help beginners and great about creating learning materials.   
+
+* [Learn more about R](https://www.r-project.org/)
+* [Download R](https://cran.r-project.org/bin/macosx/)
+
+### About RStudio 
+
+RStudio is an "integrated development environment" that is designed to help you do data analysis. You should be looking at this file inside of RStudio right now!
+
+* [Learn more](https://www.rstudio.com/products/RStudio/)
+* [RStudio Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
+* [Download RStudio](https://www.rstudio.com/products/rstudio/download/#download)
+
+### About R Markdown
+
+This is an R Markdown file (.Rmd file). 
+
+It's a special type of markdown, which is a method of styling text for presentation. Markdown is kind of like HTML, but it's a little bit simpler to write. Just like HTML, you can make section headings and lists, put in links, bold and italicize text, and more.  
+
+Our course syllabus is written in pure markdown (.md file). [This is what it looks like when displayed in a web browser](https://github.com/smussenden/fall19-data-journalism/blob/master/README.md). [This is what it looks like under the hood](https://raw.githubusercontent.com/smussenden/fall19-data-journalism/master/README.md). 
+
+R Markdown is a special kind of markdown file.  We'll use it as our "data notebook." It allows us to integrate styled text with R code and the output of that code, to show the questions we're asking, the answers, and the code that allowed us to generate those answers. And when it's time to publish, we can easily turn R Markdown into a nice HTML file, that we can use to transparently show how we arrived at our conclusions. [Here's an example of one for a recent project done by the Howard Center for Investigative Journalism](https://howard-center-investigations.github.io/code-red-baltimore-climate-divide/NPR-Analysis.html). 
+
+In R Markdown, we write code inside of these little gray boxes. We create these boxes by doing three tick marks, followed by the letter r inside of two curly braces at the top.  At the bottom, we put three more tick marks to close it off.   
+
+Here's an example of one of these code blocks, which contains your first sample of R code.  It's a function called "print" and it's pretty basic. It just prints out the text you give it -- "I am writing r!" -- and reproduces it below.    
+
+Hit the little green play button on the right side of the code block to watch this in action.    
+
+```{r}
+# This is a comment. Comments in R start with a hash or pound sign.  Comments aren't executed. When you  
+print('I am writing r!')
+
+```
+
+**Task One**: create a new code block below.  Put in a comment that says "I am printing out my name." Then write a print function that prints out your name and execute it.  Be sure to put your name in single quotes, or you'll get an error.   
+
+### About R Project files
+
+It's a good idea to create a new folder for each analysis project, and to put a new "R Project" file (.Rproj) inside of it. Among other things, it sets your "working directory" to make it easy to load data. To create a new R Project: Go to Top Menu > File > New File > New Project to create. 
+
+**Task Two**: create an R Project file and save it in this folder.  
+
+### About R Packages
+
+R packages are pre-written bundles of code that provide shortcuts to help you do all kinds of things in the data programming universe -- visualize data, clean data, pull data from Twitter, scrape websites, and a whole lot more. There are THOUSANDS of free packages available for your use.
+
+* [All packages](https://cran.r-project.org/)
+* [Some greatest hits](https://awesome-r.com/)
+
+### About The Tidyverse
+
+One particularly useful collection of packages is called the Tidyverse, a collection of related packages that make doing data cleaning, data wrangling, data analysis and data visualization easier. This tutorial makes use of several Tidyverse packages to load, wrangle and analyze data. You can do everything we're doing with the base R language, but it's more of a slog.  My recommendation: if you're using R, use Tidyverse methods instead of base R whenever possible. When we work in this class, we'll generally be in the tidyverse.  
+
+* [Tidyverse Site](https://www.tidyverse.org/)
+* [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+* [List of Tidvyerse packages](https://www.tidyverse.org/packages/)
+* [Canonical Book](https://r4ds.had.co.nz/index.html)
+* [Tutorials](https://rstudio.cloud/learn/primers/)
+* [Online Courses](https://datacamp.org)
+
+### The Data 
+For this exercise, we will be working with a small subset of the DEA's ARCOS database, which documented shipments of 76 billion opioid pills between 2006 and 2012, during the peak of the opioid epidemic. We will be working with a subset of shipments to Mingo County, West Virginia, which was flooded with hydrocodone and oxycodone during that period.  It received more pills per capita than all but a handful of other counties in the U.S. 
+
+The data was obtained after a lengthy legal battle by the Washington Post and the Charleston Gazette-Mail, and released by the Washington Post in raw and aggregated form. [Washington Post "Digging into the DEA's pain pill database" page](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/). 
+
+There is one record (row or observation) per transaction (a shipment from a manufacturer to a distributor to a pharmacy. A data dictionary is available here: [ARCOS Registrant Handbook](https://www.deadiversion.usdoj.gov/arcos/handbook/full.pdf).
+
+## Setup
+
+There a few steps we'll always follow when starting a new project: 
+
+* Create a new GitHub repo for our project, with a readme and a gitignore, and clone the repo folder to  our desktop. (We won't do that today, but we will do it in the future; don't worry if these terms don't make any sense right now). 
+* Create a folder for our project, and a new R Project (.Rproj) file inside of it. 
+* Create a folder inside of it where we'll store our raw data.
+* Create a new R markdown (.Rmd) file.
+
+After that's done, we'll generally follow these steps:
+
+* Load the R packages we'll need to work with our data.  Today, we'll load the Tidyverse suite of packages.  in the future, we may load others. 
+* Load in the data we plan to work with.   
+* Get a sense of the data, and examine it for flaws that might prevent us from analyzing the data or, more troubling, produce inaccurate results. This process will be informed by reporting, research and interviews with experts who have worked with the data (or similar data) before. 
+* Clean the data, by correcting flaws we identified.
+* "Interview" the data, by turning questions into code that will produce an output that will answer that question. Our questions will be informed by our own intuition, by standard questions we might ask of any data set, by contextual reporting and research and by talking with experts who have used the data.  Data analysis does not happen in a vacuum. To develop interesting questions, you must do research and reporting.
+* Do follow-up reporting based on the results of our analysis, including finding ways to humanize trends identified by our reporting, or report out specific things we find in the data. 
+* Talk with experts who have worked with data and/or experts in statistical analysis to make sure our analysis is credible, fair, true and correct. 
+* Clean up the R markdown file so it contains only the necessary loading, cleaning and analysis necessary to support the story we plan to publish, with copious comments explaining the code and detailing any known caveats that could affect the results.   
+* Fact-check our findings, by having one or more colleagues review our code and methodology to ensure it has accurate results.  
+
+I've written these steps out linearly, but in truth, the data journalism process often proceeds in a non-linear fashion.  For example:
+
+* Data cleaning is rarely totally finished right at the beginning.  Asking a question a certain way during analysis may uncover a flaw missed during the cleaning process, forcing you to return to that step for a bit. 
+* Follow-up reporting may uncover an error in the data that requires you to reassess your analysis. 
+* After doing initial analysis, you may talk with an expert who gives you an idea to combine your data with another data set.  That will require a new loading and cleaning process. 
+* A colleague may uncover an error in your analysis during the fact-check, which would require you to redo some of your analysis. 
+
+Okay, let's get started.
+
+## Load Packages
+
+We load packages with the function library().  The name of the package we want to load goes inside of library, like this: library(tidyverse). 
+
+If this is the first time you've ever loaded the tidyverse, you'll need to install it. The function to do that is called install.packages(). After you've installed it on this machine, you won't have to install it again. 
+
+Run the block below. 
+
+```{r}
+
+# Install the tidyverse suite of packages. Note that we have to wrap tidyverse in single quotes within the install.packages() function. 
+install.packages('tidyverse')
+
+# Now that we've installed it, load the tidyverse suite of packages. 
+library(tidyverse)
+
+```
+
+
+## Load Data
+
+
+
+```{r}
+
+mingo <- read_tsv("data/arcos-wv-mingo-54059-itemized.tsv")
+
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r include=FALSE}
+spell_check_files("documentation/Data-Cleaning/Data-Cleaning.Rmd")
+```
