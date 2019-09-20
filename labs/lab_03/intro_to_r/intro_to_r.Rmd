@@ -23,6 +23,8 @@ This R markdown document is designed to serve as an introduction to:
 * The basics of journalistic data analysis in R, using the Tidyverse framework of packages
 * Working with data on opioid shipments in the U.S.
 
+You should read through it carefully.  In most cases, you'll just be asked to run pre-written lines of code.  But there are some places where I've identified **Tasks**, which will require you to write some code and run it. 
+
 ### About R
 
 R is a programming language that is especially helpful for data programming, used by data journalists and data scientists around the world. The huge community of users is generally friendly, willing to help beginners and great about creating learning materials.   
@@ -55,12 +57,17 @@ Here's an example of one of these code blocks, which contains your first sample 
 Hit the little green play button on the right side of the code block to watch this in action.    
 
 ```{r}
-# This is a comment. Comments in R start with a hash or pound sign.  Comments aren't executed. When you  
+# This is a comment. Comments in R start with a hash or pound sign.  Comments aren't executed. When you press the green button to run the code block, R knows to ignore comments.    
+
 print('I am writing r!')
 
 ```
 
-**Task One**: create a new code block below.  Put in a comment that says "I am printing out my name." Then write a print function that prints out your name and execute it.  Be sure to put your name in single quotes, or you'll get an error.   
+Note that above, the line you wrote printed out just under the code block.  It also runs in the "console" below.  Look at the bottom or the R Studio window, and you'll see the word console. Click the gray line and the console will pop up.  
+
+We can write R code directly in the console, but for a bunch of reasons it's better to write in R markdown files. 
+
+**Task One**: create a new code block below this paragraph.  Put in a comment that says "I am printing out my name." Then write a print function that prints out your name and execute it.  Be sure to put your name in single quotes, or you'll get an error.   
 
 ### About R Project files
 
@@ -77,11 +84,11 @@ R packages are pre-written bundles of code that provide shortcuts to help you do
 
 ### About The Tidyverse
 
-One particularly useful collection of packages is called the Tidyverse, a collection of related packages that make doing data cleaning, data wrangling, data analysis and data visualization easier. This tutorial makes use of several Tidyverse packages to load, wrangle and analyze data. You can do everything we're doing with the base R language, but it's more of a slog.  My recommendation: if you're using R, use Tidyverse methods instead of base R whenever possible. When we work in this class, we'll generally be in the tidyverse.  
+One particularly useful collection of packages is called the Tidyverse, a collection of related packages that make doing data cleaning, data wrangling, data analysis and data visualization easier. This tutorial makes use of several Tidyverse packages to load, wrangle and analyze data. You can do everything we're doing with the base R language, but it's more of a slog.  My recommendation: if you're using R, use Tidyverse methods instead of base R whenever possible. When we work in this class, we'll generally be in the Tidyverse.  
 
-* [Tidyverse Site](https://www.tidyverse.org/)
+* [Tidyverse Site](https://www.Tidyverse.org/)
 * [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
-* [List of Tidvyerse packages](https://www.tidyverse.org/packages/)
+* [List of Tidvyerse packages](https://www.Tidyverse.org/packages/)
 * [Canonical Book](https://r4ds.had.co.nz/index.html)
 * [Tutorials](https://rstudio.cloud/learn/primers/)
 * [Online Courses](https://datacamp.org)
@@ -125,26 +132,28 @@ Okay, let's get started.
 
 ## Load Packages
 
-We load packages with the function library().  The name of the package we want to load goes inside of library, like this: library(tidyverse). 
+We load packages with the function library().  The name of the package we want to load goes inside of library, like this: library(Tidyverse). 
 
-If this is the first time you've ever loaded the tidyverse, you'll need to install it. The function to do that is called install.packages(). After you've installed it on this machine, you won't have to install it again. 
+If this is the first time you've ever loaded the Tidyverse, you'll need to install it. The function to do that is called install.packages(). After you've installed it on this machine, you won't have to install it again. 
 
 Run the block below. 
 
 ```{r}
 
-# Install the tidyverse suite of packages. Note that we have to wrap tidyverse in single quotes within the install.packages() function. 
-install.packages('tidyverse')
+# Install the Tidyverse suite of packages. Note that we have to wrap Tidyverse in single quotes within the install.packages() function. 
+install.packages('Tidyverse')
 
-# Now that we've installed it, load the tidyverse suite of packages. 
-library(tidyverse)
+# Now that we've installed it, load the Tidyverse suite of packages. 
+library(Tidyverse)
 
 ```
 
 
 ## Load Data
 
+I've downloaded the data we'll be using into a folder called "data".  We're going to load it in, using a function called "read_tsv", which is part of the Readr package, which is part of the Tidyverse. [More details on read_tsv function](https://readr.Tidyverse.org/reference/read_delim.html).
 
+Press the green play button to load it in. 
 
 ```{r}
 
@@ -153,16 +162,357 @@ mingo <- read_tsv("data/arcos-wv-mingo-54059-itemized.tsv")
 
 ```
 
-## Including Plots
+Let's break down what happened there.  Inside of the read_tsv function, I've put the path to the location of my Mingo County, WV opioid data. Executing that function loads the data, processes it, and turns into an r dataframe or a "tibble", which is really another name for a spreadsheet.   The <- symbol is important, because it allows me to store the tibble as an object called "mingo", which I can refer to later. 
 
-You can also embed plots, for example:
+Notice that it pops up in the "environment" window on the right side of R Studio.  There are 37154 observations, which is a fancy way of saying rows.  There are 42 variables, which is a fancy way of saying columns. 
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+
+## Examine Data
+
+Now that we've loaded the data, let's take a look at it.  
+
+The easiest way is to double click on the word "mingo" in our environment window at the right. It will pop up a spreadsheet window for us to explore. 
+
+We can also use the View() function to do the same thing. Run the code to see. 
+
+```{r}
+
+View(mingo)
+
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+We can also get a sense of the data in a more concise way using the glimpse(function). It's a useful way to examine for flaws: data stored in the wrong format, failure to upload, missing values.
+
+```{r}
+
+glimpse(mingo)
+
+```
+
+It tells us the number of observations (rows) and variables (columns).  It prints out all the columns, and tells us what format each one is. <chr> stands for character or text. <dbl> is a type of number.
+
+The summary() function is also useful. For numeric columns, like Dosage Unit (number of pills), it gives us a sense of the smallest (min) and largest (max) values, as well as providing the mean and median.  
+
+```{r}
+
+summary(mingo)
+
+```
+
+## Clean Data
+
+We're going to get more into data cleaning as we go on during the semester. For the moment, we're not going to do any of that. Just know that it's an important step that would typically happen here, and we'd run through a normal suite of checks to identify problems we need to fix before we get to analysis. This data set is pretty clean.  And as we learn R for the first time, I want to get us right to the fun stuff. 
+
+## Analyze Data
+
+As we learn R and the data journalism pipeline using the Tidyverse, we're going to proceed through the basics and gradually get to harder material.  Many of the concepts here are not new to us.  In Google Sheets, we learned to ask questions and answer those questions by sorting, ranking, calculating summary statistics (counts, sums, averages, medians, min and max), calculate percentage of total and building pivot tables.  
+
+We're going to learn to do most of those same things here today. 
+
+
+### Selecting and Rearranging Columns 
+
+The data set we're working with is pretty wide, that is, it has a lot of columns.  Sometimes it's easier to worth with a smaller set of columns. Which is where the select() function comes in.
+
+Run the function below.  It returns only three of our 42 columns: The name of the pharmacy in Mingo County that received shipments, the city and the number of pills. There's one record per transaction.  Inside of the parens, we first put the name of the dataframe we want to select from (mingo), and then the name of the columns we want.  
+
+It prints out in the markdown document the first 1,000 records of our 37,154 rows.
+
+```{r}
+
+select(mingo, BUYER_NAME, BUYER_CITY, DOSAGE_UNIT)
+
+```
+
+If we want to examine more of the table, we have a few options. We can tell R how many rows to print by adding rows.print to the code block header.  This gives us 2000 rows. 
+
+```{r rows.print=2000}
+
+select(mingo, BUYER_NAME, BUYER_CITY, DOSAGE_UNIT)
+
+```
+
+That's a little unwieldy.  We can also pop it open as a spreadsheet by wrapping the entire thing inside of a view function. 
+```{r}
+
+View(select(mingo, BUYER_NAME, BUYER_CITY, DOSAGE_UNIT))
+
+```
+
+You may also find it helpful to store your modified spreadsheet as a new object, and then view it.  Let's do this now, as mingo_pharmacies. Something    
+
+```{r}
+
+# Select three columns about pharmacies from mingo, and store it as mingo_pharmacies
+mingo_pharmacies <- select(mingo, BUYER_NAME, BUYER_CITY, DOSAGE_UNIT)
+
+# Look at it in dataframe browser
+View(mingo_pharmacies)
+
+# Also print it in our R markdown file below our codeblock
+print(mingo_pharmacies)
+
+```
+
+You should notice, now, that in our environment window in the upper right is a new object called mingo_pharmacies. If you wanted to remove it, you can use the "remove" function rm().  This is helpful to do to keep a tidy workspace, but not necessary. 
+
+```{r}
+
+rm(mingo_pharmacies)
+
+```
+
+We can also use select to exclude certain columns by putting a minus sign in front of ones we don't want. 
+
+```{r}
+
+# Get all columns except for REPORTER_DEA_NO, REPORTER_BUS_ACT
+mingo_smaller <- select(mingo, -REPORTER_DEA_NO, -REPORTER_BUS_ACT)
+
+# Look at it
+View(mingo_smaller)
+
+# Also print it in our R markdown file below our codeblock
+print(mingo_smaller)
+
+```
+
+We can also use select() to reorder data, putting the most important things up front.  Here we're selecting for each transaction the name of the manufacturer (Combined_Labeler_Name), the name of the distributor (REPORTER_NAME), and the name of the pharmacy (BUYER_NAME) and the dosage unit.  And THEN, after we've selected those four, we're putting in the function everything() to put all of the other columns at the end.   
+
+```{r}
+
+# Get all columns except for REPORTER_DEA_NO, REPORTER_BUS_ACT
+mingo_rearranged <- select(mingo, Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT, everything())
+
+# Look at it
+View(mingo_rearranged)
+
+# Also print it in our R markdown file below our codeblock
+print(mingo_rearranged)
+
+
+```
+
+There's a ton more we can do with select, as we'll learn as the class goes on.  This includes renaming columns to make them easier to work with, selecting only columns that match certain patterns, and more.  [More on Select](https://dplyr.Tidyverse.org/reference/select.html)
+
+
+**Task**: Create a code block below.  In that code block, select only those columns that relate to the pharmacy involved in each transaction (i.e. name, address, et cetera), along with the dosage unit.  Store it as an object called "mingo_pharmacy" and write a function to view it and write another function to print it in our R markdown file.  Include comments.   
+
+
+### Sorting Columns 
+
+There are two main ways to sort.  We can view our spreadsheet and click on the column headers to sort highest to lowest and lowest to highest.  Run the code below to pop our mingo spreadsheet in the viewer.  The video will show exactly how to sort within the dataframe viewer.      
+
+```{r}
+
+# Look at it
+View(mingo)
+
+```
+
+Or we can write code to sort it, using the arrange() function.  The arrange function takes two "arguments", first the name of the data set or object, in this case, mingo.  And then we need to tell it what column to sort on: DOSAGE_UNIT. By default it sorts lowest to highest.  I'm going to start commenting out the "View" function, but it's there to uncomment if you want.      
+
+```{r}
+
+# Sort sheet from lowest to highest by number of pills per transaction.
+mingo_sorted_low_high <- arrange(mingo, DOSAGE_UNIT)
+
+# Look at it
+# View(mingo_highest)
+
+# Print in console below
+print(mingo_sorted_low_high)
+
+```
+
+We can also sort highest to lowest by wrapping the column we want to sort by "DOSAGE_UNIT" inside of another function, desc(). Desc is short of "descending", or order from highest to lowest. By default, the arrange function sorts from lowest to highest, so we can override that with desc() 
+
+```{r}
+
+# Sort sheet from lowest to highest by number of pills per transaction.
+mingo_sorted_high_low <- arrange(mingo, desc(DOSAGE_UNIT))
+
+# Look at it
+# View(mingo_highest)
+
+# Print in console below
+print(mingo_sorted_high_low)
+
+```
+
+You can read more about the [arrange() function here](https://dplyr.Tidyverse.org/reference/arrange.html).
+
+### Combining Different Types of Operations
+
+In our last sorting example, it was pretty unwieldy to see that we had sorted by dosage unit from highest to lowest.  We had to scroll way over to the right to see the dosage unit column.  
+
+It would have been very useful to first select only a handful of columns, then do the sort.  
+
+Here's one way we could do that. 
+
+```{r}
+
+# First select only the columns we want and store it as an object.  
+mingo_rearranged <- select(mingo, Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT)
+
+# Then sort our newly rearranged dataframe highest to lowest on dosage unit. 
+mingo_rearranged_sorted <- arrange(mingo_rearranged, desc(DOSAGE_UNIT))
+
+# Look at it. If you want to pop this out in the viewer, just uncomment next line. 
+# View(mingo_rearranged_sorted)
+
+# Print in console below
+print(mingo_rearranged_sorted)
+
+```
+
+There's an easier way to do that, by chaining together operations into one line of code using a symbol widely used in the Tidyverse, called "pipes".  This is the pipe symbol: %>%.  Another way to think about the pipe is that it represents the phrase "and then".  Let's look at it in action.  The following code does the exact same thing as we just did above, in fewer steps.  
+
+```{r}
+
+# Take the mingo dataframe, AND THEN select only the columns we want AND THEN sort is highest to lowest by dosage unit. 
+mingo_rearranged_sorted <- mingo %>%
+  select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
+  arrange(desc(DOSAGE_UNIT))
+
+
+# Look at it. If you want to pop this out in the viewer, just uncomment next line. 
+# View(mingo_rearranged_sorted)
+
+# Print in console below
+print(mingo_rearranged_sorted)
+
+```
+
+Let's break down what just happened.  We created an object called "mingo_rearranged_sorted".  We took the name of the dataframe we want to work with "mingo" and put it at the top of our chain of functions, followed by a pipe "%>%" that stands for AND THEN. 
+
+Then we selected the columns we wanted AND THEN we sorted by dosage unit. 
+
+There's a key difference in our select and sort functions in this code block.  We didn't start each function with the name of the dataframe, "mingo".  We put the name at the beginning of the chain, and because the Tidyverse is smart, it knows that we want to apply all of the functions in our chain to that dataframe. 
+
+Get used to writing code this way, it's mainly how we'll be writing code in this class. 
+
+**Task**: Create a code block below.  In the code block below, uses pipes to create a chain that takes the mingo dataframe, selects all the columns related to the pharmacy involved in each transaction (i.e. name, address, et cetera), along with the dosage unit.  Then sort it lowest to highest by dosage unit.  Store it as an object called "mingo-pharmacy". Store it as an object called "mingo_pharmacy" and write a function to view it and write another function to print it in our R markdown file.  Include comments.   
+
+### Filtering
+
+There are two main ways of filtering within R Studio. If you're exploring, you can filter directly within R Studio's dataframe viewer.  On the video, I'll explain how to do it.  Run the code below to open up the Mingo dataframe. 
+
+```{r}
+
+# Look at it
+View(mingo)
+
+```
+
+Unfortunately, that method doesn't allow us to keep a record of our work.  It's much better to write code we can refer back to later. 
+
+In the code example below, we're going to reuse something we wrote above, and add a filter to it.  We're just selecting the name of the manufacturer, the distributor and the pharmacy, followed by the number of dosage units in each transaction.  Then we're sorting from highest to lowest by dosage unit.  And then we're going to filter to look at only the largest transactions, those with more than 12,000 pills. 
+
+```{r}
+
+# Take the mingo dataframe, AND THEN select only the columns we want AND THEN sort is highest to lowest by dosage unit AND THEN filter for transactions with 12,000 or more pills. 
+mingo_rearranged_sorted_filtered <- mingo %>%
+  select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
+  arrange(desc(DOSAGE_UNIT)) %>%
+  filter(DOSAGE_UNIT >= 12000)
+
+
+# Look at it. If you want to pop this out in the viewer, just uncomment next line. 
+# View(mingo_rearranged_sorted)
+
+# Print in console below
+print(mingo_rearranged_sorted_filtered)
+
+```
+
+There are only 25 rows here, and I can page through the results easily.  In fact, as we write code to return smaller and smaller slices of the data, I'll generally dispense with storing each bit of analysis as a new object, and just put the chained function itself as a code block.  Doing that automatically prints it.  Run the code below to see what I mean.  It's exactly the same as above, but I'm not sorting it as an object. 
+
+```{r}
+
+# Take the mingo dataframe, AND THEN select only the columns we want AND THEN sort is highest to lowest by dosage unit AND THEN filter for transactions with 12,000 or more pills. We're not storing it as an object. It will automatically print below.
+mingo %>%
+  select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
+  arrange(desc(DOSAGE_UNIT)) %>%
+  filter(DOSAGE_UNIT >= 12000)
+
+
+```
+
+We can apply multiple filters.  This gives us only those transactions above 12,000 pills from Activis Pharma, Inc.
+
+```{r}
+
+# Take the mingo dataframe, AND THEN select only the columns we want AND THEN sort is highest to lowest by dosage unit AND THEN filter for transactions with 12,000 or more pills from the manufacturer Actavis Pharma, Inc. We're not storing it as an object. It will automatically print below.
+mingo %>%
+  select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
+  arrange(desc(DOSAGE_UNIT)) %>%
+  filter(DOSAGE_UNIT >= 12000, Combined_Labeler_Name == "Actavis Pharma, Inc.")
+
+
+```
+
+Incidentally, we can sort by more than one column too. The code below is exactly the same as agove, but it sorts by dosage unit first, then by distributor, then by pharmacy.
+
+```{r}
+
+# Take the mingo dataframe, AND THEN select only the columns we want AND THEN sort is highest to lowest by dosage unit AND THEN filter for transactions with 12,000 or more pills from the manufacturer Actavis Pharma, Inc. We're not storing it as an object. It will automatically print below.
+mingo %>%
+  select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
+  arrange(desc(DOSAGE_UNIT), REPORTER_NAME, BUYER_NAME) %>%
+  filter(DOSAGE_UNIT >= 12000, Combined_Labeler_Name == "Actavis Pharma, Inc.")
+
+
+```
+
+In the above example, we're filtering by two things, essentially saying filter by this AND this.  The comma inside of our filter function essentially means AND. We can also filter by one thing OR another.  The code example below is exactly the same as above, but we're adding one twist: in addition to those filters, only give me shipments to STROSNIDER or RIVERSIDE PHARMACY. 
+
+```{r}
+
+# Take the mingo dataframe, AND THEN select only the columns we want AND THEN sort is highest to lowest by dosage unit AND THEN filter for transactions with 12,000 or more pills from the manufacturer Actavis Pharma, Inc. We're not storing it as an object. It will automatically print below.
+mingo %>%
+  select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
+  arrange(desc(DOSAGE_UNIT), REPORTER_NAME, BUYER_NAME) %>%
+  filter(DOSAGE_UNIT >= 12000, Combined_Labeler_Name == "Actavis Pharma, Inc.", (BUYER_NAME == "STROSNIDER" | BUYER_NAME == "RIVERSIDE PHARMACY"))
+
+
+```
+
+We can also filter without needing an exact match by using the str_detect() function. The following code is the exact same as the block above, but we're adding a filter for any distributor with the word "MIAMI" in the name.  It takes two "arguments" - the name of the column we want to filter on, and the "string" of characters we're searching for.  Note that it picks up all records with "MIAMI-LUKEN" even though we've just searched for Miami. 
+
+```{r}
+
+# Take the mingo dataframe, AND THEN select only the columns we want AND THEN sort is highest to lowest by dosage unit AND THEN filter for transactions with 12,000 or more pills from the manufacturer Actavis Pharma, Inc. We're not storing it as an object. It will automatically print below.
+mingo %>%
+  select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
+  arrange(desc(DOSAGE_UNIT), REPORTER_NAME, BUYER_NAME) %>%
+  filter(DOSAGE_UNIT >= 12000, Combined_Labeler_Name == "Actavis Pharma, Inc.", (BUYER_NAME == "STROSNIDER" | BUYER_NAME == "RIVERSIDE PHARMACY"), str_detect(REPORTER_NAME, "MIAMI"))
+
+
+```
+
+The str_detect() function is from a very handy package called [Stringr](https://stringr.Tidyverse.org/index.html), which is part of the Tidyverse.  It allows us to work with and manipulate character-based data, or text. 
+
+*TASK*: Your task is to figure out how to modify the filter below by modifying the str_detect() function so that it returns only the three records for "H.D. SMITH WHOLESALE DRUG".  Here's the trick: you must solve this problem by figuring out how to limit the str_detect function to finding only those cases where DRUG appears at the end of the field.  
+
+That is to say, the following is not an acceptable answer: str_detect(REPORTER_NAME, "H.D. SMITH WHOLESALE DRUG").
+
+Have no idea how to do this?  Good! A big part of being a good data journalist is having a vague idea that it's possible to do something with code, but not knowing exactly how to do it. A key skill to develop: figuring out how to translate this vague notion into a question you can Google, or ask a friend, or post on StackOverflow, or find in the documentation for the package you're using. 
+
+Here's a hint.  You'll only need to add one single character at the end of the word DRUG.  You can use a "regular expression" to find things at the start or end of a string.  Here's another hint: you'll find the answer how to do it on [this documentation page for the Stringr package](https://stringr.Tidyverse.org/articles/regular-expressions.html). Try searching the page for start and end, or related terms. 
+
+```{r}
+
+# Take the mingo dataframe, AND THEN select only the columns we want AND THEN sort is highest to lowest by dosage unit AND THEN filter for transactions with 12,000 or more pills from the manufacturer Actavis Pharma, Inc. We're not storing it as an object. It will automatically print below.
+mingo %>%
+  select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
+  arrange(desc(DOSAGE_UNIT), REPORTER_NAME, BUYER_NAME) %>%
+  filter(DOSAGE_UNIT >= 12000, str_detect(REPORTER_NAME, "DRUG"))
+
+
+```
 
 ```{r include=FALSE}
-spell_check_files("documentation/Data-Cleaning/Data-Cleaning.Rmd")
+library(spelling)
+spell_check_files("intro_to_r.Rmd")
 ```
