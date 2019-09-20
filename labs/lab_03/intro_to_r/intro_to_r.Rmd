@@ -1,5 +1,5 @@
 ---
-title: "Intro to R"
+title: "Intro to R and R Studio"
 author: "Sean Mussenden"
 date: "9/12/2019"
 output: 
@@ -23,7 +23,7 @@ This R markdown document is designed to serve as an introduction to:
 * The basics of journalistic data analysis in R, using the Tidyverse framework of packages
 * Working with data on opioid shipments in the U.S.
 
-You should read through it carefully.  In most cases, you'll just be asked to run pre-written lines of code.  But there are some places where I've identified **Tasks**, which will require you to write some code and run it. 
+You should read through it carefully.  In most cases, you'll just be asked to run pre-written lines of code.  But there are some places where I've identified **Tasks**, which will require you to write or modify some code and run it.   
 
 ### About R
 
@@ -67,13 +67,21 @@ Note that above, the line you wrote printed out just under the code block.  It a
 
 We can write R code directly in the console, but for a bunch of reasons it's better to write in R markdown files. 
 
-**Task One**: create a new code block below this paragraph.  Put in a comment that says "I am printing out my name." Then write a print function that prints out your name and execute it.  Be sure to put your name in single quotes, or you'll get an error.   
+**Task**: create a new code block below this paragraph.  Put in a comment that says "I am printing out my name." Then write a print function that prints out your name and execute it.  Be sure to put your name in single quotes, or you'll get an error.   
+
+```{r}
+
+# I am printing out my name. 
+print('Sean')
+
+
+```
 
 ### About R Project files
 
 It's a good idea to create a new folder for each analysis project, and to put a new "R Project" file (.Rproj) inside of it. Among other things, it sets your "working directory" to make it easy to load data. To create a new R Project: Go to Top Menu > File > New File > New Project to create. 
 
-**Task Two**: create an R Project file and save it in this folder.  
+**Task**: create an R Project file and save it in this folder.  
 
 ### About R Packages
 
@@ -104,14 +112,14 @@ There is one record (row or observation) per transaction (a shipment from a manu
 
 There a few steps we'll always follow when starting a new project: 
 
-* Create a new GitHub repo for our project, with a readme and a gitignore, and clone the repo folder to  our desktop. (We won't do that today, but we will do it in the future; don't worry if these terms don't make any sense right now). 
+* Create a new GitHub repo for our project, with a readme and a gitignore, and clone the repo folder to our desktop. (We won't do that today, but we will do it in the future; don't worry if these terms don't make any sense right now). 
 * Create a folder for our project, and a new R Project (.Rproj) file inside of it. 
 * Create a folder inside of it where we'll store our raw data.
 * Create a new R markdown (.Rmd) file.
 
 After that's done, we'll generally follow these steps:
 
-* Load the R packages we'll need to work with our data.  Today, we'll load the Tidyverse suite of packages.  in the future, we may load others. 
+* Load the R packages we'll need to work with our data.  Today, we'll load the Tidyverse suite of packages.  In the future, we may load others. 
 * Load in the data we plan to work with.   
 * Get a sense of the data, and examine it for flaws that might prevent us from analyzing the data or, more troubling, produce inaccurate results. This process will be informed by reporting, research and interviews with experts who have worked with the data (or similar data) before. 
 * Clean the data, by correcting flaws we identified.
@@ -132,7 +140,7 @@ Okay, let's get started.
 
 ## Load Packages
 
-We load packages with the function library().  The name of the package we want to load goes inside of library, like this: library(Tidyverse). 
+We load packages with the function library().  The name of the package we want to load goes inside of library, like this: library(tidyverse). 
 
 If this is the first time you've ever loaded the Tidyverse, you'll need to install it. The function to do that is called install.packages(). After you've installed it on this machine, you won't have to install it again. 
 
@@ -141,13 +149,12 @@ Run the block below.
 ```{r}
 
 # Install the Tidyverse suite of packages. Note that we have to wrap Tidyverse in single quotes within the install.packages() function. 
-install.packages('Tidyverse')
+# install.packages('tidyverse')
 
 # Now that we've installed it, load the Tidyverse suite of packages. 
-library(Tidyverse)
+library(tidyverse)
 
 ```
-
 
 ## Load Data
 
@@ -159,13 +166,11 @@ Press the green play button to load it in.
 
 mingo <- read_tsv("data/arcos-wv-mingo-54059-itemized.tsv")
 
-
 ```
 
 Let's break down what happened there.  Inside of the read_tsv function, I've put the path to the location of my Mingo County, WV opioid data. Executing that function loads the data, processes it, and turns into an r dataframe or a "tibble", which is really another name for a spreadsheet.   The <- symbol is important, because it allows me to store the tibble as an object called "mingo", which I can refer to later. 
 
 Notice that it pops up in the "environment" window on the right side of R Studio.  There are 37154 observations, which is a fancy way of saying rows.  There are 42 variables, which is a fancy way of saying columns. 
-
 
 ## Examine Data
 
@@ -195,7 +200,7 @@ The summary() function is also useful. For numeric columns, like Dosage Unit (nu
 
 ```{r}
 
-summary(mingo)
+summary(mingo) 
 
 ```
 
@@ -207,8 +212,7 @@ We're going to get more into data cleaning as we go on during the semester. For 
 
 As we learn R and the data journalism pipeline using the Tidyverse, we're going to proceed through the basics and gradually get to harder material.  Many of the concepts here are not new to us.  In Google Sheets, we learned to ask questions and answer those questions by sorting, ranking, calculating summary statistics (counts, sums, averages, medians, min and max), calculate percentage of total and building pivot tables.  
 
-We're going to learn to do most of those same things here today. 
-
+We're going to learn today a lot of those same things. 
 
 ### Selecting and Rearranging Columns 
 
@@ -295,9 +299,7 @@ print(mingo_rearranged)
 
 There's a ton more we can do with select, as we'll learn as the class goes on.  This includes renaming columns to make them easier to work with, selecting only columns that match certain patterns, and more.  [More on Select](https://dplyr.Tidyverse.org/reference/select.html)
 
-
 **Task**: Create a code block below.  In that code block, select only those columns that relate to the pharmacy involved in each transaction (i.e. name, address, et cetera), along with the dosage unit.  Store it as an object called "mingo_pharmacy" and write a function to view it and write another function to print it in our R markdown file.  Include comments.   
-
 
 ### Sorting Columns 
 
@@ -306,7 +308,7 @@ There are two main ways to sort.  We can view our spreadsheet and click on the c
 ```{r}
 
 # Look at it
-View(mingo)
+#View(mingo)
 
 ```
 
@@ -318,7 +320,7 @@ Or we can write code to sort it, using the arrange() function.  The arrange func
 mingo_sorted_low_high <- arrange(mingo, DOSAGE_UNIT)
 
 # Look at it
-# View(mingo_highest)
+View(mingo_highest)
 
 # Print in console below
 print(mingo_sorted_low_high)
@@ -333,7 +335,7 @@ We can also sort highest to lowest by wrapping the column we want to sort by "DO
 mingo_sorted_high_low <- arrange(mingo, desc(DOSAGE_UNIT))
 
 # Look at it
-# View(mingo_highest)
+View(mingo_highest)
 
 # Print in console below
 print(mingo_sorted_high_low)
@@ -373,7 +375,7 @@ There's an easier way to do that, by chaining together operations into one line 
 # Take the mingo dataframe, AND THEN select only the columns we want AND THEN sort is highest to lowest by dosage unit. 
 mingo_rearranged_sorted <- mingo %>%
   select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
-  arrange(desc(DOSAGE_UNIT))
+  arrange(desc(DOSAGE_UNIT)) 
 
 
 # Look at it. If you want to pop this out in the viewer, just uncomment next line. 
@@ -417,7 +419,6 @@ mingo_rearranged_sorted_filtered <- mingo %>%
   arrange(desc(DOSAGE_UNIT)) %>%
   filter(DOSAGE_UNIT >= 12000)
 
-
 # Look at it. If you want to pop this out in the viewer, just uncomment next line. 
 # View(mingo_rearranged_sorted)
 
@@ -426,7 +427,7 @@ print(mingo_rearranged_sorted_filtered)
 
 ```
 
-There are only 25 rows here, and I can page through the results easily.  In fact, as we write code to return smaller and smaller slices of the data, I'll generally dispense with storing each bit of analysis as a new object, and just put the chained function itself as a code block.  Doing that automatically prints it.  Run the code below to see what I mean.  It's exactly the same as above, but I'm not sorting it as an object. 
+There are only 25 rows here, and I can page through the results easily. In fact, as we write code to return smaller and smaller slices of the data, I'll generally dispense with storing each bit of analysis as a new object, and just put the chained function itself as a code block.  Doing that automatically prints it.  Run the code below to see what I mean.  It's exactly the same as above, but I'm not sorting it as an object. 
 
 ```{r}
 
@@ -511,6 +512,26 @@ mingo %>%
 
 
 ```
+
+## Errors
+
+Here's an example of an error. 
+
+```{r}
+# Uncomment next line to see the error.
+# prin('sean')
+
+```
+
+## Output 
+
+Once we're all done working in our R Markdown file, we can produce a nice little web page that includes all of the text we wrote, all of our code and all of our outputs.  On the video, I'll show how you can do this within R studio, using the "Knit" button.  
+
+Make sure you watch on the video how to do this.
+
+## Submission
+
+On ELMS, you'll upload both the html file produced after you knit this document.  And you'll upload the R Markdown file. 
 
 ```{r include=FALSE}
 library(spelling)
