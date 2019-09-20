@@ -211,7 +211,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 * Data Analysis in R (Setting up the environment; R markdown files; Loading packages; Loading data; Tidyverse; basic functions)
   * Install R and RStudio. [Install R](https://cloud.r-project.org/). [Install RStudio](https://www.rstudio.com/products/rstudio/download/). [Watch Installation Video if you need help](https://www.youtube.com/watch?v=5Y0lMkLO6Ck&feature=youtu.be)
   * [Download package of files you'll need to your local machine and unzip](labs/lab_03/intro_to_r.zip).
-  * [Watch lab video and follow along with step-by-step instructions]().
+  * [Watch lab video and follow along with step-by-step instructions](https://www.youtube.com/watch?v=eGZnX4yZ-Tw).
   * The first thing it will have you do is open intro_to_r.Rmd file in R Studio.
   * Listen and watch video, and follow along intro_to_r.Rmd file.  Modify code or write new code where needed.
   * Submit edited intro_to_r.Rmd file and intro_to_r.html file to ELMS assignment when done.  
