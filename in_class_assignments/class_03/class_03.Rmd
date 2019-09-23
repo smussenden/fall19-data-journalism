@@ -1,0 +1,164 @@
+---
+title: "Class_03 | In-Class Assignment | Intro to R"
+author: "Sean Mussenden"
+date: "9/24/2019"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE, paged.print=TRUE)
+```
+
+## Objective
+
+The purpose of this in-class assignment is to build on the information you learned in last week's in-class lab:
+
+* Writing R code for data analysis and exploration in the R Studio environment, using R projects (.Rproj) and R markdown files (.Rmd).  
+* Installing and loading packages, including the Tidyverse framework of packages. 
+* Loading data with functions from Readr, the Tidyverse package for loading data. 
+* Getting a sense of data with functions like glimpse(), summary(), and View().
+* How to examine a subset of the data, using functions from Dplyr, the Tidyverse package for wrangling data. 
+* How to sort data, using a function from Dplyr, the Tidyverse package for wrangling data. 
+* Working with data on opioid shipments in the U.S.
+
+## Tasks, Turning it In, Getting Help
+
+At several points throughout this document, you will see the word **Task**.  This indicates that you need to do something, generally writing custom code.  
+
+When you are finished, you should save your R markdown file and Knit it as an HTML file.  Upload both the R Markdown file and HTML file to ELMS. 
+
+Need help?  You are welcome to do the following things:
+
+* Refer to the previous week's lab. 
+* Use Google or search Stack Overflow. Try searching for your error message or translating your problem into key terms. 
+* Check out the excellent [R for Data Science](https://r4ds.had.co.nz/index.html)
+* Take a look at the [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) and [Tidyverse documentation](https://www.tidyverse.org/).
+  * [RStudio cheatsheet](https://www.rstudio.com/resources/cheatsheets/#ide)
+  * [Readr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf) and [Readr documentation](https://readr.tidyverse.org/).
+  * [Dplyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) and [Dplyr documentation](https://dplyr.tidyverse.org/)
+* After you've spent 5 minutes trying to solve the problem on your own, ask your neighbor and if they don't know, ask me. 
+
+## Setup
+
+Take the following steps to set up your document:
+
+1. Download the ZIP file and open the folder on your desktop. It should contain this document, class_03.Rmd, and a data folder with one TSV. 
+2. Open this file in RStudio. 
+3. Rename this file "class_03_FIRSTNAME_LASTNAME.Rmd". 
+4. Create a new R project inside of this folder, which will set the working directory in this folder.   
+
+## Load Packages
+
+Generally, it's good practice to load packages you wish to work with at the beginning of your R markdown file.  
+
+**Task**: In the code block below, write and execute the simple function to load the Tidyverse family of packages.  
+
+```{r}
+
+# Load the Tidyverse family of packages below. Remember: if this is the first time you've used this package on this computer, you'll have to install it first with install.packages()  
+
+# install.packages('tidyverse')
+library(tidyverse)
+
+```
+
+## Load Data 
+
+For this exercise, we will be working with a small subset of the DEA's ARCOS database, which documented shipments of 76 billion opioid pills between 2006 and 2012, during the peak of the opioid epidemic. We will be working with a subset of shipments to Logan County, West Virginia, which was flooded with hydrocodone and oxycodone during that period.  It received more pills per capita than all but a handful of other counties in the U.S. 
+
+The data was obtained after a lengthy legal battle by the Washington Post and the Charleston Gazette-Mail, and released by the Washington Post in raw and aggregated form. [Washington Post "Digging into the DEA's pain pill database" page](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/). 
+
+There is one record (row or observation) per transaction (a shipment from a manufacturer to a distributor to a pharmacy. A data dictionary is available here: [ARCOS Registrant Handbook](https://www.deadiversion.usdoj.gov/arcos/handbook/full.pdf).
+
+**Task**: Create a code block below, and write and execute the function to load in the data of shipments to Logan County, West Virginia and store it as an object called logan. Write a comment describing what you are doing.  
+
+```{r}
+# Load data and store it as an object called logan
+
+logan <- read_tsv("data/arcos-wv-logan-54045-itemized.tsv")
+
+```
+
+## Examine the Data
+
+Now that the data is in, spend some time examining it. 
+
+**Task**: Create a code block below, and write and execute a function to open the spreadsheet in a new window tab that you can examine.  In that browser window, use your mouse to sort by a handful of columns, highest to lowest and lowest to highest.  In that browser window, practice turning on filters with your mouse to examine a subset of the data.    
+
+```{r}
+View(logan)
+```
+
+**Task**: Create a code block below and use the glimpse function to examine the shape of the data. Answer each of the following questions in a comment inside the code block:
+* How many rows does the data have? How many columns?   
+* Each column is stored in one of two formats: "chr", or strings of characters, generally used for text; and "dbl", a number format on which mathematical operations can be performed.  Do you see any examples of a column stored as a "dbl" that doesn't really need to be, because we would never do math on it? Are there any columns stored as character that you think should be stored in another format entirely? 
+* Based on the information here, how are missing values represented in this data set? 
+
+```{r}
+glimpse(logan)
+```
+
+**Task**: Create a code block below and use the summary function to examine the shape of the data. Answer each of the following questions in a comment inside the code block:
+* What does BUYER_ZIP represent? What is the mean value for BUYER_ZIP?  Is the mean value a meaningful thing for us to use? Why or why not? 
+* What does DOSAGE_UNIT represent? What are the min, max and mean values for DOSAGE_UNIT? Are these meaningful statistics? Why or why not?
+
+```{r}
+summary(logan)
+```
+
+## Analysis - Selecting
+
+This data set is wide, with 42 columns that may not always be useful for questions we want to ask.  Let's use a function to reduce the number of columns. 
+
+**Task**: Suppose we want to create a subset of the data that allows us to look at the manufacturer-distributor-pharmacy pipeline for each shipment.  Create a code block below and use a function to return only the following four columns in order for each record: the name of the manufacturer, the name of the distributor and the name of the pharmacy, followed by the number of pills in that record. Store this as an object called logan_pipeline.  Then write a function to print out the first 1,000 rows in the R Markdown document below, and another function to view the returned spreadsheet in a new window.  Write comments inside the code block to explain what you're doing. After you have examined the sheet, comment out the function you wrote to view it in a new window.  
+```{r}
+
+# Get all columns except for REPORTER_DEA_NO, REPORTER_BUS_ACT
+mingo_smaller <- select(mingo, -REPORTER_DEA_NO, -REPORTER_BUS_ACT)
+
+# Look at it
+View(mingo_smaller)
+
+# Also print it in our R markdown file below our codeblock
+print(mingo_smaller)
+
+```
+
+**Task**: Let's trim our data set just a bit. Create a code block below and use a function to return every column EXCEPT for the first four columns. Store this as an object called logan_all_but_four.  Then write a function to print out the first 1,000 rows in the R Markdown document below, and another function to view the returned spreadsheet in a new window. Write comments inside the code block to explain what you're doing. After you have examined the sheet, comment out the function you wrote to view it in a new window.  
+
+**Task**: Let's just look at the pharmacy information. Create a code block below and use a function to return every column that contains the word "BUYER", and none of the other columns. Store this as an object called logan_buyer.  DO NOT just write out every single column inside of your function with the word "BUYER". Find a function that will allow you to search within the column names for the word instead. Stuck? Look at the Dplyr documentation or cheatsheet.  Or try and craft a generalized search query for Google that might find you the right answer: "select all columns contain a word dplyr". Write a function to print out the first 1,000 rows in the R Markdown document below, and another function to view the returned spreadsheet in a new window. Write comments inside the code block to explain what you're doing. After you have examined the sheet, comment out the function you wrote to view it in a new window.        
+
+## Removing Objects
+
+**Task**: Our workspace is getting a little bloated. Create a code block below and write a single function to remove the following four objects from the environment: logan_pipeline, logan_all_but_four, logan_buyer. Even better, can you write a single function that keeps the logan object but removes everything else? Try searching: "remove all but one object in R".  In the code block, write comments explaining what you're doing.  
+
+## Analysis - Selecting and Sorting
+
+**Task**: Let's sort to organize our data a bit. Write a single function that a) returns only the names of the manufacturer, the distributor and the pharmacy and the number of pills AND THEN sorts from A to Z by manufacturer name. Store it as an object called logan_pipeline_sorted. Then write a function to print out the first 1,000 rows in the R Markdown document below, and another function to view the returned spreadsheet in a new window. Write comments inside the code block to explain what you're doing and what you found. After you have examined the sheet, comment out the function you wrote to view it in a new window.     
+
+**Task**: Now let's sort in the other direction. Write a single function that a) returns only the names of the manufacturer, the distributor and the pharmacy and the number of pills AND THEN sorts Z to A by pharmacy name.  Store it as an object called logan_pipeline_sorted, overwriting the object you created in the last example. Then write a function to print out the first 1,000 rows in the R Markdown document below, and another function to view the returned spreadsheet in a new window. Write comments inside the code block to explain what you're doing and what you found. After you have examined the sheet, comment out the function you wrote to view it in a new window.
+
+## Analysis - Selecting and Sorting and Filtering
+
+**Task**: Let's look at only the largest transactions in our data set.  Write a single function that a) returns only the names of the manufacturer, the distributor and the pharmacy and the number of pills AND THEN b) sorts from highest to lowest on number of pills AND THEN d) returns only those transactions greater than or equal to 15000. Because this query only returns a small subset of data (less than 1,000 records), don't worry about assigning it to an object or popping it out in a new window.  Just allow it to print below the code block.  Note: you won't have to write out a print() function to do this. 
+
+**Task**: Let's drill in on one distributor.  Replicate the same query as above, but this time also filter so only "MCKESSON CORPORATION" records are returned.  
+
+**Task** Let's drill in even further. Replicate the last query, but this time add a filter that searches for the word "ARACOMA" in the pharmacy name column.   
+
+## Your own questions
+
+**Task**: Create three separate code blocks below.  Use selecting, sorting and filtering to ask and answer three questions of your own design. Write out the question above each code block, and the answer you discovered writing the code. Use comments to explain what you're doing.  
+
+## Output 
+
+**Task**: Spellcheck your document in R Studio. Save your file.  Knit it to an HTML document, making sure it compiles.  Open it in a browser to be sure. 
+
+## Submission
+
+**Task**: On ELMS, you'll upload both the html file produced after you knit this document.  And you'll upload the R Markdown file. 
+
