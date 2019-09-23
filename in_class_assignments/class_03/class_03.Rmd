@@ -27,20 +27,22 @@ The purpose of this in-class assignment is to build on the information you learn
 
 ## Tasks, Turning it In, Getting Help
 
-At several points throughout this document, you will see the word **Task**.  This indicates that you need to do something, generally writing custom code.  
+At several points throughout this document, you will see the word **Task**.  
+
+This indicates that you need to do something, generally creating a code block and writing custom code.  
 
 When you are finished, you should save your R markdown file and Knit it as an HTML file.  Upload both the R Markdown file and HTML file to ELMS. 
 
 Need help?  You are welcome to do the following things:
 
 * Refer to the previous week's lab. 
-* Use Google or search Stack Overflow. Try searching for your error message or translating your problem into key terms. 
+* Use Google or search Stack Overflow. Try searching for your error message or translating your problem into basic terms. 
 * Check out the excellent [R for Data Science](https://r4ds.had.co.nz/index.html)
 * Take a look at the [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) and [Tidyverse documentation](https://www.tidyverse.org/).
   * [RStudio cheatsheet](https://www.rstudio.com/resources/cheatsheets/#ide)
   * [Readr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf) and [Readr documentation](https://readr.tidyverse.org/).
   * [Dplyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) and [Dplyr documentation](https://dplyr.tidyverse.org/)
-* After you've spent 5 minutes trying to solve the problem on your own, ask your neighbor and if they don't know, ask me. 
+* After you've spent 5 minutes trying to solve the problem on your own, ask your neighbor and if they don't know, ask me! 
 
 ## Setup
 
@@ -99,7 +101,13 @@ View(logan)
 * Based on the information here, how are missing values represented in this data set? 
 
 ```{r}
+# Code to glimpse
 glimpse(logan)
+
+# 65,359 rows (or observations or obs), 42 columns (or variables)
+# The ZIP code columns could easily be stored as character data, because it would be silly to do math on them. Readr saw all digits in that column and guessed that we wanted it to be a number.  In fact, this probably created problems.  Look at the first record for REPORTER_ZIP. That's a distributor in Carlstadt, NJ.  The ZIP Code there is 07072.  But by storing it as a number, R cut off the first zero.  Later on, we'll get into how to tell R to read in certain columns as characters or numbers. Drug code is another example of something we don't need to do math on, so it probably should be stored as a character. 
+# Transaction Date is a good example of column that is stored as a character, but should really be stored as a date.  We'll learn how to do that in future assignments. 
+# Missing values appear to have been coded as the word "null".  In some cases, missing values will be stored as literally a missing value -- instead of "null" you'll have "".  More common is NA, which is a hidden character indicating a missing value.  
 ```
 
 **Task**: Create a code block below and use the summary function to examine the shape of the data. Answer each of the following questions in a comment inside the code block:
@@ -107,7 +115,10 @@ glimpse(logan)
 * What does DOSAGE_UNIT represent? What are the min, max and mean values for DOSAGE_UNIT? Are these meaningful statistics? Why or why not?
 
 ```{r}
+# print the summary
 summary(logan)
+# BUYER_ZIP is a zip code.  The mean value 25594, which isn't particularly meaningful.  ZIP codes are representation of geography, not something we'd want to do math on.  They're basically a name.
+# DOSAGE_UNIT is the number of pills. 10; 25K; 697.5. They do have meaning. 
 ```
 
 ## Analysis - Selecting
