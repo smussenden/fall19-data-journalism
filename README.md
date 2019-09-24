@@ -238,7 +238,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
   * When you're finished, [upload your edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/4993885)
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Analysis in R (More functions, summarization, pivot table equivalents).   
+* Data Analysis in R (More functions, summarization, pivot table equivalents). Basic use of GitHub Desktop for version control.   
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
