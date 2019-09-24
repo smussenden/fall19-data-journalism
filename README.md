@@ -145,7 +145,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
   * Follow along with the exercise step-by-step.
   * Either download the data directly from the Washington Post opioid files website, as I did.  Or, if you have trouble with that, [download it from here](labs/lab_01/arcos-wv-mingo-54059-pharmacy.tsv).
   * Upload a link to your completed Google Sheet workbook to the [ELMS assignment](https://umd.instructure.com/courses/1268776/assignments/4977880?module_item_id=9690990).
-  * Completed Sheet: [Link](https://docs.google.com/spreadsheets/d/1LeyQYLf8ybXPFabYRNTYYFex1zlsMBIHz1QPlcgqwGo/edit?usp=sharing).  
+  * Completed sheet for review after you're done: [Link](https://docs.google.com/spreadsheets/d/1LeyQYLf8ybXPFabYRNTYYFex1zlsMBIHz1QPlcgqwGo/edit?usp=sharing).  
 * Here are links mentioned in the video:
   * [Google Drive](https://drive.google.com/drive/u/0/my-drive)
   * [Drilling into the DEA's pain pill database | Washington Post](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/?noredirect=on)
@@ -177,7 +177,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 *Tuesday Class*
 * Discussion: The process of data journalism; data journalism requires reporting.
 * Major assignment task: [Data acquisition assignment introduced](major_assignments/data_acquisition_project/readme.md)
-* In-class lab: [finding stories in opioid data, with basic spreadsheet techniques](in_class_assignments/class_01/readme.md). [ELMS Link to turn in](https://umd.instructure.com/courses/1268776/assignments/4986688?module_item_id=9702483).
+* In-class lab: [finding stories in opioid data, with basic spreadsheet techniques](in_class_assignments/class_01/readme.md). [ELMS Link to turn in](https://umd.instructure.com/courses/1268776/assignments/4986688?module_item_id=9702483). Updated: [completed sheet for assignment](https://docs.google.com/spreadsheets/d/12Pb_nQCmb1JHoEKpK67BvmzAiKH7vE9nofxznbMm6_k/edit#gid=0).
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * [Advanced data journalism with spreadsheets (pivot tables)](https://www.youtube.com/watch?v=pH1o89-ARmI&feature=youtu.be).
@@ -185,7 +185,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
   * Either download the data directly from the Washington Post opioid files website, as I did.  Or, if you have trouble with that, [download it from here](labs/lab_02/arcos-wv-logan-54045-itemized.tsv).
   * Modify the spreadsheet as I instruct in the video.  Note that you will have to create three pivot tables on your own.
   * Upload a link to your completed Google Sheet workbook to the [ELMS assignment](https://umd.instructure.com/courses/1268776/assignments/4987180?module_item_id=9703169).
-  * A link to the completed sheet will be posted Monday.
+  * A link to the completed sheet will be posted Monday. [Link](https://docs.google.com/spreadsheets/d/1cna4usUCe3OKhOwiZ-aGpBZYt4h57fhY-bjUy2ai7Xo/edit#gid=0)
   * Here are links mentioned in the video:
     * [Google Drive](https://drive.google.com/drive/u/0/my-drive)
     * [Drilling into the DEA's pain pill database | Washington Post](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/?noredirect=on)
@@ -233,10 +233,9 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 *Tuesday Class*
 * Discussion: The importance of documenting your work, reproducible data journalism.
 * In-class lab: finding stories in opioid data, with R and the Tidyverse.
-  * 
-
-* In-class lab: [finding stories in opioid data, with advanced spreadsheet techniques](in_class_assignments/class_02/readme.md). [ELMS Link to turn in](https://umd.instructure.com/courses/1268776/assignments/4990507).
-
+  * [Download this ZIP file](https://github.com/smussenden/fall19-data-journalism/blob/master/in_class_assignments/class_03/class_03.zip), which contains an R Markdown document and opioid data. Open it up, put the folder on your desktop, and open the class_03.Rmd file in R Studio.
+  * Follow the instructions step-by-step.
+  * When you're finished, [upload your edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/4993885)
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Analysis in R (More functions, summarization, pivot table equivalents).   
@@ -248,8 +247,8 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
   * [How the nation’s growing racial diversity is changing our schools | Washington Post](https://www.washingtonpost.com/graphics/2019/local/school-diversity-data/) and [GitHub repo with code behind analysis](https://github.com/WPMedia/student_integration_analysis).  In the GitHub repo, browse around each of the files.
 
 *Forum Posts | Due by Sunday at 11:59 p.m.*
-* [Forum Post 1](): Read the NPR/Howard Center for Investigative Journalism story and try to identify the facts in the story that were supported by data analysis.  Then examine the two GitHub repos and see if your assumptions were correct.  In 300 words or less, summarize the main findings of the story and offer your thoughts why it is or isn't important to make available the code behind the story.
-* [Forum Post 2](): Read the Washington Post story. Pay close attention to the methodology section at the bottom of the story.  Then review the GitHub repo, paying particular attention to the main Readme.md file and the student-diversity-integration.Rmd.  In 300 words or less, summarize the main findings of the story, and offer your thoughts whether the methodology section and R markdown file did a good job of explaining how they did it to a general audience or a more advanced audience.  
+* [Forum Post 1](https://umd.instructure.com/courses/1268776/discussion_topics/3727661): Read the NPR/Howard Center for Investigative Journalism story and try to identify the facts in the story that were supported by data analysis.  Then examine the two GitHub repos and see if your assumptions were correct.  In 300 words or less, summarize the main findings of the story and offer your thoughts why it is or isn't important to make available the code behind the story.
+* [Forum Post 2](https://umd.instructure.com/courses/1268776/discussion_topics/3727664): Read the Washington Post story. Pay close attention to the methodology section at the bottom of the story.  Then review the GitHub repo, paying particular attention to the main Readme.md file and the student-diversity-integration.Rmd.  In 300 words or less, summarize the main findings of the story, and offer your thoughts whether the methodology section and R markdown file did a good job of explaining how they did it to a general audience or a more advanced audience.  
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * None.
