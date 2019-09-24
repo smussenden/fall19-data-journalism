@@ -232,20 +232,27 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 
 *Tuesday Class*
 * Discussion: The importance of documenting your work, reproducible data journalism.
-* In-class lab: finding stories in opioid data, with R.
+* In-class lab: finding stories in opioid data, with R and the Tidyverse.
+  * 
+
+* In-class lab: [finding stories in opioid data, with advanced spreadsheet techniques](in_class_assignments/class_02/readme.md). [ELMS Link to turn in](https://umd.instructure.com/courses/1268776/assignments/4990507).
+
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Analysis in R (More functions, filtering, summarization, pivot table equivalents)
+* Data Analysis in R (More functions, summarization, pivot table equivalents).   
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-* TBD
+* Read the following data-driven stories and review supporting code behind analysis.
+  * [As Rising Heat Bakes U.S. Cities, The Poor Often Feel It Most | NPR and Howard Center for Investigative Journalism](https://www.npr.org/2019/09/03/754044732/as-rising-heat-bakes-u-s-cities-the-poor-often-feel-it-most), [Howard Center R Markdown File with data analysis fact-check](https://howard-center-investigations.github.io/code-red-baltimore-climate-divide/NPR-Analysis.html) and [NPR GitHub repo for nationwide heat island analysis](https://github.com/nprapps/heat-income)
+  * [How the nation’s growing racial diversity is changing our schools | Washington Post](https://www.washingtonpost.com/graphics/2019/local/school-diversity-data/) and [GitHub repo with code behind analysis](https://github.com/WPMedia/student_integration_analysis).  In the GitHub repo, browse around each of the files.
 
 *Forum Posts | Due by Sunday at 11:59 p.m.*
-* TBD
+* [Forum Post 1](): Read the NPR/Howard Center for Investigative Journalism story and try to identify the facts in the story that were supported by data analysis.  Then examine the two GitHub repos and see if your assumptions were correct.  In 300 words or less, summarize the main findings of the story and offer your thoughts why it is or isn't important to make available the code behind the story.
+* [Forum Post 2](): Read the Washington Post story. Pay close attention to the methodology section at the bottom of the story.  Then review the GitHub repo, paying particular attention to the main Readme.md file and the student-diversity-integration.Rmd.  In 300 words or less, summarize the main findings of the story, and offer your thoughts whether the methodology section and R markdown file did a good job of explaining how they did it to a general audience or a more advanced audience.  
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
-* TBD
+* None.
 
 #### Week 6 - Oct 1
 

@@ -60,11 +60,11 @@ Generally, it's good practice to load packages you wish to work with at the begi
 **Task**: In the code block below, write and execute the simple function to load the Tidyverse family of packages.  
 
 ```{r}
-# Load the Tidyverse family of packages below. 
 
-# Remember: if this is the first time you've used this package on this computer, you'll have to install it first with install.packages()  
+# Load the Tidyverse family of packages below. Remember: if this is the first time you've used this package on this computer, you'll have to install it first with install.packages()  
 
-# Write the function to load the Tidyverse below here. 
+# install.packages('tidyverse')
+library(tidyverse)
 
 ```
 
@@ -78,57 +78,187 @@ There is one record (row or observation) per transaction (a shipment from a manu
 
 **Task**: Create a code block below, and write and execute the function to load in the data of shipments to Logan County, West Virginia and store it as an object called logan. Write a comment describing what you are doing.  
 
+```{r}
+# Load data and store it as an object called logan
+
+logan <- read_tsv("data/arcos-wv-logan-54045-itemized.tsv")
+
+```
+
 ## Examine the Data
 
 Now that the data is in, spend some time examining it. 
 
 **Task**: Create a code block below, and write and execute a function to open and view the spreadsheet in a new window tab that you can examine.  In that browser window, use your mouse to sort by a handful of columns, highest to lowest and lowest to highest.  In that browser window, practice turning on filters with your mouse to examine a subset of the data.    
 
+```{r}
+# View(logan)
+```
+
 **Task**: Create a code block below and use the glimpse function to examine the shape of the data. Answer each of the following questions in a comment inside the code block:
 * How many rows does the data have? How many columns?   
 * Each column is stored in one of two formats: "chr", or strings of characters, generally used for text; and "dbl", a number format on which mathematical operations can be performed.  Do you see any examples of a column stored as a "dbl" that doesn't really need to be, because we would never do math on it? Are there any columns stored as character that you think should be stored in another format entirely? 
 * Based on the information here, how are missing values represented in this data set? 
 
+```{r}
+# Code to glimpse
+glimpse(logan)
+
+# 65,359 rows (or observations or obs), 42 columns (or variables)
+# The ZIP code columns could easily be stored as character data, because it would be silly to do math on them. Readr saw all digits in that column and guessed that we wanted it to be a number.  In fact, this probably created problems.  Look at the first record for REPORTER_ZIP. That's a distributor in Carlstadt, NJ.  The ZIP Code there is 07072.  But by storing it as a number, R cut off the first zero.  Later on, we'll get into how to tell R to read in certain columns as characters or numbers. Drug code is another example of something we don't need to do math on, so it probably should be stored as a character. 
+# Transaction Date is a good example of column that is stored as a character, but should really be stored as a date.  We'll learn how to do that in future assignments. 
+# Missing values appear to have been coded as the word "null".  In some cases, missing values will be stored as literally a missing value -- instead of "null" you'll have "".  More common is NA, which is a hidden character indicating a missing value.  
+```
+
 **Task**: Create a code block below and use the summary function to examine the shape of the data. Answer each of the following questions in a comment inside the code block:
 * What does BUYER_ZIP represent? What is the mean value for BUYER_ZIP?  Is the mean value a meaningful thing for us to use? Why or why not? 
 * What does DOSAGE_UNIT represent? What are the min, max and mean values for DOSAGE_UNIT? Are these meaningful statistics? Why or why not?
+
+```{r}
+# print the summary
+summary(logan)
+# BUYER_ZIP is a zip code.  The mean value 25594, which isn't particularly meaningful.  ZIP codes are representation of geography, not something we'd want to do math on.  They're basically a name.
+# DOSAGE_UNIT is the number of pills. 10; 25K; 697.5. They do have meaning. 
+```
 
 ## Analysis - Selecting
 
 This data set is wide, with 42 columns that may not always be useful for questions we want to ask.  Let's use a function to reduce the number of columns. 
 
-**Task**: Suppose we want to create a subset of the data that allows us to look at the manufacturer-distributor-pharmacy pipeline for each shipment.  Update the code block below and use a function to return only the following four columns in order for each record: the name of the manufacturer, the name of the distributor and the name of the pharmacy, followed by the number of pills in that record. Store this as an object called logan_pipeline.  Then write a function to print out the first 1,000 rows in the R Markdown document below, and another function to view the returned spreadsheet in a new window.  Write comments inside the code block to explain what you're doing. After you have examined the sheet, comment out the function you wrote to view it in a new window.  
+**Task**: Suppose we want to create a subset of the data that allows us to look at the manufacturer-distributor-pharmacy pipeline for each shipment.  Create a code block below and use a function to return only the following four columns in order for each record: the name of the manufacturer, the name of the distributor and the name of the pharmacy, followed by the number of pills in that record. Store this as an object called logan_pipeline.  Then write a function to print out the first 1,000 rows in the R Markdown document below, and another function to view the returned spreadsheet in a new window.  Write comments inside the code block to explain what you're doing. After you have examined the sheet, comment out the function you wrote to view it in a new window.  
 ```{r}
 
-# Get name of manufacturer, distributor, pharmacy and dosage unit and store it as an object called logan_pipeline
+# Get manufacturer, distributor, pharmacy pipeline
+logan_pipeline <- select(logan, Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT)
 
-# Look at it, popping it out in a new window
+# Look at it
+# View(logan_pipeline)
 
-# Also print it in our R markdown file below our codeblock (only the first 1K rows returned)
+# Also print it in our R markdown file below our codeblock
+print(logan_pipeline)
 
 ```
 
 **Task**: Let's trim our data set just a bit. Create a code block below and use a function to return every column EXCEPT for the first four columns. Store this as an object called logan_all_but_four.  Then write a function to print out the first 1,000 rows in the R Markdown document below, and another function to view the returned spreadsheet in a new window. Write comments inside the code block to explain what you're doing. After you have examined the sheet, comment out the function you wrote to view it in a new window.
 
+```{r}
+
+# Get all columns except for first four
+logan_all_but_four <- select(logan, -REPORTER_DEA_NO, -REPORTER_BUS_ACT, -REPORTER_NAME, -REPORTER_ADDL_CO_INFO)
+
+# Look at it
+# View(logan_all_but_four)
+
+# Also print it in our R markdown file below our codeblock
+print(logan_all_but_four)
+
+```
+
 **Task**: Let's just look at the pharmacy information. Create a code block below and use a function to return every column that contains the word "BUYER", and none of the other columns. Store this as an object called logan_buyer.  DO NOT just write out every single column inside of your function with the word "BUYER". Find a function that will allow you to search within the column names for the word instead. Stuck? Look at the Dplyr documentation or cheatsheet.  Or try and craft a generalized search query for Google that might find you the right answer: "select all columns contain a word dplyr". Write a function to print out the first 1,000 rows in the R Markdown document below, and another function to view the returned spreadsheet in a new window. Write comments inside the code block to explain what you're doing. After you have examined the sheet, comment out the function you wrote to view it in a new window.
+
+```{r}
+
+# Get all columns that contain "BUYER"
+logan_buyer <- select(logan, contains("BUYER"))
+
+# Look at it
+# View(logan_buyer)
+
+# Also print it in our R markdown file below our codeblock
+print(logan_buyer)
+
+```
 
 ## Removing Objects
 
 **Task**: Our workspace is getting a little bloated. Create a code block below and write a single function to remove the following four objects from the environment: logan_pipeline, logan_all_but_four, logan_buyer. Even better, can you write a single function that keeps the logan object but removes everything else? Try searching: "remove all but one object in R".  In the code block, write comments explaining what you're doing.  
 
+```{r}
+# Remove one by one OR...
+# rm(logan_all_but_four)
+# rm(logan_buyer)
+# rm(logan_pipeline)
+
+# ...remove all at once OR...
+# rm(logan_all_but_four, logan_buyer, logan_pipeline)
+
+# ...remove all but logan
+rm(list=setdiff(ls(), "logan"))
+
+```
+
 ## Analysis - Selecting and Sorting
 
 **Task**: Let's sort to organize our data a bit. Write a single function that a) returns only the names of the manufacturer, the distributor and the pharmacy and the number of pills AND THEN sorts from A to Z by manufacturer name. Store it as an object called logan_pipeline_sorted. Then write a function to print out the first 1,000 rows in the R Markdown document below, and another function to view the returned spreadsheet in a new window. Write comments inside the code block to explain what you're doing and what you found. After you have examined the sheet, comment out the function you wrote to view it in a new window.   
 
+```{r}
+
+# Take the logan dataframe, AND THEN select only the columns we want AND THEN sort it A to Z by manufacturer
+logan_pipeline_sorted <- logan %>%
+  select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
+  arrange(Combined_Labeler_Name) 
+
+# Look at it. If you want to pop this out in the viewer, just uncomment next line. 
+# View(logan_pipeline_sorted)
+
+# Print in console below
+print(logan_pipeline_sorted)
+```
+
 **Task**: Now let's sort in the other direction. Write a single function that a) returns only the names of the manufacturer, the distributor and the pharmacy and the number of pills AND THEN sorts Z to A by pharmacy name.  Store it as an object called logan_pipeline_sorted, overwriting the object you created in the last example. Then write a function to print out the first 1,000 rows in the R Markdown document below, and another function to view the returned spreadsheet in a new window. Write comments inside the code block to explain what you're doing and what you found. After you have examined the sheet, comment out the function you wrote to view it in a new window.
+
+```{r}
+
+# Take the logan dataframe, AND THEN select only the columns we want AND THEN sort it Z to A by manufacturer
+logan_pipeline_sorted <- logan %>%
+  select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
+  arrange(desc(Combined_Labeler_Name)) 
+
+# Look at it. If you want to pop this out in the viewer, just uncomment next line. 
+# View(logan_pipeline_sorted)
+
+# Print in console below
+print(logan_pipeline_sorted)
+```
+
 
 ## Analysis - Selecting and Sorting and Filtering
 
 **Task**: Let's look at only the largest transactions in our data set.  Write a single function that a) returns only the names of the manufacturer, the distributor and the pharmacy and the number of pills AND THEN b) sorts from highest to lowest on number of pills AND THEN d) returns only those transactions greater than or equal to 15000. Because this query only returns a small subset of data (less than 1,000 records), don't worry about assigning it to an object or popping it out in a new window.  Just allow it to print below the code block.  Note: you won't have to write out a print() function to do this. 
 
+```{r}
+
+# Take the logan dataframe, AND THEN select only the columns we want AND THEN sort it highest to lowest by number of pills and only returns transactions with 15K or more pills. 
+logan %>%
+  select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
+  arrange(desc(DOSAGE_UNIT)) %>%
+  filter(DOSAGE_UNIT >= 15000)
+
+```
+
 **Task**: Let's drill in on one distributor.  Replicate the same query as above, but this time also filter so only "MCKESSON CORPORATION" records are returned.  
 
+```{r}
+
+# Take the logan dataframe, AND THEN select only the columns we want AND THEN sort it highest to lowest by number of pills and only returns transactions with 15K or more pills and only pills distributed by McKesson 
+logan %>%
+  select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
+  arrange(desc(DOSAGE_UNIT)) %>%
+  filter(DOSAGE_UNIT >= 15000, REPORTER_NAME == "MCKESSON CORPORATION")
+
+```
+
 **Task** Let's drill in even further. Replicate the last query, but this time add a filter that searches for the word "ARACOMA" in the pharmacy name column.   
+
+```{r}
+
+# Take the logan dataframe, AND THEN select only the columns we want AND THEN sort it highest to lowest by number of pills and only returns transactions with 15K or more pills and only pills distributed by McKesson 
+logan %>%
+  select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
+  arrange(desc(DOSAGE_UNIT)) %>%
+  filter(DOSAGE_UNIT >= 15000, REPORTER_NAME == "MCKESSON CORPORATION", str_detect(BUYER_NAME, "ARACOMA"))
+
+```
 
 ## Your own questions
 
@@ -141,3 +271,4 @@ This data set is wide, with 42 columns that may not always be useful for questio
 ## Submission
 
 **Task**: On ELMS, you'll upload both the html file produced after you knit this document.  And you'll upload the R Markdown file. 
+
