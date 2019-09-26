@@ -2,7 +2,7 @@
 title: "Class_03 | In-Class Assignment | Intro to R"
 author: "Sean Mussenden"
 date: "9/24/2019"
-output: 
+output:
   html_document:
     toc: true
     toc_depth: 3
@@ -18,11 +18,11 @@ knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE, paged.print=TRU
 The purpose of this in-class assignment is to build on the information you learned in last week's in-class lab:
 
 * Writing R code for data analysis and exploration in the R Studio environment, using R projects (.Rproj) and R markdown files (.Rmd).  
-* Installing and loading packages, including the Tidyverse framework of packages. 
-* Loading data with functions from Readr, the Tidyverse package for loading data. 
+* Installing and loading packages, including the Tidyverse framework of packages.
+* Loading data with functions from Readr, the Tidyverse package for loading data.
 * Getting a sense of data with functions like glimpse(), summary(), and View().
-* How to examine a subset of the data, using functions from Dplyr, the Tidyverse package for wrangling data. 
-* How to sort data, using a function from Dplyr, the Tidyverse package for wrangling data. 
+* How to examine a subset of the data, using functions from Dplyr, the Tidyverse package for wrangling data.
+* How to sort data, using a function from Dplyr, the Tidyverse package for wrangling data.
 * Working with data on opioid shipments in the U.S.
 
 ## Tasks, Turning it In, Getting Help
@@ -31,26 +31,26 @@ At several points throughout this document, you will see the word **Task**.
 
 This indicates that you need to do something, generally creating a code block and writing custom code.  
 
-When you are finished, you should save your R markdown file and Knit it as an HTML file.  Upload both the R Markdown file and HTML file to ELMS. 
+When you are finished, you should save your R markdown file and Knit it as an HTML file.  Upload both the R Markdown file and HTML file to ELMS.
 
 Need help?  You are welcome to do the following things:
 
-* Refer to the previous week's lab. 
-* Use Google or search Stack Overflow. Try searching for your error message or translating your problem into basic terms. 
+* Refer to the previous week's lab.
+* Use Google or search Stack Overflow. Try searching for your error message or translating your problem into basic terms.
 * Check out the excellent [R for Data Science](https://r4ds.had.co.nz/index.html)
 * Take a look at the [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) and [Tidyverse documentation](https://www.tidyverse.org/).
   * [RStudio cheatsheet](https://www.rstudio.com/resources/cheatsheets/#ide)
   * [Readr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf) and [Readr documentation](https://readr.tidyverse.org/).
   * [Dplyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) and [Dplyr documentation](https://dplyr.tidyverse.org/)
-* After you've spent 5 minutes trying to solve the problem on your own, ask your neighbor and if they don't know, ask me! 
+* After you've spent 5 minutes trying to solve the problem on your own, ask your neighbor and if they don't know, ask me!
 
 ## Setup
 
 Take the following steps to set up your document:
 
-1. Download the ZIP file and open the folder on your desktop. It should contain this document, class_03.Rmd, and a data folder with one TSV. 
-2. Open this file in RStudio. 
-3. Rename this file "class_03_FIRSTNAME_LASTNAME.Rmd". 
+1. Download the ZIP file and open the folder on your desktop. It should contain this document, class_03.Rmd, and a data folder with one TSV.
+2. Open this file in RStudio.
+3. Rename this file "class_03_FIRSTNAME_LASTNAME.Rmd".
 4. Create a new R project inside of this folder, which will set the working directory in this folder.   
 
 ## Load Packages
@@ -68,11 +68,11 @@ library(tidyverse)
 
 ```
 
-## Load Data 
+## Load Data
 
-For this exercise, we will be working with a small subset of the DEA's ARCOS database, which documented shipments of 76 billion opioid pills between 2006 and 2012, during the peak of the opioid epidemic. We will be working with a subset of shipments to Logan County, West Virginia, which was flooded with hydrocodone and oxycodone during that period.  It received more pills per capita than all but a handful of other counties in the U.S. 
+For this exercise, we will be working with a small subset of the DEA's ARCOS database, which documented shipments of 76 billion opioid pills between 2006 and 2012, during the peak of the opioid epidemic. We will be working with a subset of shipments to Logan County, West Virginia, which was flooded with hydrocodone and oxycodone during that period.  It received more pills per capita than all but a handful of other counties in the U.S.
 
-The data was obtained after a lengthy legal battle by the Washington Post and the Charleston Gazette-Mail, and released by the Washington Post in raw and aggregated form. [Washington Post "Digging into the DEA's pain pill database" page](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/). 
+The data was obtained after a lengthy legal battle by the Washington Post and the Charleston Gazette-Mail, and released by the Washington Post in raw and aggregated form. [Washington Post "Digging into the DEA's pain pill database" page](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/).
 
 There is one record (row or observation) per transaction (a shipment from a manufacturer to a distributor to a pharmacy. A data dictionary is available here: [ARCOS Registrant Handbook](https://www.deadiversion.usdoj.gov/arcos/handbook/full.pdf).
 
@@ -87,7 +87,7 @@ logan <- read_tsv("data/arcos-wv-logan-54045-itemized.tsv")
 
 ## Examine the Data
 
-Now that the data is in, spend some time examining it. 
+Now that the data is in, spend some time examining it.
 
 **Task**: Create a code block below, and write and execute a function to open and view the spreadsheet in a new window tab that you can examine.  In that browser window, use your mouse to sort by a handful of columns, highest to lowest and lowest to highest.  In that browser window, practice turning on filters with your mouse to examine a subset of the data.    
 
@@ -97,33 +97,33 @@ Now that the data is in, spend some time examining it.
 
 **Task**: Create a code block below and use the glimpse function to examine the shape of the data. Answer each of the following questions in a comment inside the code block:
 * How many rows does the data have? How many columns?   
-* Each column is stored in one of two formats: "chr", or strings of characters, generally used for text; and "dbl", a number format on which mathematical operations can be performed.  Do you see any examples of a column stored as a "dbl" that doesn't really need to be, because we would never do math on it? Are there any columns stored as character that you think should be stored in another format entirely? 
-* Based on the information here, how are missing values represented in this data set? 
+* Each column is stored in one of two formats: "chr", or strings of characters, generally used for text; and "dbl", a number format on which mathematical operations can be performed.  Do you see any examples of a column stored as a "dbl" that doesn't really need to be, because we would never do math on it? Are there any columns stored as character that you think should be stored in another format entirely?
+* Based on the information here, how are missing values represented in this data set?
 
 ```{r}
 # Code to glimpse
 glimpse(logan)
 
 # 65,359 rows (or observations or obs), 42 columns (or variables)
-# The ZIP code columns could easily be stored as character data, because it would be silly to do math on them. Readr saw all digits in that column and guessed that we wanted it to be a number.  In fact, this probably created problems.  Look at the first record for REPORTER_ZIP. That's a distributor in Carlstadt, NJ.  The ZIP Code there is 07072.  But by storing it as a number, R cut off the first zero.  Later on, we'll get into how to tell R to read in certain columns as characters or numbers. Drug code is another example of something we don't need to do math on, so it probably should be stored as a character. 
-# Transaction Date is a good example of column that is stored as a character, but should really be stored as a date.  We'll learn how to do that in future assignments. 
+# The ZIP code columns could easily be stored as character data, because it would be silly to do math on them. Readr saw all digits in that column and guessed that we wanted it to be a number.  In fact, this probably created problems.  Look at the first record for REPORTER_ZIP. That's a distributor in Carlstadt, NJ.  The ZIP Code there is 07072.  But by storing it as a number, R cut off the first zero.  Later on, we'll get into how to tell R to read in certain columns as characters or numbers. Drug code is another example of something we don't need to do math on, so it probably should be stored as a character.
+# Transaction Date is a good example of column that is stored as a character, but should really be stored as a date.  We'll learn how to do that in future assignments.
 # Missing values appear to have been coded as the word "null".  In some cases, missing values will be stored as literally a missing value -- instead of "null" you'll have "".  More common is NA, which is a hidden character indicating a missing value.  
 ```
 
 **Task**: Create a code block below and use the summary function to examine the shape of the data. Answer each of the following questions in a comment inside the code block:
-* What does BUYER_ZIP represent? What is the mean value for BUYER_ZIP?  Is the mean value a meaningful thing for us to use? Why or why not? 
+* What does BUYER_ZIP represent? What is the mean value for BUYER_ZIP?  Is the mean value a meaningful thing for us to use? Why or why not?
 * What does DOSAGE_UNIT represent? What are the min, max and mean values for DOSAGE_UNIT? Are these meaningful statistics? Why or why not?
 
 ```{r}
 # print the summary
 summary(logan)
 # BUYER_ZIP is a zip code.  The mean value 25594, which isn't particularly meaningful.  ZIP codes are representation of geography, not something we'd want to do math on.  They're basically a name.
-# DOSAGE_UNIT is the number of pills. 10; 25K; 697.5. They do have meaning. 
+# DOSAGE_UNIT is the number of pills. 10; 25K; 697.5. They do have meaning.
 ```
 
 ## Analysis - Selecting
 
-This data set is wide, with 42 columns that may not always be useful for questions we want to ask.  Let's use a function to reduce the number of columns. 
+This data set is wide, with 42 columns that may not always be useful for questions we want to ask.  Let's use a function to reduce the number of columns.
 
 **Task**: Suppose we want to create a subset of the data that allows us to look at the manufacturer-distributor-pharmacy pipeline for each shipment.  Create a code block below and use a function to return only the following four columns in order for each record: the name of the manufacturer, the name of the distributor and the name of the pharmacy, followed by the number of pills in that record. Store this as an object called logan_pipeline.  Then write a function to print out the first 1,000 rows in the R Markdown document below, and another function to view the returned spreadsheet in a new window.  Write comments inside the code block to explain what you're doing. After you have examined the sheet, comment out the function you wrote to view it in a new window.  
 ```{r}
@@ -196,9 +196,9 @@ rm(list=setdiff(ls(), "logan"))
 # Take the logan dataframe, AND THEN select only the columns we want AND THEN sort it A to Z by manufacturer
 logan_pipeline_sorted <- logan %>%
   select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
-  arrange(Combined_Labeler_Name) 
+  arrange(Combined_Labeler_Name)
 
-# Look at it. If you want to pop this out in the viewer, just uncomment next line. 
+# Look at it. If you want to pop this out in the viewer, just uncomment next line.
 # View(logan_pipeline_sorted)
 
 # Print in console below
@@ -212,9 +212,9 @@ print(logan_pipeline_sorted)
 # Take the logan dataframe, AND THEN select only the columns we want AND THEN sort it Z to A by manufacturer
 logan_pipeline_sorted <- logan %>%
   select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
-  arrange(desc(Combined_Labeler_Name)) 
+  arrange(desc(Combined_Labeler_Name))
 
-# Look at it. If you want to pop this out in the viewer, just uncomment next line. 
+# Look at it. If you want to pop this out in the viewer, just uncomment next line.
 # View(logan_pipeline_sorted)
 
 # Print in console below
@@ -224,11 +224,11 @@ print(logan_pipeline_sorted)
 
 ## Analysis - Selecting and Sorting and Filtering
 
-**Task**: Let's look at only the largest transactions in our data set.  Write a single function that a) returns only the names of the manufacturer, the distributor and the pharmacy and the number of pills AND THEN b) sorts from highest to lowest on number of pills AND THEN d) returns only those transactions greater than or equal to 15000. Because this query only returns a small subset of data (less than 1,000 records), don't worry about assigning it to an object or popping it out in a new window.  Just allow it to print below the code block.  Note: you won't have to write out a print() function to do this. 
+**Task**: Let's look at only the largest transactions in our data set.  Write a single function that a) returns only the names of the manufacturer, the distributor and the pharmacy and the number of pills AND THEN b) sorts from highest to lowest on number of pills AND THEN d) returns only those transactions greater than or equal to 15000. Because this query only returns a small subset of data (less than 1,000 records), don't worry about assigning it to an object or popping it out in a new window.  Just allow it to print below the code block.  Note: you won't have to write out a print() function to do this.
 
 ```{r}
 
-# Take the logan dataframe, AND THEN select only the columns we want AND THEN sort it highest to lowest by number of pills and only returns transactions with 15K or more pills. 
+# Take the logan dataframe, AND THEN select only the columns we want AND THEN sort it highest to lowest by number of pills and only returns transactions with 15K or more pills.
 logan %>%
   select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
   arrange(desc(DOSAGE_UNIT)) %>%
@@ -240,7 +240,7 @@ logan %>%
 
 ```{r}
 
-# Take the logan dataframe, AND THEN select only the columns we want AND THEN sort it highest to lowest by number of pills and only returns transactions with 15K or more pills and only pills distributed by McKesson 
+# Take the logan dataframe, AND THEN select only the columns we want AND THEN sort it highest to lowest by number of pills and only returns transactions with 15K or more pills and only pills distributed by McKesson
 logan %>%
   select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
   arrange(desc(DOSAGE_UNIT)) %>%
@@ -252,7 +252,7 @@ logan %>%
 
 ```{r}
 
-# Take the logan dataframe, AND THEN select only the columns we want AND THEN sort it highest to lowest by number of pills and only returns transactions with 15K or more pills and only pills distributed by McKesson 
+# Take the logan dataframe, AND THEN select only the columns we want AND THEN sort it highest to lowest by number of pills and only returns transactions with 15K or more pills and only pills distributed by McKesson
 logan %>%
   select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
   arrange(desc(DOSAGE_UNIT)) %>%
@@ -264,11 +264,10 @@ logan %>%
 
 **Task**: Create three separate code blocks below.  Use selecting, sorting and filtering to ask and answer three questions of your own design. Write out the question above each code block, and the answer you discovered writing the code. Use comments to explain what you're doing.  
 
-## Output 
+## Output
 
-**Task**: Spellcheck your document in R Studio. Figure out how to do this by using the help search menu. Save your file.  Knit it to an HTML document, making sure it compiles.  Open it in a browser to be sure. 
+**Task**: Spellcheck your document in R Studio. Figure out how to do this by using the help search menu. Save your file.  Knit it to an HTML document, making sure it compiles.  Open it in a browser to be sure.
 
 ## Submission
 
-**Task**: On ELMS, you'll upload both the html file produced after you knit this document.  And you'll upload the R Markdown file. 
-
+**Task**: On ELMS, you'll upload both the html file produced after you knit this document.  And you'll upload the R Markdown file.
