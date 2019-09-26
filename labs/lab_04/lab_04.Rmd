@@ -28,7 +28,7 @@ Today we'll also:
 
 * Learn to do some light data cleaning by renaming column names.
 * Learn to create new columns in our data set based on information in other columns.   
-* Summarise raw data, calculating min, max, median and mean values, essentially using R to create a pivot table, like we learned in Google Sheets.    
+* Summarise raw data, calculating min, max, median and mean values, essentially using R to create a pivot table, like we learned in Google Sheets.
 * Learn how to integrate our project with GitHub. 
 
 ## How this works, tasks, turning it in, getting help
@@ -77,12 +77,14 @@ We're loading two packages today: the Tidyverse, and [Janitor](https://github.co
 # install.packages('janitor')
 
 # Load Tidyverse and Janitor
+library(tidyverse)
+library(janitor)
 
 ```
 
 ## Load Data
 
-For this exercise, we will be working with a small subset of the DEA's ARCOS database, which documented shipments of 76 billion opioid pills between 2006 and 2012, during the peak of the opioid epidemic. We will be working with a subset of shipments to Logan County, West Virginia, which was flooded with hydrocodone and oxycodone during that period.  It received more pills per capita than all but a handful of other counties in the U.S.
+For this exercise, we will be working with a small subset of the DEA's ARCOS database, which documented shipments of 76 billion opioid pills between 2006 and 2012, during the peak of the opioid epidemic. We will be working with a subset of shipments to Mingo County, West Virginia, which was flooded with hydrocodone and oxycodone during that period.  It received more pills per capita than all but a handful of other counties in the U.S.
 
 The data was obtained after a lengthy legal battle by the Washington Post and the Charleston Gazette-Mail, and released by the Washington Post in raw and aggregated form. [Washington Post "Digging into the DEA's pain pill database" page](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/).
 
@@ -92,7 +94,9 @@ There is one record (row or observation) per transaction (a shipment from a manu
 
 ```{r}
 
-# Load data and store it as an object called logan
+# Load data and store it as an object called mingo
+
+mingo <- read_tsv("data/arcos-wv-mingo-54059-itemized.tsv")
 
 ```
 
@@ -102,9 +106,12 @@ There is one record (row or observation) per transaction (a shipment from a manu
 
 ```{r}
 
+glimpse(mingo)
+
 ```
 
 ```{r}
+summary(mingo)
 ```
 
 ```{r}
@@ -127,6 +134,8 @@ mingo <- clean_names(mingo)
 
 ```{r}
 # write out glimpse to look at the results
+
+glimpse(mingo)
 
 ```
 
@@ -214,7 +223,7 @@ By default, it's putting underscores between each column.  We can change it by a
 
 mingo_working <- mingo %>%
   select(contains("buyer")) %>%
-  unite(buyer_address_complete, buyer_address1:buyer_city, remove = 'F', sep=" ") 
+  unite(buyer_address_complete, buyer_address1, buyer_city, buyer_state, buyer_zip, remove = 'F', sep=" ") 
 
 ```
 
@@ -246,7 +255,7 @@ We can also put different values in a newly created column, based on a value in 
 ``` {r}
 
 mingo_working <- mingo %>%
-  mutate(pills_category = if_else(dosage_units > 10000, "large shipment", "not large shipment"))
+  mutate(pills_category = if_else(dosage_unit > 10000, "large shipment", "not large shipment"))
 
 ```
 
@@ -255,7 +264,7 @@ What if we want to create three categories: small, medium and large.  Well, just
 ``` {r}
 
 mingo_working <- mingo %>%
-  mutate(pills_category = if_else(dos_str > 10000, "large shipment", if_else(dos_str > 5000, "medium shipment", "small shipment")))
+  mutate(pills_category = if_else(dosage_unit > 10000, "large shipment", if_else(dosage_unit > 5000, "medium shipment", "small shipment")))
 
 ```
 
@@ -265,8 +274,8 @@ That's a little clunky.  And if we're trying to create a bunch of categories, ne
 
 mingo_working <- mingo %>%
   mutate(pills_category = case_when(
-    dos_str > 10000 ~ "large shipment",
-    dos_str > 5000 ~ "medium shipment",
+    dosage_unit > 10000 ~ "large shipment",
+    dosage_unit > 5000 ~ "medium shipment",
     TRUE ~ "small shipment")
   )
 
@@ -276,7 +285,7 @@ mingo_working <- mingo %>%
 
 ## Summarizing
 
-Another way we can create new columns is through a process by summarization.  
+Another way we can create new columns is through a process of summarization.  
 
 This is the R equivalent of creating pivot tables. That is to say, we group by like values in one or more columns and then calculate some things based on those groupings. It's a way of synthesizing new knowledge from raw records.   
 
@@ -460,7 +469,7 @@ We can also calculate percentage of total.  In this case, we want to calculate t
 ```{r}
 mingo %>%
   group_by(buyer_name) %>%
-  summarise(pills_per_pharmacy = n()) %>%
+  summarise(pills_per_pharmacy = sum(dosage_unit)) %>%
   mutate(total_pills = sum(pills_per_pharmacy))
 
 ```
@@ -468,9 +477,12 @@ mingo %>%
 Now let's create a new column calculating the share for each pharmacy, and sort it on that new column.
 
 ```{r}
+
+# options(scipen=999)
+
 mingo %>%
   group_by(buyer_name) %>%
-  summarise(pills_per_pharmacy = n()) %>%
+  summarise(pills_per_pharmacy = sum(dosage_unit)) %>%
   mutate(total_pills = sum(pills_per_pharmacy)) %>%
   mutate(pharmacy_percent_total_pills = pills_per_pharmacy/total_pills) %>%
   arrange(desc(pharmacy_percent_total_pills))
@@ -482,7 +494,7 @@ Let's make it look more like a percentage by multiplying by 100.
 ```{r}
 mingo %>%
   group_by(buyer_name) %>%
-  summarise(pills_per_pharmacy = n()) %>%
+  summarise(pills_per_pharmacy = sum(dosage_unit)) %>%
   mutate(total_pills = sum(pills_per_pharmacy)) %>%
   mutate(pharmacy_percent_total_pills = (pills_per_pharmacy/total_pills)*100) %>%
   arrange(desc(pharmacy_percent_total_pills))
@@ -493,7 +505,7 @@ That number's still unwieldly. Let's round() to two places.
 ```{r}
 mingo %>%
   group_by(buyer_name) %>%
-  summarise(pills_per_pharmacy = n()) %>%
+  summarise(pills_per_pharmacy = sum(dosage_unit)) %>%
   mutate(total_pills = sum(pills_per_pharmacy)) %>%
     mutate(pharmacy_percent_total_pills = round(((pills_per_pharmacy/total_pills)*100),2)) %>%
   arrange(desc(pharmacy_percent_total_pills))
@@ -505,9 +517,9 @@ Let's end this exercise with three tasks, designed to replicate some journalisti
 
 **Task**: Your editor asks you to figure out which manufacturer to distributor to pharmacy pipeline was responsible for the largest number of pills being shipped to Mingo County, West Virginia, as a way to help focus your reporting on the opioid crisis. 
 
-Write a codeblock below that groups by the manufacturer name, distributor name and phamracy name and calculates the number of pills for each grouping. Sort it highest to lowest by number of pills.  Leave a comment with the answer: what is the most significant combo?
+Write a codeblock below that groups by the manufacturer name, distributor name and pharmacy name and calculates the number of pills for each grouping. Sort it highest to lowest by number of pills.  Leave a comment with the answer: what is the most significant combo?
 
-**Task** Being a good data journalist, you operate on the principle that everyone is flawed and you should be extra skeptical of everyone's work -- especially, your own.  
+**Task** Being a good data journalist, you operate on the principle that everyone is flawed and you should be extra skeptical of everyone's work -- especially your own.  
 
 You're trying to figure out whether you can really trust the answer you just got. You should always operate from the assumption that you screwed something up. You start scanning through the table your code just output, and you notice a problem with the distributor column: Cardinal Health appears as CARDINAL HEALTH; CARDINAL HEALTH, INC.; and CARDINAL HEALTH 110, LLC.  
 

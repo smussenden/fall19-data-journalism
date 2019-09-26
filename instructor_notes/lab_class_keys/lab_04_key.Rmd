@@ -219,7 +219,7 @@ By default, it's putting underscores between each column.  We can change it by a
 
 mingo_working <- mingo %>%
   select(contains("buyer")) %>%
-  unite(buyer_address_complete, buyer_address1:buyer_city, remove = 'F', sep=" ") 
+  unite(buyer_address_complete, buyer_address1, buyer_city, buyer_state, buyer_zip, remove = 'F', sep=" ") 
 
 ```
 
@@ -265,7 +265,7 @@ What if we want to create three categories: small, medium and large.  Well, just
 ``` {r}
 
 mingo_working <- mingo %>%
-  mutate(pills_category = if_else(dos_str > 10000, "large shipment", if_else(dos_str > 5000, "medium shipment", "small shipment")))
+  mutate(pills_category = if_else(dosage_unit > 10000, "large shipment", if_else(dosage_unit > 5000, "medium shipment", "small shipment")))
 
 ```
 
@@ -275,8 +275,8 @@ That's a little clunky.  And if we're trying to create a bunch of categories, ne
 
 mingo_working <- mingo %>%
   mutate(pills_category = case_when(
-    dos_str > 10000 ~ "large shipment",
-    dos_str > 5000 ~ "medium shipment",
+    dosage_unit > 10000 ~ "large shipment",
+    dosage_unit > 5000 ~ "medium shipment",
     TRUE ~ "small shipment")
   )
 
@@ -491,17 +491,19 @@ We can also calculate percentage of total.  In this case, we want to calculate t
 ```{r}
 mingo %>%
   group_by(buyer_name) %>%
-  summarise(pills_per_pharmacy = n()) %>%
+  summarise(pills_per_pharmacy = sum(dosage_unit)) %>%
   mutate(total_pills = sum(pills_per_pharmacy))
 
 ```
 
 Now let's create a new column calculating the share for each pharmacy, and sort it on that new column.
-
 ```{r}
+
+# options(scipen=999)
+
 mingo %>%
   group_by(buyer_name) %>%
-  summarise(pills_per_pharmacy = n()) %>%
+  summarise(pills_per_pharmacy = sum(dosage_unit)) %>%
   mutate(total_pills = sum(pills_per_pharmacy)) %>%
   mutate(pharmacy_percent_total_pills = pills_per_pharmacy/total_pills) %>%
   arrange(desc(pharmacy_percent_total_pills))
@@ -513,7 +515,7 @@ Let's make it look more like a percentage by multiplying by 100.
 ```{r}
 mingo %>%
   group_by(buyer_name) %>%
-  summarise(pills_per_pharmacy = n()) %>%
+  summarise(pills_per_pharmacy = sum(dosage_unit)) %>%
   mutate(total_pills = sum(pills_per_pharmacy)) %>%
   mutate(pharmacy_percent_total_pills = (pills_per_pharmacy/total_pills)*100) %>%
   arrange(desc(pharmacy_percent_total_pills))
@@ -524,12 +526,11 @@ That number's still unwieldly. Let's round() to two places.
 ```{r}
 mingo %>%
   group_by(buyer_name) %>%
-  summarise(pills_per_pharmacy = n()) %>%
+  summarise(pills_per_pharmacy = sum(dosage_unit)) %>%
   mutate(total_pills = sum(pills_per_pharmacy)) %>%
     mutate(pharmacy_percent_total_pills = round(((pills_per_pharmacy/total_pills)*100),2)) %>%
   arrange(desc(pharmacy_percent_total_pills))
 ```
-
 
 ## Exercise 
 
