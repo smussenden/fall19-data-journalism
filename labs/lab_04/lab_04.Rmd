@@ -77,8 +77,7 @@ We're loading two packages today: the Tidyverse, and [Janitor](https://github.co
 # install.packages('janitor')
 
 # Load Tidyverse and Janitor
-library(tidyverse)
-library(janitor)
+
 
 ```
 
@@ -96,8 +95,6 @@ There is one record (row or observation) per transaction (a shipment from a manu
 
 # Load data and store it as an object called mingo
 
-mingo <- read_tsv("data/arcos-wv-mingo-54059-itemized.tsv")
-
 ```
 
 ## Examine the Data
@@ -106,12 +103,6 @@ mingo <- read_tsv("data/arcos-wv-mingo-54059-itemized.tsv")
 
 ```{r}
 
-glimpse(mingo)
-
-```
-
-```{r}
-summary(mingo)
 ```
 
 ```{r}
@@ -134,8 +125,6 @@ mingo <- clean_names(mingo)
 
 ```{r}
 # write out glimpse to look at the results
-
-glimpse(mingo)
 
 ```
 
@@ -249,6 +238,9 @@ mingo_working <- mingo %>%
 ```
 
 **Task**: create a codeblock below, and create a new column that builds as complete an address as possible out of the information on the distributors in the data. 
+
+
+## If Else and Case When
 
 We can also put different values in a newly created column, based on a value in another column. In google sheets, we did this with IF() functions.  Here, we use if_else(), in this case to classify each shipment as large or not large, depending on the number of pills. 
 
@@ -478,7 +470,8 @@ Now let's create a new column calculating the share for each pharmacy, and sort 
 
 ```{r}
 
-# options(scipen=999)
+# For getting rid of scientific notation
+options(scipen=999)
 
 mingo %>%
   group_by(buyer_name) %>%
@@ -531,7 +524,7 @@ Write some code below that would help you figure out whether this is just an err
 
 You're more intersted in looking at the company-to-company-to-company pipeline, instead of the location-to-location pipeline.  In order to proceed with your analysis, you'll need to think of a way to clean the data so that all three Cardinal Health facilities have the same name. Otherwise they won't group correctly.  
 
-You don't know exactly how to do this, other than you have a vague idea that you can probably use a case_when() function.  To answer this question, you don't need to write any code.  You just need to be able to describe what you think you could do to solve the problem, in English, below. One (time consuming solution): open the original data file in a text editor and change them by hand.  There's a better way to do this! Describing what you want to do in simple terms lets you ask others for help, or search for help on the web. 
+You don't know exactly how to do this, other than you have a vague idea that you can probably use a case_when() function.  To answer this question, you don't need to write any code.  You just need to be able to describe what you think you could do to solve the problem, in English, below. One (time consuming solution): open the original data file in a text editor and change them by hand.  There's a better way to do this! Describing what you want to do in simple terms lets you ask others for help, or search for help on the web. Put your answer below.
 
 ## Submission
 
