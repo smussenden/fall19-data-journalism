@@ -237,9 +237,14 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
   * Follow the instructions step-by-step.
   * When you're finished, [upload your edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/4993885)
 
-*Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Analysis in R (More functions, summarization, pivot table equivalents). Basic use of GitHub Desktop for version control.   
-* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
+  *Online tutorial lab | Due by Sunday at 11:59 p.m.*
+  * Data Analysis in R (Some cleaning, summarizing, creating new columns, if else, case when)
+    * [Download package of files you'll need to your local machine and unzip](labs/lab_04/lab_04.zip).
+    * [Watch lab video and follow along with step-by-step instructions](https://www.youtube.com/watch?v=qloTnltzwNQ).
+    * The first thing it will have you do is open intro_to_r.Rmd file in R Studio.
+    * Listen and watch video, and follow along intro_to_r.Rmd file.  Modify code or write new code where needed.
+    * Submit edited intro_to_r.Rmd file and intro_to_r.html file to ELMS assignment when done.  
+  * Optional, if you feel like you need additional help: [DataCamp, Introduction to the Tidyverse](https://www.datacamp.com/courses/introduction-to-the-tidyverse)
 
 *Readings for Homework*
 * Read the following data-driven stories and review supporting code behind analysis.
