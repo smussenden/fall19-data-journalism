@@ -214,7 +214,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
   * [Watch lab video and follow along with step-by-step instructions](https://www.youtube.com/watch?v=eGZnX4yZ-Tw).
   * The first thing it will have you do is open intro_to_r.Rmd file in R Studio.
   * Listen and watch video, and follow along intro_to_r.Rmd file.  Modify code or write new code where needed.
-  * Submit edited intro_to_r.Rmd file and intro_to_r.html file to ELMS assignment when done.  
+  * Submit edited intro_to_r.Rmd file and intro_to_r.html file to ELMS assignment when done. [Link](https://umd.instructure.com/courses/1268776/assignments/4990506?module_item_id=9707865)  
 * Optional, if you feel like you need additional help: [DataCamp, Introduction to the Tidyverse](https://www.datacamp.com/courses/introduction-to-the-tidyverse)
 
 *Readings for Homework*
@@ -241,10 +241,10 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
   * Data Analysis in R (Some cleaning, summarizing, creating new columns, if else, case when)
     * [Download package of files you'll need to your local machine and unzip](labs/lab_04/lab_04.zip).
     * [Watch lab video and follow along with step-by-step instructions](https://www.youtube.com/watch?v=qloTnltzwNQ).
-    * The first thing it will have you do is open intro_to_r.Rmd file in R Studio.
-    * Listen and watch video, and follow along intro_to_r.Rmd file.  Modify code or write new code where needed.
-    * Submit edited intro_to_r.Rmd file and intro_to_r.html file to ELMS assignment when done.  
-  * Optional, if you feel like you need additional help: [DataCamp, Introduction to the Tidyverse](https://www.datacamp.com/courses/introduction-to-the-tidyverse)
+    * [Watch GitHub desktop tutorial for info on how to submit](https://www.youtube.com/watch?v=ZT91ek-JWQE)
+    * Open Lab_04.Rmd file, listen and watch video, and follow along.  Modify code or write new code where needed.
+    * Watch GitHub desktop tutorial video. Create new repo, put your lab files in it, upload GitHub LINKS, not files, to [ELMS when done](https://umd.instructure.com/courses/1268776/assignments/4993889).   
+  * Optional, if you feel like you need additional help: [DataCamp, Introduction to the Tidyverse](https://www.datacamp.com/courses/introduction-to-the-tidyverse) and [Getting Started with GitHub Desktop](https://help.github.com/en/desktop/getting-started-with-github-desktop)
 
 *Readings for Homework*
 * Read the following data-driven stories and review supporting code behind analysis.
