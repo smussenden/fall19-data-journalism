@@ -41,3 +41,25 @@ ASK: Why do we do this?
 
 #### IN CLASS ASSIGNMENT
 * Walk through setup together.  
+
+Github assignment.  
+--This is where we're going to be storing files.
+--Serves as your resume.
+--Version control.
+--create an account and log in.
+--create a new repo empty repo with git ignore for r files and readme.
+--clone to desktop.
+--open up repo in file browser
+--create new file for class assignments
+--create new file for labs
+--create new file for data analysis project
+--drag in lab_04 file.  
+--go to github desktop.
+--show commit message and push.
+--Open R markdown file in R studio.
+--Make one change.
+--Come back to github desktop, new commit and push.
+--Now let's go look at it on the web.
+--Make a change on the web.  Wouldn't want to do this.  Kind of showing how we might work on multiple computers.  
+--Come back to github desktop.  Pull.  Always want to do this.
+--How to submit on ELMS.  
