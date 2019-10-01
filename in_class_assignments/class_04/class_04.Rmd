@@ -1,0 +1,145 @@
+---
+title: "Class_04 | In-Class Assignment | R Continued"
+author: "Sean Mussenden"
+date: "10/1/2019"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE, paged.print=TRUE)
+```
+
+## Objective
+
+The purpose of this in-class assignment is to build on the information you learned in last week's in-class lab:
+
+* Light data cleaning by renaming column names.
+* Create new columns in our data set based on information in other columns.   
+* Summarizing raw data, calculating min, max, median and mean values, essentially using R to create a pivot table, like we learned in Google Sheets.
+* Using GitHub to upload. 
+* Working with data on opioid shipments in the U.S.
+
+## Tasks, Turning it In, Getting Help
+
+At several points throughout this document, you will see the word **Task**.  
+
+This indicates that you need to do something, generally creating a code block and writing custom code.  
+
+When you are finished, you should save your R markdown file and Knit it as an HTML file.
+
+Upload links to your GitHub folder on ELMS. 
+
+Need help?  You are welcome to do the following things:
+
+* Refer to the previous week's lab.
+* Use Google or search Stack Overflow. Try searching for your error message or translating your problem into basic terms.
+* Check out the excellent [R for Data Science](https://r4ds.had.co.nz/index.html)
+* Take a look at the [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) and [Tidyverse documentation](https://www.tidyverse.org/).
+  * [RStudio cheatsheet](https://www.rstudio.com/resources/cheatsheets/#ide)
+  * [Readr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf) and [Readr documentation](https://readr.tidyverse.org/).
+  * [Dplyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) and [Dplyr documentation](https://dplyr.tidyverse.org/)
+* After you've spent 5 minutes trying to solve the problem on your own, ask your neighbor and if they don't know, ask me!
+
+## Setup
+
+Take the following steps to set up your document:
+
+1. Download the ZIP file and open the folder inside of your GitHub class assignments folder. It should contain this document, class_04.Rmd, and a data folder with one TSV.
+2. Open this file in RStudio.
+3. Rename this file "class_04_FIRSTNAME_LASTNAME.Rmd".
+4. Create a new R project inside of this folder, which will set the working directory in this folder.   
+
+## Load Packages
+
+Generally, it's good practice to load packages you wish to work with at the beginning of your R markdown file.  
+
+**Task**: Create a code block below, write and execute the simple function to load the Tidyverse family of packages and the janitor package.  
+
+## Load Data
+
+For this exercise, we will be working with a small subset of the DEA's ARCOS database, which documented shipments of 76 billion opioid pills between 2006 and 2012, during the peak of the opioid epidemic. We will be working with a subset of shipments to Baltimore City, Maryland.  
+
+The data was obtained after a lengthy legal battle by the Washington Post and the Charleston Gazette-Mail, and released by the Washington Post in raw and aggregated form. [Washington Post "Digging into the DEA's pain pill database" page](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/).
+
+There is one record (row or observation) per transaction (a shipment from a manufacturer to a distributor to a pharmacy. A data dictionary is available here: [ARCOS Registrant Handbook](https://www.deadiversion.usdoj.gov/arcos/handbook/full.pdf).
+
+**Task**: Create a code block below, and write and execute the function to load in the data of shipments to Baltimore City, Maryland and store it as an object called baltimore. Write a comment describing what you are doing.  
+
+## Examine the Data
+
+Now that the data is in, spend some time examining it.
+
+**Task**: Create a code block below, and write and execute a function to open and view the spreadsheet in a new window tab that you can examine.  In that browser window, use your mouse to sort by a handful of columns, highest to lowest and lowest to highest.  In that browser window, practice turning on filters with your mouse to examine a subset of the data.    
+
+**Task**: Create a code block below and use the glimpse and summary function to examine the shape of the data. Answer each of the following questions in a comment inside the code block:
+* How many rows does the data have? How many columns?   
+* Each column is stored in one of two formats: "chr", or strings of characters, generally used for text; and "dbl", a number format on which mathematical operations can be performed.  Do you see any examples of a column stored as a "dbl" that doesn't really need to be, because we would never do math on it? Are there any columns stored as character that you think should be stored in another format entirely?
+* Based on the information here, how are missing values represented in this data set?
+
+## Cleaning
+**Task**: Using the function from the janitor package we learned in the last lab, convert all of the column names to lower case.  
+
+## Analysis
+
+**Task**: Which single pharmacy **location** had the most pills sent to it? Produce the code to answer this question in a codeblock below. 
+
+Hint: you'll need to group by more than just the pharmacy name to answer this question correctly.
+
+Do some quick web research/reporting.  What actions did the DEA and state of Maryland take against this pharmacy? Why did they do it? 
+
+In a comment inside the codeblock, write a paragraph (two to three sentences) that you could drop into a news story that includes the following information: Name and approximate location of the pharmacy; how many pills it received between 2006 and 2012; and a brief description of what actions the DEA and Maryland took against the pharmacy and why. 
+
+**Task**: What is the name of the distributor that was responsible for sending the most pills to Baltimore City betwen 2006 and 2012? Produce the code to answer this question in a codeblock below.  
+
+In a comment inside the codeblock, write the following information: the name of the distributor; the number of pills sent between 2006 and 2012; the state where their corporate headquarters is located.   
+
+**Task**: Let's look only at shipments sent by the distributor in the answer to the previous question.  Which **single pharmacy location** recieved the most shipments from that distributor.  Produce the code to answer this question in a codeblock below.  
+
+In a comment inside the codeblock, write the name and address of the buyer and the total number of shipments during the covered period.  What is unique about this pharmacy that might explain the high number of shipments?
+
+**Task**: Of all the pills sent to Baltimore City between 2006 and 2012, which entity had the highest percentage of all pills sent to it. Group only by the name of the pharmacy for this question. Produce your answer in a codeblock below.
+
+In a comment inside the codeblock, put the name of the entity, the percentage of pills it was responsible for, the total number of pills sent to it and the total number of pills sent to the whole city. 
+
+**Task**: Being a good data journalist who has worked with messy data, you are skeptical that the percentage you got for the last question -- "RITE AID of MARYLAND INC." -- truly represents all shipments to Rite Aid pharmacies in the city.  
+
+In a codeblock below, copy the function you wrote in your previous answer and add a filter at the end that returns only those records that have "RITE" in the name.  In a comment, explain how many different iterations of Rite Aid there are in this data set.  What prevented them from grouping correctly?  
+
+**Task**: Create a codeblock below that does the following.
+
+* Creates a new column in the data set called "rite_aid_y_n".  In that column, make the value say "rite_aid_y" if the buyer_name column indicates the store is a rite aid.  Make the value say "rite_aid_n" if it's not.  
+
+* Group by the newly created column, allowing us to examine shipments to Rite Aid and shipments to everyone else.   
+
+* Calculates the total number of shipments to each group, the total shipments to the city as a whole, and the percentage of total shipments each group is responsible for. 
+
+In a comment inside the codeblock, explain how many total shipments there were to the city, how many and what percentage went to Rite Aid stores. 
+
+**Task**: Create a summary table with the following information:
+
+* Looks only at Hydrodocode pills
+* Creates a new column called "pipeline" with "the pipeline" for each shipment: one manufacturer to one distributor to one pharmacy. Just use the name of each for this. In this new column you create, separate with two hyphens --
+* The following summary stats: total shipments, total pills, average pills per shipment, largest shipment (in terms of pills).
+* Sort by different summary columns.  
+
+In a comment, write up your findings.  What information would you use to spur additional reporting? 
+
+**Task**: The discovery, in the previous question, that there was at least one shipment of Hydrocodone from Actavis Pharma to Cardinal Health to NewCare Home Health Services of 48,000 pills prompts you to want to learn more.  On what date did this transactions take place? Write the code you'd use in a codeblock below. In a comment, put the date.
+
+## Further analysis
+
+**Task**: Based on your initial analysis, NewCare Home Health Services seems worthy of additional digging.  You set out to learn as much as you can about their patterns.  Use everything you've learned to get at these or other questions:What were their buying patterns like?  Did they concentrate on buying certain kinds of pills? Were they buying greater numbers of high dose opioids, compared to others? Who made most of the pills they got?  Who distributed them?
+
+Create four separate codeblocks below. Ask and answer at least four separate questions.  
+
+## Output
+
+**Task**: Spellcheck your document in R Studio.  Save your file.  Knit it to an HTML document, making sure it compiles.  Open it in a browser to be sure. Push your changes to GitHub, and go to GitHub.com to make sure your changes got up to the browser. 
+
+## Submission
+
+**Task**: On ELMS, post link to GitHub to the R Markdown file and html file. 

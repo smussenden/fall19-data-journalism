@@ -243,7 +243,8 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
     * [Watch lab video and follow along with step-by-step instructions](https://www.youtube.com/watch?v=qloTnltzwNQ).
     * [Watch GitHub desktop tutorial for info on how to submit](https://www.youtube.com/watch?v=ZT91ek-JWQE)
     * Open Lab_04.Rmd file, listen and watch video, and follow along.  Modify code or write new code where needed.
-    * Watch GitHub desktop tutorial video. Create new repo, put your lab files in it, upload GitHub LINKS, not files, to [ELMS when done](https://umd.instructure.com/courses/1268776/assignments/4993889).   
+    * Watch GitHub desktop tutorial video. Create new repo, put your lab files in it, upload GitHub LINKS, not files, to [ELMS when done](https://umd.instructure.com/courses/1268776/assignments/4993889).
+    * [Answer key](lab/lab_04/lab_04_key.Rmd)  
   * Optional, if you feel like you need additional help: [DataCamp, Introduction to the Tidyverse](https://www.datacamp.com/courses/introduction-to-the-tidyverse) and [Getting Started with GitHub Desktop](https://help.github.com/en/desktop/getting-started-with-github-desktop)
 
 *Readings for Homework*
@@ -261,18 +262,26 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 #### Week 6 - Oct 1
 
 *Tuesday Class*
-* Discussion: The data journalism process, from idea to execution (moved from week 3).  
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* Discussion: None.
+* In-class lab: finding stories in opioid data, with R and the Tidyverse.
+  * Clone your class GitHub repo to your desktop.
+  * [Download this ZIP file](https://github.com/smussenden/fall19-data-journalism/blob/master/in_class_assignments/class_04/class_04.zip), which contains an R Markdown document and opioid data. Open it up, put it inside your class assignments folder.  Unzip the data.
+  * Open the class_04.Rmd file in R Studio.
+  * Follow the instructions step-by-step.
+  * When you're finished, push changes to GitHub. You'll need to zip up the TSV file.  It's too big to leave in there unzipped.
+  * [Upload your links to edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/4997194)
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Analysis in R (Joins and Enterprise Joins)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-*
+* [Cops among Florida's worst speeders, Sun Sentinel investigation finds | South Florida Sun-Sentinel, February 2012](https://www.sun-sentinel.com/local/fl-speeding-cops-20120211-story.html)
+* [Opioid death rates soared in communities where pain pills flowed | Washington Post](https://www.washingtonpost.com/investigations/opioid-death-rates-soared-in-communities-where-pain-pills-flowed/2019/07/17/f3595da4-a8a4-11e9-a3a6-ab670962db05_story.html)
 
 *Forum Posts | Due by Sunday at 11:59 p.m.*
-*
+* [Forum Post 1](https://umd.instructure.com/courses/1268776/discussion_topics/3733132: Read the Sun Sentinel story posted above. The data reporters got the story by mashing up two different data sets.  These sorts of "enterprise joins" allow you to get stories no one else has.  Describe the findings of the story. What did data sets did they use? How did they use them together to get the story? In 200 words or less.
+* [Forum Post 2](https://umd.instructure.com/courses/1268776/discussion_topics/3733133): Read the Washington Post story posted above. Explain the main findings of the story.  Explain how the reporters mashed together two different data sets to get the story, and describe what those data sets were. In 200 words or less.   
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * Update on reporting for data acquisition project
@@ -280,7 +289,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 #### Week 7 - Oct 8
 
 *Tuesday Class*
-* Discussion:
+* Discussion: The data journalism process, from idea to execution.
 * In-class lab: finding stories in opioid data
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
