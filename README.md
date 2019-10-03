@@ -272,7 +272,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
   * [Upload your links to edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/4997194)
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Analysis in R (Joins and Enterprise Joins)
+* Data Analysis in R (Joins and Enterprise Joins, working with dates)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
@@ -284,7 +284,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 * [Forum Post 2](https://umd.instructure.com/courses/1268776/discussion_topics/3733133): Read the Washington Post story posted above. Explain the main findings of the story.  Explain how the reporters mashed together two different data sets to get the story, and describe what those data sets were. In 200 words or less.   
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
-* Update on reporting for data acquisition project
+* [Update on reporting for data acquisition project forum post](https://umd.instructure.com/courses/1268776/discussion_topics/3733140)
 
 #### Week 7 - Oct 8
 
