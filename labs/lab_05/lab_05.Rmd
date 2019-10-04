@@ -1,0 +1,427 @@
+---
+title: "Lab 05 | R continued"
+author: "Sean Mussenden"
+date: "10/3/2019"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE, paged.print=TRUE)
+```
+
+## Objective
+
+The purpose of this lab is to continue learning a journalistic approach to data analysis in R. 
+
+We will continue to do things learned in previous labs:
+
+* Writing R code for data analysis and exploration in the R Studio environment, using R projects (.Rproj) and R markdown files (.Rmd).  
+* Loading, cleaning, making sense of and analyzing data using the Tidyverse framework of packages by selecting certain columns, sorting and filtering
+* Create new columns in our data set based on information in other columns.   
+* Summarizing data by grouping and calculating min, max, median and mean values.    
+* Store changes on GitHub.
+
+Today, we'll also:
+
+* Learn how to join together two related data sets on a common field to perform a new kind of analysis, and discuss common problems that arise when doing joins.  
+* Do some additional data cleaning, including fixing dates so we can work with them. 
+
+## How this works, tasks, turning it in, getting help
+
+This document is mostly set up for you to follow along and run code that I have written, and listen to me explain it.  
+
+At several points throughout this document, you will see the word **Task**.  
+
+That indicates I'm expecting you to modify the file I've given you, usually by creating a codeblock and writing some custom code. 
+
+When you are finished, you should save your R markdown file and Knit it as an HTML file. 
+
+You should upload it to GitHub, using GitHub desktop, a process that will be explained. 
+
+And the links to your project is what you'll post on ELMS. 
+
+Need help?  You are welcome to do the following things:
+
+* Use Google or search Stack Overflow. Try searching for your error message or translating your problem into basic terms.
+* Check out the excellent [R for Data Science](https://r4ds.had.co.nz/index.html)
+* Take a look at the [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) and [Tidyverse documentation](https://www.tidyverse.org/).
+  * [RStudio cheatsheet](https://www.rstudio.com/resources/cheatsheets/#ide)
+  * [Readr and Tidyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf) and [Readr documentation](https://readr.tidyverse.org/) and [Tidyr documentation](https://tidyr.tidyverse.org/reference/index.html).
+  * [Dplyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) and [Dplyr documentation](https://dplyr.tidyverse.org/)
+  * [Lubridate cheatsheet](https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf) and [Lubridate documentation](https://lubridate.tidyverse.org/).
+  * [GitHub desktop help](https://help.github.com/en/desktop/getting-started-with-github-desktop)
+* If you're really stuck, message me on ELMS. 
+
+## Setup
+
+Take the following steps to set up your document:
+
+1. Download the ZIP file and open the folder on your desktop. It should contain this document and the data you'll need.
+2. Create a new folder in your git repo and move it in there. Unzip the folder.
+3. Open this file in RStudio.
+4. Rename this file "lab_05_FIRSTNAME_LASTNAME.Rmd".
+5. Create a new R project inside of this folder, which will set the working directory in this folder.   
+
+## Load Packages
+
+We're loading three packages today: the Tidyverse, Janitor and a new one, [Lubridate](https://lubridate.tidyverse.org/), which is in the Tidyverse family, but it doesn't load when you load library(tidyverse). So you need to load it separately. 
+
+**Task**: In the code block below, load the Tidyverse family of packages, the Janitor package, and the Lubridate package. If you've never loaded lubridate before, you'll need to install it first. You should be good at installing and loading packages at this point. If you have problems, Google it or look at previous labs. 
+
+```{r}
+
+```
+
+## Load Data
+
+For this exercise, we will be working with subsets of the DEA's ARCOS database, which documented shipments of 76 billion opioid pills between 2006 and 2012, during the peak of the opioid epidemic. First, we will be working with a subset of shipments to Mingo County, West Virginia, which was flooded with hydrocodone and oxycodone during that period.  We will be loading additional data below. 
+
+The data was obtained after a lengthy legal battle by the Washington Post and the Charleston Gazette-Mail, and released by the Washington Post in raw and aggregated form. [Washington Post "Digging into the DEA's pain pill database" page](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/).
+
+A data dictionary is available here: [ARCOS Registrant Handbook](https://www.deadiversion.usdoj.gov/arcos/handbook/full.pdf).
+
+```{r}
+
+# Load data and store it as an object called Mingo
+
+mingo <- read_tsv("data/arcos-wv-mingo-54059-itemized.tsv")
+
+```
+
+## Examine the Data
+
+**Task**: Use glimpse() and View() to get a sense of the data.     
+
+## Cleaning
+
+Before we start working with the data, execute the janitor function to make all of the columns lowercase.  If you can't remember how to do it, look at the documentation for the janitor package or look back at previous labs.   
+
+**Task**: Execute the clean_names function on mingo to make all of the column names lowercase.  
+
+```{r}
+
+# Use the clean_names function in janitor to make all of the columns lowercase. 
+mingo <- clean_names(mingo)
+
+```
+
+At the moment, the transaction date column is a bit unusable.  It's a string of characters in which month, day and year are mashed together.  This is how Jan. 4, 2007 is represented: "01042007".  In order to make use of it in analysis, we need to clean it up and get R to recognize it as a date. 
+
+This is one of the most common data cleaning problems data journalists run into. 
+
+Luckily, the [lubridate package](https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf) has a bunch of functions for cleaning and working with dates. 
+
+In the code block below, we are using the function mdy() to convert the gnarly transaction_date column into a real date that r can recognize.  By naming the new column we are creating the same thing as the old column inside of our mutate function, we are overwriting the old one.  
+
+```{r}
+
+mingo <- mingo %>%
+  mutate(transaction_date = mdy(transaction_date)) %>%
+  select(transaction_date, everything())
+  
+```
+
+When we glimpse it, we can see the column type is now "date" which is a valid format R understands.
+
+```{r}
+glimpse(mingo)
+```
+
+And now that we have a valid date, we can do operations on it that make sense. This sorts it from oldest to newest transaction date. 
+
+```{r}
+
+mingo %>%
+  arrange(transaction_date)
+
+```
+
+We can filter. This filters just for shipments on Halloween in 2006. 
+
+```{r}
+
+mingo %>%
+  filter(transaction_date == as_date("2006-10-31"))
+
+```
+
+We can also use lubridate functions to extract additional information from a valid date column. 
+
+This function extracts the year from our valid transaction date, and creates a new column called "transaction_year" to store it in. 
+
+```{r}
+mingo <- mingo %>%
+  mutate(transaction_year = year(transaction_date)) %>%
+  select(transaction_date, transaction_year, everything())
+  
+```
+
+And then we can group by transaction year and count the total number of shipments.  We see that the number of shipments spiked in 2008 and 2009, before falling off.  
+
+```{r}
+mingo %>%
+  group_by(transaction_year) %>%
+  summarise(total_shipments = n())
+```
+
+**Task**: Create a codeblock below and create a table that answers the following question: how many total pills were shipped to Mingo County each year between 2006 and 2012? In a comment, explain what the overall trend was during that period. 
+
+```{r}
+
+```
+
+## About Joins
+
+Next, we're going to learn how to "join" together two data sets. 
+
+This is an extremely common technique in data journalism.  
+
+Sometimes, we work with a single data set in which related information is split between multiple tables, and we have to combine them to answer questions. 
+
+Other times, we might want to work with two different, seemingly unrelated data sets and combine them to learn something new. These are often called "enterprise joins," and they're very powerful.  
+We're going to do an enterprise join right now to answer this question: which U.S. county averaged the most opioids per person between 2006 and 2012?
+
+To do that, we need to put together two data sets. 
+
+The first has the average number of pills per year sent to each county between 2006 and 2012. Let's load that now and look at it. 
+
+```{r}
+county_pills_per_year <- read_csv("data/county_pills_per_year.csv")
+```
+
+It has four columns: a unique identifier (FIPS) code for each county, the county name, the state name and the average number of pills per year. 
+
+Open the data up and examine it. 
+
+For most of the 3130 observations in our data, we have a complete set of data, with information in all four columns.  
+
+But, note that at the bottom of the table as we scan down, there are missing values.  This will be important to remember for later.  
+
+Let's load the second table.
+
+It has the average annual population for each county between 2006 and 2012. Let's load that now and look at it. 
+
+```{r}
+
+county_population_per_year <- read_csv("data/county_population_per_year.csv")
+
+```
+
+It has four columns: a unique identifier (FIPS) code for each county, the county name, the state name and the average yearly population over that period. 
+
+Open the data up and examine it. 
+
+We have complete data for all 3143 rows or observations.  
+
+Note that this number is different than the number of records in our pills table. That will be important to keep in mind later. 
+
+## Executing the Joins
+
+Our goal here is to take our two tables -- pills and population -- and put them together so that, for each county, we have the population and pill information in a single table.  
+
+When we're trying to join together two tables, it's important to remember that joins only work if there's at least one column with shared information in each table.  
+
+In this case we're going to use the "countyfips" column.  It's formatted the same way in both tables, which means we can proceed. But suppose the codes ended with a zero in one of the tables, and didn't end with a zero in the other one.  The join wouldn't work. 
+
+Or suppose we used the county name to join the tables.  It would cause problems, too, because some county names repeat across states.  We'll see why that's a problem later.
+
+Let's do the join.
+
+The code below creates a new table called pills_population that puts the two tables together, using the countyfips code as a unifying field. 
+
+The function is called inner_join(), which is one of several types of joins. It looks at the records tied to a fips code in one table.  It looks for that same fips code in the other table.  If it finds a match, it returns a record with information from both tables. If it doesn't find a match, it doesn't return the record. 
+
+Run the code below and have a look. It returns 3036 observations, which is less than both original tables had.  More on that in a second.
+
+It returned the countyfips code, which both shared.  It returned the city and state from both sides (labeling one .x and one .y). And it returned the pills average and population average. 
+
+```{r}
+
+pills_population <- county_pills_per_year %>%
+  inner_join(county_population_per_year, by="countyfips")
+
+```
+
+Let's clean it up just a bit, using the code below, to get rid of the duplicate columns.  
+
+We're going to select only the countyfips code, one copy of the county and state, and the pills average and population average, to reduce it to 5 columns.  Then we're going to rename the county and state columns to get rid of those stupid .x characters.  
+
+```{r}
+
+pills_population <- pills_population %>%
+  select(countyfips, buyer_county.x, buyer_state.x, average_pills_per_year, average_population_per_year) %>%
+  rename(buyer_county = buyer_county.x, buyer_state = buyer_state.x)
+
+```
+
+Now that we have a joined table, we can do our pills per person calculation. 
+
+The code below creates a new column called "avg_yearly_pills_per_person" and calculates it by dividing pills by population. 
+
+The rest of the code rearranges the columns and sorts from highest pills per person to lowest. 
+
+```{r}
+
+pills_population %>%
+  mutate(avg_yearly_pills_per_person = average_pills_per_year/average_population_per_year) %>%
+  select(buyer_county, buyer_state, avg_yearly_pills_per_person, average_pills_per_year, average_population_per_year, countyfips) %>%
+  arrange(desc(avg_yearly_pills_per_person))
+
+```
+
+We've answered our question.  Norton City, Virginia had the highest per person rate of pills received, at 305 per person per year on average.  Nearly half of the top 10 were in Kentucky.  
+
+Not too hard, right?  This example was pretty straightforward.   
+
+Joins are powerful, but they're a minefield of potential problems. If you're not aware of how joins can go wrong, you can reach inaccurate conclusions. So, let's dig in a bit on how joins work.  
+
+## Different types of joins
+
+There are several [different types of joins](https://dplyr.tidyverse.org/reference/join.html), which the [Dplyr cheatsheet nicely walks through](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf). 
+
+The one we did above is called an Inner Join.  
+
+It puts two tables together based on a shared column and only returns a row if there's an exact match in that column.   
+
+I think it's helpful to think about joins as [venn diagrams](http://www.sql-join.com/sql-join-types), which are composed as overlapping circles.  
+
+An Inner Join only returns records in the middle of the two overlapping circles in a Venn diagram. 
+
+It's why our joined table above had only 3036 records, even though the population table and pills table both had more. There were some counties in our population data table that weren't in our pills data table.  And there were some counties in our pills data table that weren't in our population data table. Those got left out of our joined table.   
+
+We can use other kinds of joins to see what got left out. 
+
+## Left and Right Joins
+
+A Left Join returns all the records from the first table, even if there's not a match in the second table. And it only returns records from the second table if there's a match with the first.  
+
+The code below creates a new table called pills_population_left.  
+
+It includes all of the records from our pills table and only those matches from population if there's a match. Otherwise, it's blank. That's why it has the same number of records as our original pills table. 
+
+Let's look at the [venn diagram](http://www.sql-join.com/sql-join-types) to see why. Then run the code below and scroll around to see this in action.  
+
+```{r}
+
+pills_population_left <- county_pills_per_year %>%
+  left_join(county_population_per_year, by="countyfips")
+
+```
+
+There's also a Right Join, which is the exact opposite of a Left Join.  
+
+The code below creates a new table called pills_population_right.  It includes all of the records from our population table and only those matches from pills if there's a match. Otherwise, it's blank. That's why it has the same number of records as our population table.
+
+Let's look at the [venn diagram](http://www.sql-join.com/sql-join-types).  Then run the code below and scroll around to see this in action.  
+
+```{r}
+
+pills_population_right <- county_pills_per_year %>%
+  right_join(county_population_per_year, by="countyfips")
+
+```
+
+## Full Joins
+
+There's also a kind of join called a Full Outer Join or a Full Join. It's kind of a combo of a left and right join. It says: return everything from both tables.  If there's a match, put them on the same line. If not, return the record anyway, but populate the columns from the other table with missing values. Let's look at the [venn diagram](http://www.sql-join.com/sql-join-types).
+
+The code below creates a new table called pills_population_full. Let's open it up and take a look.
+
+```{r}
+
+pills_population_full <- county_pills_per_year %>%
+  full_join(county_population_per_year, by="countyfips")
+
+```
+
+As you do data journalism work, my guess is you will more frequently work with inner joins or left joins.  But full joins and right joins -- as well as fun Tidyverse function called anti_join() you can look up on your own -- are useful in helping to debug problems you might have when joining data.
+
+## One-to-One Joins vs One-to-Many Joins
+
+In the examples above, we set out to match a single record from one table with a single record from another table.  But there are also times when we want to match a single record in one table with multiple records in another table. 
+
+This happens all the time when we work with multi-table databases that, for efficiency, store different, but related, types of information in multiple tables. 
+
+Let's look at an example here.  
+
+First, we're going to load in a new table, called "mingo_buyer_per_year" that includes one record per buyer per year in Mingo County, WV with the total of pills received in that year by that buyer. The only identifying information about who the buyer is a unique id, the "buyer_dea_no". There are multiple records -- as many as six -- for each pharmacy.      
+
+Load it now and take a look.
+
+```{r}
+
+mingo_buyer_per_year <- read_csv("data/mingo_buyer_per_year.csv")
+
+```
+
+The identifying information about each buyer is stored in a separate table, called "mingo_buyer_addresses".  
+
+Let's load that in now. It also has the "buyer_dea_no", but it has a lot more info about each pharmacy, including name and address. There's one record for pharmacy.
+
+``` {r}
+
+mingo_buyer_addresses <- read_csv("data/mingo_buyer_addresses.csv")
+
+```
+
+Our goal with this join is to take our buyer_per_year table and add information about addresses, by joining on the buyer_dea_no. 
+
+``` {r}
+
+mingo_buyer_join <- mingo_buyer_per_year %>%
+  inner_join(mingo_buyer_addresses, by="buyer_dea_no")
+
+```
+
+Let's drill in on the Adkins pharmacy. The unique ID appears only once in our addresses table.  It appears six times in our buyer per year table.  
+
+When we join, the address information is appended to each record in the buyer per year table. 
+
+This is the way joins are designed to work. If the value in the join field appears once in one table but multiple times in another table, it will repeat. 
+
+In this case, this is how we want it to work. But let's look at an example of how this can go poorly, if we don't understand what's supposed to happen. 
+
+We're going to go back to the data we were using in the section on left, right and full joins above. 
+
+In this example, we're going to create a new object called pills_population_oops.  
+
+We're going to take our pills per year data by county and inner join it to our population data.  
+
+But instead of doing it by countyfips, a unique value in our data, we're going to join it by county name, which is not a unique value in either table. That's because, in many cases, states reuse county names.  There are 17 states with a Montgomery County! 
+
+Our goal is still to do a one-to-one match, to align a county's population with a county's pill totals. But if we think we can do this by joining on county names, then we are going to be shocked by the outcome. 
+
+Run the code below.
+
+```{r}
+pills_population_oops <- county_pills_per_year %>%
+  inner_join(county_population_per_year, by="buyer_county")
+```
+
+We get 14,716 records.  Which is way more than the 3,000 or so we should get.  
+
+To see what went wrong here, let's add a filter, to only look at Montgomery County in our data. 
+
+```{r}
+pills_population_oops <- county_pills_per_year %>%
+  inner_join(county_population_per_year, by="buyer_county") %>%
+  filter(buyer_county == "MONTGOMERY")
+```
+
+Again, 17 states have a Montgomery County. And because we're trying to join on something that's not unique, we get problems. 
+
+Let's start with the first row.  It did what we were hoping for: it matched the pills per year  in Montgomery County, Alabama, with the population in Montgomery County, Alabama. Great. 
+
+But then, in the second row, it matches the pills per year in Montgomery County, Alabama with the population in Montgomery County, Georgia. And then it does it with Illinois, and then with Indiana, and so on.  
+
+After it cycles through Alabama's population, it moves on to the next state, Georgia.
+
+To reiterate: if you're trying to do a one-to-one match, make sure to use a unique value. 
+
+## Submission
+
+Save the R Markdown file.  Knit it to HTML and make sure it compiles correctly. Upload to GitHub, as instructed.  Provide links to GitHub in ELMS.   

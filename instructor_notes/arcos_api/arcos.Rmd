@@ -44,23 +44,32 @@ options(scipen = 999)
 
 ```{r}
 
-#TWO KINDS OF JOINS -- one to one and one to many
-
 # Load list of total pills by county by year (2006 to 2012)
-county_pills_per_year <- summarized_county_annual(key = key) 
-county_pills_per_year <- clean_names(county_pills_per_year)
+county_pills_per_year <- summarized_county_annual(key = key) %>%
+  clean_names() %>%
+  group_by(countyfips, buyer_county, buyer_state) %>%
+  summarise(average_pills_per_year = round(mean(dosage_unit), 0)) %>%
+  arrange(countyfips)
+write_csv(county_pills_per_year, "county_pills_per_year.csv")
 
 # Load county population
-county_population_per_year <- county_population(key = key)
-county_population_per_year <- clean_names(county_population_per_year)
+county_population_per_year <- county_population(key = key) %>%
+  clean_names() %>%
+  group_by(countyfips, buyer_county, buyer_state) %>%
+  summarise(average_population_per_year = round(mean(population), 0))
+write_csv(county_population_per_year, "county_population_per_year.csv")
+
 
 # Load combined buyer annual purchases
-buyer_per_year <- combined_buyer_annual(key = key)
-buyer_per_year <- clean_names(buyer_per_year)
+mingo_buyer_per_year <- combined_buyer_annual(county="Mingo", state="WV", key = key) %>%
+  clean_names()
+write_csv(mingo_buyer_per_year, "mingo_buyer_per_year.csv")
 
 # Load buyer addresses 
-buyer_addresses <- buyer_addresses(key=key)
-buyer_addresses <- clean_names(buyer_addresses)
+mingo_buyer_addresses <- buyer_addresses(county="Mingo", state="WV", key=key) %>%
+  clean_names()
+write_csv(mingo_buyer_addresses, "mingo_buyer_addresses.csv")
+
 ```
 
 ## Examine the Data

@@ -271,9 +271,14 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
   * When you're finished, push changes to GitHub. You'll need to zip up the TSV file.  It's too big to leave in there unzipped.
   * [Upload your links to edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/4997194)
 
-*Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Analysis in R (Joins and Enterprise Joins, working with dates)
-* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
+  *Online tutorial lab | Due by Tuesday at 11:29 a.m.*
+  * Data Analysis in R (Joins, working with dates)
+    * [Download package of files you'll need to your local machine and unzip](labs/lab_05/lab_05.zip).
+    * [Watch lab video and follow along with step-by-step instructions](https://www.youtube.com/watch?v=qrFsquFndzw).
+    * Open Lab_05.Rmd file, listen and watch video, and follow along.  Modify code or write new code where needed.
+    * Watch GitHub desktop tutorial video. Create new repo, put your lab files in it, upload GitHub LINKS, not files, to [ELMS when done](https://umd.instructure.com/courses/1268776/assignments/4997195).
+    * [Answer key TK]()  
+  * Optional, if you feel like you need additional help: [DataCamp, Introduction to the Tidyverse](https://www.datacamp.com/courses/introduction-to-the-tidyverse) and [Getting Started with GitHub Desktop](https://help.github.com/en/desktop/getting-started-with-github-desktop) and [DataCamp Working Dates in R](https://www.datacamp.com/courses/working-with-dates-and-times-in-r) and [DataCamp Joining Data with dplyr in R](https://www.datacamp.com/courses/joining-data-with-dplyr-in-r) and [DataCamp Data Manipulation in dplyr in R](https://www.datacamp.com/courses/data-manipulation-with-dplyr-in-r)
 
 *Readings for Homework*
 * [Cops among Florida's worst speeders, Sun Sentinel investigation finds | South Florida Sun-Sentinel, February 2012](https://www.sun-sentinel.com/local/fl-speeding-cops-20120211-story.html)
