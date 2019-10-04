@@ -205,7 +205,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 
 *Tuesday Class*
 * Discussion: The best data isn't online yet; getting data from a reluctant government.
-* In-class lab: [finding stories in opioid data, with advanced spreadsheet techniques](in_class_assignments/class_02/readme.md). [ELMS Link to turn in](https://umd.instructure.com/courses/1268776/assignments/4990507).
+* In-class lab: [finding stories in opioid data, with advanced spreadsheet techniques](in_class_assignments/class_02/readme.md). [ELMS Link to turn in](https://umd.instructure.com/courses/1268776/assignments/4990507). [Key](https://docs.google.com/spreadsheets/d/12Pb_nQCmb1JHoEKpK67BvmzAiKH7vE9nofxznbMm6_k/edit#gid=1820239102)
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Analysis in R (Setting up the environment; R markdown files; Loading packages; Loading data; Tidyverse; basic functions)
@@ -236,6 +236,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
   * [Download this ZIP file](https://github.com/smussenden/fall19-data-journalism/blob/master/in_class_assignments/class_03/class_03.zip), which contains an R Markdown document and opioid data. Open it up, put the folder on your desktop, and open the class_03.Rmd file in R Studio.
   * Follow the instructions step-by-step.
   * When you're finished, [upload your edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/4993885)
+  * [Answer key](in_class_assignments/class_03/key_class_03.Rmd)
 
   *Online tutorial lab | Due by Sunday at 11:59 p.m.*
   * Data Analysis in R (Some cleaning, summarizing, creating new columns, if else, case when)
