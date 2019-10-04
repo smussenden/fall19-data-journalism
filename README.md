@@ -270,6 +270,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
   * Follow the instructions step-by-step.
   * When you're finished, push changes to GitHub. You'll need to zip up the TSV file.  It's too big to leave in there unzipped.
   * [Upload your links to edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/4997194)
+  * [Answer Key](in_class_assignments/class_04/key_class_04.Rmd)
 
   *Online tutorial lab | Due by Tuesday at 11:29 a.m.*
   * Data Analysis in R (Joins, working with dates)
