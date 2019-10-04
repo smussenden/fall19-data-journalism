@@ -44,7 +44,7 @@ options(scipen = 999)
 
 ```{r}
 
-TWO KINDS OF JOINS -- one to one and one to many
+#TWO KINDS OF JOINS -- one to one and one to many
 
 # Load list of total pills by county by year (2006 to 2012)
 county_pills_per_year <- summarized_county_annual(key = key) 
