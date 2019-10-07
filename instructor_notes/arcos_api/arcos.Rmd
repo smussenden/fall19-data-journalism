@@ -70,6 +70,27 @@ mingo_buyer_addresses <- buyer_addresses(county="Mingo", state="WV", key=key) %>
   clean_names()
 write_csv(mingo_buyer_addresses, "mingo_buyer_addresses.csv")
 
+buyer_addresses <- buyer_addresses(key=key) %>%
+  clean_names()
+write_csv(buyer_addresses, "buyer_addresses.csv")
+
+buyer_annual_by_year <- combined_buyer_annual(key=key) %>%
+  clean_names()
+write_csv(buyer_annual_by_year, "buyer_annual_by_year.csv")
+
+buyer_totals <- buyer_annual_by_year %>%
+  group_by(buyer_dea_no, buyer_bus_act, buyer_county, buyer_state) %>%
+  summarise(total_pills=sum(dosage_unit))
+write_csv(buyer_totals, "buyer_totals.csv")
+
+join_buyer <- buyer_annual %>%
+  left_join(buyer_addresses, by="buyer_dea_no") %>%
+  arrange(desc(total_pills))
+
+glimpse(buyer_annual)
+
+
+
 ```
 
 ## Examine the Data
