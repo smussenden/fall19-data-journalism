@@ -1,0 +1,121 @@
+---
+title: "Class_05 | In-Class Assignment | R Continued"
+author: "Sean Mussenden"
+date: "10/8/2019"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE, paged.print=TRUE)
+```
+
+## Objective
+
+The purpose of this in-class assignment is to build on the information you learned in last week's in-class lab:
+
+* Writing R code for data analysis and exploration in the R Studio environment, using R projects (.Rproj) and R markdown files (.Rmd).  
+* Loading, cleaning, making sense of and analyzing data using the Tidyverse framework of packages by selecting certain columns, sorting and filtering
+* Create new columns in our data set based on information in other columns.   
+* Summarizing data by grouping and calculating min, max, median and mean values.    
+* Store changes on GitHub.
+* Learn how to join together two related data sets on a common field to perform a new kind of analysis, and discuss common problems that arise when doing joins.  
+ 
+## Tasks, Turning it In, Getting Help
+
+At several points throughout this document, you will see the word **Task**.  
+
+This indicates that you need to do something, generally creating a code block and writing custom code.  
+
+When you are finished, you should save your R markdown file and Knit it as an HTML file.
+
+Upload links to your GitHub folder on ELMS. 
+
+Need help?  You are welcome to do the following things:
+
+* Refer to the previous week's lab.
+* Use Google or search Stack Overflow. Try searching for your error message or translating your problem into basic terms.
+* Check out the excellent [R for Data Science](https://r4ds.had.co.nz/index.html)
+* Take a look at the [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) and [Tidyverse documentation](https://www.tidyverse.org/).
+  * [RStudio cheatsheet](https://www.rstudio.com/resources/cheatsheets/#ide)
+  * [Readr and Tidyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf) and [Readr documentation](https://readr.tidyverse.org/) and [Tidyr documentation](https://tidyr.tidyverse.org/reference/index.html).
+  * [Dplyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) and [Dplyr documentation](https://dplyr.tidyverse.org/)
+  * [Lubridate cheatsheet](https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf) and [Lubridate documentation](https://lubridate.tidyverse.org/).
+  * [GitHub desktop help](https://help.github.com/en/desktop/getting-started-with-github-desktop)
+* After you've spent 5 minutes trying to solve the problem on your own, ask your neighbor and if they don't know, ask me!
+
+## Setup
+
+Take the following steps to set up your document:
+
+1. Download the ZIP file and open the folder inside of your GitHub class assignments folder. It should contain this document, class_05.Rmd, and a data folder with several CSVs.
+2. Open this file in RStudio.
+3. Rename this file "class_05_FIRSTNAME_LASTNAME.Rmd".
+4. Create a new R project inside of this folder, which will set the working directory in this folder.   
+
+## Load Packages
+
+**Task**: Create a code block below, and load the packages you'll need for this exercise.  That's the tidyverse, janitor and lubridate. 
+
+## Load Data
+
+For this exercise, we will be working with a small subset of the DEA's ARCOS database, which documented shipments of 76 billion opioid pills between 2006 and 2012, during the peak of the opioid epidemic. 
+
+The data was obtained after a lengthy legal battle by the Washington Post and the Charleston Gazette-Mail, and released by the Washington Post in raw and aggregated form. [Washington Post "Digging into the DEA's pain pill database" page](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/).
+
+A data dictionary is available here: [ARCOS Registrant Handbook](https://www.deadiversion.usdoj.gov/arcos/handbook/full.pdf).
+
+We will be loading in three different data sets today.  The data was obtained by me from the Washington Post's [ARCOS R package](https://cran.r-project.org/web/packages/arcos/readme/README.html), which allows you to easily download larger and more interesting slices of the data than what's available using the web interface.  We'll work with this package in future classes. 
+
+Here's the data we'll be using, all in the data folder
+
+1. buyer_addresses.csv - one record per "buyer" in the United States -- pharmacies and practitioners, typically -- with information about name, address and location, along with a unique id "buyer_dea_no".
+2. buyer_totals.csv - one record per buyer, listing the total number of pills sent to that buyer overall between 2006 and 2012.  The only specific identifying information is a unique id, "buyer_dea_no", but the buyer county and buyer state is there.
+3. buyer_annual_by_year - one record per buyer per year, listing the total number of pills sent to that buyer in one year, between 2006 and 2012.  Some buyers have seven records, one for each year between 2006 and 2012, while others have fewer.  The only specific identifying information is a unique id, "buyer_dea_no", but the buyer county and buyer state is there.
+4. state_population_per_year - average annual population for each state between 2006 and 2012. 
+
+**Task**: Create a code block below, and write and execute the function to load in the data.  Store each one as an object that is the same as the file name (without .csv, of course). Write a comment describing what you are doing.  
+
+## Examine the Data
+
+Now that the data is in, spend some time examining it to get a sense of it using the functions we reviewed previously. These data checks should be routine for you at this point. What information does it contain? What is missing? Are values stored in strange formats?
+
+**Task** Answer the following question in a comment in a code block below.  Look at the data.  The three data sets describe similar things -- buyers -- but have different numbers of records? What's your best guess for why the number of records buyer_annual_by_year is higher than buyer_totals?  What about your best guess for why buyer_addresses is higher than buyer_totals?  
+
+## Analysis
+
+**Task**: What is the name and location of the pharmacy that had the most pills sent to it in total? Do some web research and offer your best guess, which you could use as a jumping off point for further reporting, as to why this pharmacy might have so many.
+
+**Task**: What is the name of the practitioner in Maryland that had the most totals pills **in 2010**? How many total pills did the doctor have, compared to the next highest doctor in the state that year? Use the Maryland state physician board lookup tool to find any disciplinary actions taken against this doctor: https://www.mbp.state.md.us/bpqapp/. Do a brief writeup of what you find.  Also answer this question: how would ensure that the doctor you find on the state board lookup tool is the same doctor described in this data.  
+
+**Task**: Which state had the highest rate of total pills per person sent to it over the 2006 to 2012 period?
+
+**Task**: Are there any buyers included in the buyer_totals table that ARE NOT included in the buyer_addresses table?  Write code in the codeblock below that will help you figure out the answer to this question. Write comments that explain what you're doing. 
+
+Here's how I'd proceed, in order:
+
+1.  Do an inner join of buyer_totals to buyer_addresses. Remind yourself: what does an inner join do? Look at the number of records. How many are there? 
+2.  Now, a left join of buyer_totals to buyer_addresses. Ask yourself: what does a left join do? How does it differ from an inner join. Look at the number of records returned in the table.  How many are there? Think through the logic: what **might** it mean when the number of records from an inner join and a left join are the same?
+3.  Now, do a left join of buyer_totals to buyer_addresses.  But this time, add a filter so you only get back records where the buyer_address1 field has missing values (na).  You can use the is.na() function inside of a filter, like so: is.na(buyer_address1).  How many records are returned.  Think through the logic: what does it mean that 0 rows are returned when you do this? 
+4.  Lastly, try using a type of join I alluded to in the video, but didn't explicitly show you: [anti_join](https://dplyr.tidyverse.org/reference/join.html).  This method return all rows from the buyer_totals table where there is not a matching value in the buyer_addresses table.  It's a tidier way of doing the thing we just did in the last query.  Think through the logic: what does it mean that 0 rows are returned when you do this?
+
+**Task**: Are there any buyers included in the buyer_addresses table that ARE NOT included in the buyer_totals table?  Write code in the codeblock below that will help you figure out the answer to this question. Write comments that explain what you're doing that think through the logic. You can use similar methods as in the last question to solve the problem. 
+
+## Your own questions
+
+**Task**: We have been building all semester towards our final analysis project, where you will try to find an interesting story in the opioid data released by the post, using larger and larger slices of the data each time. 
+
+Use the rest of this lab as an opportunity to explore this national slice of buyer data with an eye to trying to identify trends, examples and other interesting facts that you might want to dig deeper on later in the semester.  
+
+Create and answer at least four codeblocks, using any of the techniques we've learned in this class up to this point.  You can also load in additional data if you like. 
+
+## Output
+
+**Task**: Spellcheck your document in R Studio.  Save your file.  Knit it to an HTML document, making sure it compiles.  Open it in a browser to be sure. Push your changes to GitHub, and go to GitHub.com to make sure your changes got up to the browser. 
+
+## Submission
+
+**Task**: On ELMS, post link to GitHub to the R Markdown file and html file. 

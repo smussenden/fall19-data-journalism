@@ -279,7 +279,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
     * [Watch lab video and follow along with step-by-step instructions](https://www.youtube.com/watch?v=qrFsquFndzw).
     * Open Lab_05.Rmd file, listen and watch video, and follow along.  Modify code or write new code where needed.
     * Watch GitHub desktop tutorial video. Create new repo, put your lab files in it, upload GitHub LINKS, not files, to [ELMS when done](https://umd.instructure.com/courses/1268776/assignments/4997195).
-    * [Answer key TK]()  
+    * [Answer key](lab/lab_05/lab_05_key.Rmd)  
   * Optional, if you feel like you need additional help: [DataCamp, Introduction to the Tidyverse](https://www.datacamp.com/courses/introduction-to-the-tidyverse) and [Getting Started with GitHub Desktop](https://help.github.com/en/desktop/getting-started-with-github-desktop) and [DataCamp Working Dates in R](https://www.datacamp.com/courses/working-with-dates-and-times-in-r) and [DataCamp Joining Data with dplyr in R](https://www.datacamp.com/courses/joining-data-with-dplyr-in-r) and [DataCamp Data Manipulation in dplyr in R](https://www.datacamp.com/courses/data-manipulation-with-dplyr-in-r)
 
 *Readings for Homework*
@@ -296,21 +296,38 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 #### Week 7 - Oct 8
 
 *Tuesday Class*
-* Discussion: The data journalism process, from idea to execution.
-* In-class lab: finding stories in opioid data
+* Discussion: Joins review.
+* In-class lab: finding stories in opioid data, with R and the Tidyverse.
+  * Clone your class GitHub repo to your desktop.
+  * [Download this ZIP file](https://github.com/smussenden/fall19-data-journalism/blob/master/in_class_assignments/class_05/class_05.zip), which contains an R Markdown document and opioid data. Open it up, put it inside your class assignments folder.  Unzip the data.
+  * Open the class_05.Rmd file in R Studio.
+  * Follow the instructions step-by-step.
+  * When you're finished, push changes to GitHub.
+  * [Upload your links to edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/5000691?module_item_id=9720493)
+  * [Answer Key TK]()
+
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Analysis in R (Functions, Working with strings and dates)
+* Data Analysis in R (Functions, Working with strings)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-*
+* To prepare for our final data analysis project, we're going to read more stories looking at how [local journalists have produced stories using the opioid data released by the Post](https://www.washingtonpost.com/national/2019/08/12/post-released-deas-data-pain-pills-heres-what-local-journalists-are-using-it/
+). There are lots of examples on this list, but I want you to read these two.   
+  * [How opioid painkillers became big business in a Philadelphia neighborhood already ravaged by drugs](https://www.inquirer.com/news/opioid-painkiller-pill-sales-dea-data-philadelphia-20190731.html)
+  * [Where the opioid epidemic hit Alabama hardest | AL.com](https://www.al.com/news/2019/07/where-the-opioid-epidemic-hit-hardest-alabama.html)
+  * [Florida’s opioid crisis: billions of pills, millions in campaign cash](https://www.tampabay.com/florida-politics/buzz/2019/07/25/floridas-opioid-crisis-billions-of-pills-millions-in-campaign-cash/)
 
 *Forum Posts | Due by Sunday at 11:59 p.m.*
-*
+* Forum 01 | In the Inquirer story, reporters Aubrey Whelan and Nathaniel Lash focused on how the opioid crisis affected Philadelphia's Kensington neighborhood.  Why did they focus their reporting there?  Answer in a forum post of less than 100 words. [ELMS Link](https://umd.instructure.com/courses/1268776/discussion_topics/3738835?module_item_id=9720497)
+* Forum 02 | In the AL.com story, Ramsey Archibald appears to have done an "enterprise join" to look at the racial makeup of counties with the highest pill concentrations.  What did Ramsey find? Answer in a forum post of less than 100 words.[ELMS Link](https://umd.instructure.com/courses/1268776/discussion_topics/3738840?module_item_id=9720499)
+* Forum 03 | In the Tampa Bay Times story, reporters Emily L. Mahoney and Langston Taylor did an "enterprise join" of data about opioid manufacturers and distributors with data on campaign contributions. What did they find?  Answer in a forum post of less than 100 words.[ELMS Link](https://umd.instructure.com/courses/1268776/discussion_topics/3738844?module_item_id=9720502)  
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
-* Draft public records request for data acquisition project.
+* Forum Post | draft public records request letter.  Now that you have done substantial reporting to identify the data you'll be requesting as part of this project, you need to craft a public information request letter to request information.  Use the [SPLC Public Records Letter Generator tool](https://splc.org/lettergenerator/).  Edit the letter and then paste it into a forum post.  Do NOT send the letter yet without showing it to me. [ELMS Link](https://umd.instructure.com/courses/1268776/discussion_topics/3738845?module_item_id=9720504)
+Some guidelines:
+  * Be specific about what you are requesting, based on what you learned in your reporting.  Is there a name of the database? Do you know some of the field names?  
+  * Set the fee limit at $0 for now.  We'll talk about adding language to the letter to ask for a fee waiver.
 
 #### Week 8 - Oct 15
 
