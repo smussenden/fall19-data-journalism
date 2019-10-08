@@ -287,7 +287,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 * [Opioid death rates soared in communities where pain pills flowed | Washington Post](https://www.washingtonpost.com/investigations/opioid-death-rates-soared-in-communities-where-pain-pills-flowed/2019/07/17/f3595da4-a8a4-11e9-a3a6-ab670962db05_story.html)
 
 *Forum Posts | Due by Sunday at 11:59 p.m.*
-* [Forum Post 1](https://umd.instructure.com/courses/1268776/discussion_topics/3733132: Read the Sun Sentinel story posted above. The data reporters got the story by mashing up two different data sets.  These sorts of "enterprise joins" allow you to get stories no one else has.  Describe the findings of the story. What did data sets did they use? How did they use them together to get the story? In 200 words or less.
+* [Forum Post 1](https://umd.instructure.com/courses/1268776/discussion_topics/3733132): Read the Sun Sentinel story posted above. The data reporters got the story by mashing up two different data sets.  These sorts of "enterprise joins" allow you to get stories no one else has.  Describe the findings of the story. What did data sets did they use? How did they use them together to get the story? In 200 words or less.
 * [Forum Post 2](https://umd.instructure.com/courses/1268776/discussion_topics/3733133): Read the Washington Post story posted above. Explain the main findings of the story.  Explain how the reporters mashed together two different data sets to get the story, and describe what those data sets were. In 200 words or less.   
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
@@ -313,7 +313,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
 
 *Readings for Homework*
 * To prepare for our final data analysis project, we're going to read more stories looking at how [local journalists have produced stories using the opioid data released by the Post](https://www.washingtonpost.com/national/2019/08/12/post-released-deas-data-pain-pills-heres-what-local-journalists-are-using-it/
-). There are lots of examples on this list, but I want you to read these two.   
+). There are lots of examples on this list, but I want you to read these three.   
   * [How opioid painkillers became big business in a Philadelphia neighborhood already ravaged by drugs](https://www.inquirer.com/news/opioid-painkiller-pill-sales-dea-data-philadelphia-20190731.html)
   * [Where the opioid epidemic hit Alabama hardest | AL.com](https://www.al.com/news/2019/07/where-the-opioid-epidemic-hit-hardest-alabama.html)
   * [Florida’s opioid crisis: billions of pills, millions in campaign cash](https://www.tampabay.com/florida-politics/buzz/2019/07/25/floridas-opioid-crisis-billions-of-pills-millions-in-campaign-cash/)
