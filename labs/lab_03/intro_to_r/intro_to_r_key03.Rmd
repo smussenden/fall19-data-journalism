@@ -301,6 +301,18 @@ There's a ton more we can do with select, as we'll learn as the class goes on.  
 
 **Task**: Create a code block below.  In that code block, select only those columns that relate to the pharmacy involved in each transaction (i.e. name, address, et cetera), along with the dosage unit.  Store it as an object called "mingo_pharmacy" and write a function to view it and write another function to print it in our R markdown file.  Include comments.   
 
+```{r}
+# Selecting columns that relate to pharmacies
+mingo_pharmacy <- select(mingo, BUYER_DEA_NO, BUYER_BUS_ACT, BUYER_NAME, BUYER_ADDL_CO_INFO, BUYER_ADDRESS1, BUYER_ADDRESS2, BUYER_CITY, BUYER_STATE, BUYER_ZIP, BUYER_COUNTY,DOSAGE_UNIT)
+
+# Look at it in dataframe browser
+#View(mingo_pharmacy)
+
+# Also print it in our R markdown file below our codeblock
+print(mingo_pharmacy)
+```
+
+
 ### Sorting Columns
 
 There are two main ways to sort.  We can view our spreadsheet and click on the column headers to sort highest to lowest and lowest to highest.  Run the code below to pop our mingo spreadsheet in the viewer.  The video will show exactly how to sort within the dataframe viewer.      
@@ -395,7 +407,19 @@ There's a key difference in our select and sort functions in this code block.  W
 Get used to writing code this way, it's mainly how we'll be writing code in this class.
 
 **Task**: Create a code block below.  In the code block below, uses pipes to create a chain that takes the mingo dataframe, selects all the columns related to the pharmacy involved in each transaction (i.e. name, address, et cetera), along with the dosage unit.  Then sort it lowest to highest by dosage unit.  Store it as an object called "mingo-pharmacy". Store it as an object called "mingo_pharmacy" and write a function to view it and write another function to print it in our R markdown file.  Include comments.  
- 
+
+```{r}
+#Selecting pharmacy data from mingo dataset, sorting into descending order by dosage unit
+mingo_pharmacy <- mingo %>%
+  select(BUYER_DEA_NO, BUYER_BUS_ACT, BUYER_NAME, BUYER_ADDL_CO_INFO, BUYER_ADDRESS1, BUYER_ADDRESS2, BUYER_CITY, BUYER_STATE, BUYER_ZIP, BUYER_COUNTY,DOSAGE_UNIT) %>%
+  arrange(desc(DOSAGE_UNIT))
+
+#To see in viewer
+#View(mingo_pharmacy)
+
+# Print in console below
+print(mingo_pharmacy)
+```
 
 ### Filtering
 
@@ -509,8 +533,8 @@ Here's a hint.  You'll only need to add one single character at the end of the w
 mingo %>%
   select(Combined_Labeler_Name, REPORTER_NAME, BUYER_NAME, DOSAGE_UNIT) %>%
   arrange(desc(DOSAGE_UNIT), REPORTER_NAME, BUYER_NAME) %>%
-  filter(DOSAGE_UNIT >= 12000, str_detect(REPORTER_NAME, "DRUG"))
-
+  filter(DOSAGE_UNIT >= 12000, str_detect(REPORTER_NAME, "DRUG$"))
+# added a dollar sign at end of DRUG
 
 ```
 
