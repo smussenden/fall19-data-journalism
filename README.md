@@ -245,7 +245,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
     * [Watch GitHub desktop tutorial for info on how to submit](https://www.youtube.com/watch?v=ZT91ek-JWQE)
     * Open Lab_04.Rmd file, listen and watch video, and follow along.  Modify code or write new code where needed.
     * Watch GitHub desktop tutorial video. Create new repo, put your lab files in it, upload GitHub LINKS, not files, to [ELMS when done](https://umd.instructure.com/courses/1268776/assignments/4993889).
-    * [Answer key](lab/lab_04/lab_04_key.Rmd)  
+    * [Answer key](labs/lab_04/lab_04_key.Rmd)  
   * Optional, if you feel like you need additional help: [DataCamp, Introduction to the Tidyverse](https://www.datacamp.com/courses/introduction-to-the-tidyverse) and [Getting Started with GitHub Desktop](https://help.github.com/en/desktop/getting-started-with-github-desktop)
 
 *Readings for Homework*
@@ -279,7 +279,7 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
     * [Watch lab video and follow along with step-by-step instructions](https://www.youtube.com/watch?v=qrFsquFndzw).
     * Open Lab_05.Rmd file, listen and watch video, and follow along.  Modify code or write new code where needed.
     * Watch GitHub desktop tutorial video. Create new repo, put your lab files in it, upload GitHub LINKS, not files, to [ELMS when done](https://umd.instructure.com/courses/1268776/assignments/4997195).
-    * [Answer key](lab/lab_05/lab_05_key.Rmd)  
+    * [Answer key](labs/lab_05/lab_05_key.Rmd)  
   * Optional, if you feel like you need additional help: [DataCamp, Introduction to the Tidyverse](https://www.datacamp.com/courses/introduction-to-the-tidyverse) and [Getting Started with GitHub Desktop](https://help.github.com/en/desktop/getting-started-with-github-desktop) and [DataCamp Working Dates in R](https://www.datacamp.com/courses/working-with-dates-and-times-in-r) and [DataCamp Joining Data with dplyr in R](https://www.datacamp.com/courses/joining-data-with-dplyr-in-r) and [DataCamp Data Manipulation in dplyr in R](https://www.datacamp.com/courses/data-manipulation-with-dplyr-in-r)
 
 *Readings for Homework*
@@ -304,12 +304,15 @@ Sean Mussenden in the data editor for the Howard Center for Investigative Journa
   * Follow the instructions step-by-step.
   * When you're finished, push changes to GitHub.
   * [Upload your links to edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/5000691?module_item_id=9720493)
-  * [Answer Key TK]()
+  * [Answer key](in_class_assignments/class_05/key_class_05.Rmd)  
 
+*Online tutorial lab | Due by Tuesday at 11:29 a.m.*
+This week, there is no lab of my design to work through that introduces new concepts. I want to give everyone a week to catch up before we roll out new concepts. If you are struggling with things we've already learned, use this week to try taking a Data Camp lesson that covers some of the same ground we've already taken. Feel like you've mastered everything? You don't need to take a Data Camp course or chapter in a course.  But if you are struggling, consider taking one of these. On ELMS, you'll fill out a text box telling me which course (or chapter) you tried or completed, how much you did and why you chose that one.  And if you don't do one, that's fine too, just say, "I'm not struggling with any concepts, so I didn't feel like I needed to do it." [ELMS link](https://umd.instructure.com/courses/1268776/assignments/4997195). Here are some courses:
 
-*Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Analysis in R (Functions, Working with strings)
-* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
+  * Need help with filtering, mutating, or grouping and summarizing? [DataCamp Data Manipulation in dplyr in R](https://www.datacamp.com/courses/data-manipulation-with-dplyr-in-r) or [DataCamp, Introduction to the Tidyverse](https://www.datacamp.com/courses/introduction-to-the-tidyverse) will help.
+  * Not sure you understood joins? [DataCamp Joining Data with dplyr in R](https://www.datacamp.com/courses/joining-data-with-dplyr-in-r) will help.
+  * Want more help with dates? [DataCamp Working Dates in R](https://www.datacamp.com/courses/working-with-dates-and-times-in-r) will help.
+  * Having a hard time with reading data? Try Chapter 2-4 of this course: [Importing Data into R](https://www.datacamp.com/courses/importing-data-in-r-part-1).
 
 *Readings for Homework*
 * To prepare for our final data analysis project, we're going to read more stories looking at how [local journalists have produced stories using the opioid data released by the Post](https://www.washingtonpost.com/national/2019/08/12/post-released-deas-data-pain-pills-heres-what-local-journalists-are-using-it/
@@ -337,7 +340,7 @@ Some guidelines:
 * Data analysis project introduced
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Analysis in R (exploratory visualization)
+* Data Analysis in R (exploratory visualization Functions, Working with strings)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
