@@ -335,22 +335,33 @@ Some guidelines:
 #### Week 8 - Oct 15
 
 *Tuesday Class*
-* Discussion:
-* In-class lab: finding stories in opioid data
-* Data analysis project introduced
+* Discussion: Data analysis project introduced
+* In-class lab: finding stories in opioid data, with R and the Tidyverse.
+  * Clone your class GitHub repo to your desktop.
+  * [Download this ZIP file](https://github.com/smussenden/fall19-data-journalism/blob/master/in_class_assignments/class_06/class_06.zip), which contains an R Markdown document and opioid data. Open it up, put it inside your class assignments folder.  Unzip the data.
+  * Open the class_06.Rmd file in R Studio.
+  * Follow the instructions step-by-step.
+  * When you're finished, push changes to GitHub.
+  * [Upload your links to edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/5000691?module_item_id=9720493)
+
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Analysis in R (exploratory visualization Functions, Working with strings)
+* Data Analysis in R (exploratory visualization)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-*
+* None.
 
 *Forum Posts | Due by Sunday at 11:59 p.m.*
-*
+* None.
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * Send public records request for data acquisition project.
+* Data Analysis Forum Post | a 400-word max status memo as a forum post, explaining the following:
+  * What motivating questions you think might drive your work. You should have a few different groups of questions for approaches at this point.  We will work together to pick one.  
+  * What specific opioid data from the WashingARCOS API will help answer these questions.
+  * What additional data sources will be required to answer these questions.
+  * What else has been written (including links) that is related to your questions.  
 
 
 #### Week 9 - Oct 22
@@ -379,7 +390,7 @@ Some guidelines:
 * In-class lab: finding stories in opioid data, with basic spreadsheet techniques
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Cleaning in R
+* Functions
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
@@ -398,7 +409,7 @@ Some guidelines:
 * In-class lab: finding stories in opioid data
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Cleaning in R
+* Data Cleaning in R, Working with Strings
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*

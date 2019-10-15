@@ -1,0 +1,156 @@
+---
+title: "Class_05 | In-Class Assignment | R Continued"
+author: "Sean Mussenden"
+date: "10/1/2019"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE, paged.print=TRUE)
+```
+
+## Objective
+
+The purpose of this in-class assignment is to allow you to do some exploratory analysis to get you started on your final data analysis project.
+
+
+## Tasks, Turning it In, Getting Help
+
+At several points throughout this document, you will see the word **Task**.  
+
+This indicates that you need to do something, generally creating a code block and writing custom code.  
+
+When you are finished, you should save your R markdown file and Knit it as an HTML file.
+
+Upload links to your GitHub folder on ELMS.
+
+Need help?  You are welcome to do the following things:
+
+* Refer to the previous week's lab.
+* Use Google or search Stack Overflow. Try searching for your error message or translating your problem into basic terms.
+* Check out the excellent [R for Data Science](https://r4ds.had.co.nz/index.html)
+* Take a look at the [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) and [Tidyverse documentation](https://www.tidyverse.org/).
+  * [RStudio cheatsheet](https://www.rstudio.com/resources/cheatsheets/#ide)
+  * [Readr and Tidyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf) and [Readr documentation](https://readr.tidyverse.org/) and [Tidyr documentation](https://tidyr.tidyverse.org/reference/index.html).
+  * [Dplyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) and [Dplyr documentation](https://dplyr.tidyverse.org/)
+  * [Lubridate cheatsheet](https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf) and [Lubridate documentation](https://lubridate.tidyverse.org/).
+  * [GitHub desktop help](https://help.github.com/en/desktop/getting-started-with-github-desktop)
+* After you've spent 5 minutes trying to solve the problem on your own, ask your neighbor and if they don't know, ask me!
+
+## Setup
+
+Take the following steps to set up your document:
+
+1. Download the ZIP file and open the folder inside of your GitHub class assignments folder. It should contain this document, class_06.Rmd, and a data folder with several CSVs.
+2. Open this file in RStudio.
+3. Rename this file "class_06_FIRSTNAME_LASTNAME.Rmd".
+4. Create a new R project inside of this folder, which will set the working directory in this folder.   
+
+## Load Packages
+
+We're also going to load a new package called "arcos". This is a package built by the Washington Post that makes it easy to download opioid data from the ARCOS database using something called an API.
+
+Here are more details on the [arcos package](https://wpinvestigative.github.io/arcos/)
+
+Run this:
+
+```{r}
+# If you don't have one or both of these these, use install.packages()
+
+# install.packages('arcos')
+library(tidyverse)
+library(janitor)
+library(lubridate)
+library(arcos)
+```
+
+## Load Data
+
+For this exercise, we will be working with a small subset of the DEA's ARCOS database, which documented shipments of 76 billion opioid pills between 2006 and 2012, during the peak of the opioid epidemic.
+
+The data was obtained after a lengthy legal battle by the Washington Post and the Charleston Gazette-Mail, and released by the Washington Post in raw and aggregated form. [Washington Post "Digging into the DEA's pain pill database" page](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/).
+
+A data dictionary is available here: [ARCOS Registrant Handbook](https://www.deadiversion.usdoj.gov/arcos/handbook/full.pdf).
+
+We will be loading in three different data sets today.  The data was obtained by me from the Washington Post's [ARCOS R package](https://cran.r-project.org/web/packages/arcos/readme/README.html), which allows you to easily download larger and more interesting slices of the data than what's available using the web interface.  
+
+Here's the data we'll be using, all in the data folder
+
+1. buyer_addresses.csv - one record per "buyer" in the United States -- pharmacies and practitioners, typically -- with information about name, address and location, along with a unique id "buyer_dea_no".
+2. buyer_totals.csv - one record per buyer, listing the total number of pills sent to that buyer overall between 2006 and 2012.  The only specific identifying information is a unique id, "buyer_dea_no", but the buyer county and buyer state is there.
+3. buyer_annual_by_year - one record per buyer per year, listing the total number of pills sent to that buyer in one year, between 2006 and 2012.  Some buyers have seven records, one for each year between 2006 and 2012, while others have fewer.  The only specific identifying information is a unique id, "buyer_dea_no", but the buyer county and buyer state is there.
+4. state_population_per_year - average annual population for each state between 2006 and 2012.
+
+Run this:
+
+```{r}
+
+# Load buyer_addresses
+buyer_addresses <- read_csv("data/buyer_addresses.csv")
+
+# Load buyer_totals
+buyer_totals <- read_csv("data/buyer_totals.csv")
+
+# Load buyer_annual_by_year
+buyer_annual_by_year <- read_csv("data/buyer_annual_by_year.csv")
+
+# Load state_population_per_year
+state_population_per_year <- read_csv("data/state_population_per_year.csv")
+
+```
+
+## Loading Data from ARCOS R package
+
+The data above was obtained by me via the Washington Post's [ARCOS API](https://wpinvestigative.github.io/arcos/).  I then saved it as a CSV and made it available.   
+
+But you can also download data directly from the ARCOS API and work with it.  I'll show you how to do that now. 
+
+First, we need to store a password of sorts -- called an API key -- that will give us permission to access their data.  Here's a list of [API keys that will work](https://github.com/wpinvestigative/arcos-api/blob/master/keys/keys.txt).  
+
+```{r}
+# store a password as an object called key
+key <- "uO4EK6I"
+```
+
+Now we can pull down data, using the different functions in the ARCOS R package. 
+
+Let's start by just getting the total pills and shipments for each county in the U.S. for each year.  
+
+We're going to store it as an object called "arcos_county_pills_per_year".  We're going to use a function called "summarized_county_annual" and we're going to set the key as equal to the key we just stored.  
+
+```{r}
+arcos_county_pills_per_year <- summarized_county_annual(key = key)
+```
+
+Notice that it creates a new object in our environment window. 
+
+We can use a different function to get all of the raw data for one county, in this case Mingo County, West Virginia.  
+
+This data should look familiar. There's one record per shipment for every shipment to Mingo County, West Virginia.  We previously downloaded it from the Washington Post website. 
+
+```{r}
+mingo_raw <- county_raw(county="Mingo", state="WV", key = key)
+
+```
+
+There are many other ways the data is stored that you can access through the ARCOS API.  
+
+**Task**: Try out three different functions detailed on the ARCOS API package to pull down a different slice of data. The different data sets are detailed here: [ARCOS API](https://wpinvestigative.github.io/arcos/). What looks useful for the questions you want to ask?
+
+Caution: do NOT use the raw_data() function, it will almost certainly crash your computer. 
+
+## Analysis
+
+**Task** Use the rest of class to start doing exploratory queries for your data analysis project.  Do at least 5 queries to get started. I'll come around and talk to you about your ideas.  
+
+## Output
+
+**Task**: Spellcheck your document in R Studio.  Save your file.  Knit it to an HTML document, making sure it compiles.  Open it in a browser to be sure. Push your changes to GitHub, and go to GitHub.com to make sure your changes got up to the browser.
+
+## Submission
+
+**Task**: On ELMS, post link to GitHub to the R Markdown file and html file.
