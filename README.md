@@ -335,14 +335,14 @@ Some guidelines:
 #### Week 8 - Oct 15
 
 *Tuesday Class*
-* Discussion: Data analysis project introduced
+* Discussion: Data analysis project introduced[Link](https://github.com/smussenden/fall19-data-journalism/tree/master/major_assignments/data_analysis_project). Data acquisition letter letterhead.
 * In-class lab: finding stories in opioid data, with R and the Tidyverse.
   * Clone your class GitHub repo to your desktop.
   * [Download this ZIP file](https://github.com/smussenden/fall19-data-journalism/blob/master/in_class_assignments/class_06/class_06.zip), which contains an R Markdown document and opioid data. Open it up, put it inside your class assignments folder.  Unzip the data.
   * Open the class_06.Rmd file in R Studio.
   * Follow the instructions step-by-step.
   * When you're finished, push changes to GitHub.
-  * [Upload your links to edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/5000691?module_item_id=9720493)
+  * [Upload your links to edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/5003898)
 
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
@@ -356,12 +356,13 @@ Some guidelines:
 * None.
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
-* Send public records request for data acquisition project.
+* Send public records request for data acquisition project. [ELMS link](https://umd.instructure.com/courses/1268776/assignments/5003902)
 * Data Analysis Forum Post | a 400-word max status memo as a forum post, explaining the following:
   * What motivating questions you think might drive your work. You should have a few different groups of questions for approaches at this point.  We will work together to pick one.  
   * What specific opioid data from the WashingARCOS API will help answer these questions.
   * What additional data sources will be required to answer these questions.
   * What else has been written (including links) that is related to your questions.  
+  * [ELMS link](https://umd.instructure.com/courses/1268776/discussion_topics/3744101?module_item_id=9725122)
 
 
 #### Week 9 - Oct 22
