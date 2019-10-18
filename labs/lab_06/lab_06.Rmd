@@ -1,0 +1,497 @@
+---
+title: "Lab 06 | R continued"
+author: "Sean Mussenden"
+date: "10/18/2019"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE, paged.print=TRUE)
+```
+
+## Objective
+
+The purpose of this lab is to continue learning a journalistic approach to data analysis in R. 
+
+We will continue to do things learned in previous labs:
+
+* Writing R code for data analysis and exploration in the R Studio environment, using R projects (.Rproj) and R markdown files (.Rmd).  
+* Loading, cleaning, making sense of and analyzing data using the Tidyverse framework of packages by selecting certain columns, sorting and filtering
+* Create new columns in our data set based on information in other columns.   
+* Summarizing data by grouping and calculating min, max, median and mean values.    
+* Store changes on GitHub.
+* Join together two related data sets on a common field.  
+* Do some additional data cleaning, including fixing dates so we can work with them. 
+
+Today, we'll also learn:
+
+* To do some basic exploratory visualization using the GGPlot2 package. 
+
+## How this works, tasks, turning it in, getting help
+
+This document is mostly set up for you to follow along and run code that I have written, and listen to me explain it.  
+
+At several points throughout this document, you will see the word **Task**.  
+
+That indicates I'm expecting you to modify the file I've given you, usually by creating a codeblock and writing some custom code. 
+
+When you are finished, you should save your R markdown file and Knit it as an HTML file. 
+
+You should upload it to GitHub, using GitHub desktop. 
+
+And the links to your project is what you'll post on ELMS. 
+
+Need help?  You are welcome to do the following things:
+
+* Use Google or search Stack Overflow. Try searching for your error message or translating your problem into basic terms.
+* Check out the excellent [R for Data Science](https://r4ds.had.co.nz/index.html)
+* Take a look at the [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) and [Tidyverse documentation](https://www.tidyverse.org/).
+  * [RStudio cheatsheet](https://www.rstudio.com/resources/cheatsheets/#ide)
+  * [Readr and Tidyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf) and [Readr documentation](https://readr.tidyverse.org/) and [Tidyr documentation](https://tidyr.tidyverse.org/reference/index.html).
+  * [Dplyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) and [Dplyr documentation](https://dplyr.tidyverse.org/)
+  * [Lubridate cheatsheet](https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf) and [Lubridate documentation](https://lubridate.tidyverse.org/).
+  * [GGPlot cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf) and [GGplot Documentation](https://ggplot2.tidyverse.org/reference/)
+  * [GitHub desktop help](https://help.github.com/en/desktop/getting-started-with-github-desktop)
+* If you're really stuck, message me on ELMS. 
+
+## Setup
+
+Take the following steps to set up your document:
+
+1. Download the ZIP file and open the folder on your desktop. 
+2. Create a new folder in your git repo and move it in there. Unzip the folder.
+3. Open this file in RStudio.
+4. Rename this file "lab_06_FIRSTNAME_LASTNAME.Rmd".
+5. Create a new R project inside of this folder, which will set the working directory in this folder.   
+
+## Load Packages
+
+We're loading four packages today: the Tidyverse (for general data science goodness), janitor (for data cleaning), arcos (for loading WaPo opioid data). We'll be making extensive use of a new package, ggplot2, for graphs.  But we don't need to load it separately, because it loads with the Tidyverse.  We'll also load some specific packages later on, as they're needed.  We typically wouldn't do this. In production, we want to load all our packages at the top of our document.  But I don't want to confuse you too much, so we'll load them below as needed. 
+
+**Task**: In the code block below, load the three packages we'll need for today. 
+```{r}
+
+# Load Tidyverse, Janitor and arcos
+library(tidyverse)
+library(janitor)
+library(arcos)
+
+```
+
+## Load Data from ARCOS R Package
+
+For this exercise, we will be working with subsets of the DEA's ARCOS database, which documented shipments of 76 billion opioid pills between 2006 and 2012, during the peak of the opioid epidemic. 
+
+The data was obtained after a lengthy legal battle by the Washington Post and the Charleston Gazette-Mail, and released by the Washington Post in raw and aggregated form. [Washington Post "Digging into the DEA's pain pill database" page](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/).
+
+A data dictionary is available here: [ARCOS Registrant Handbook](https://www.deadiversion.usdoj.gov/arcos/handbook/full.pdf).
+
+In a departure from previous assignments, we're going to load the data exclusively from the arcos R package API [ARCOS API](https://wpinvestigative.github.io/arcos/) produced by the Washington Post, instead of uploading csvs and tsvs. 
+
+Remember, we need to store a password of sorts -- called an API key -- that will give us permission to access their data.  Here's a list of [API keys that will work](https://github.com/wpinvestigative/arcos-api/blob/master/keys/keys.txt).  
+
+Let's store the key first. 
+
+```{r}
+# store one of our API keys as an object called key
+key <- "uO4EK6I"
+```
+
+Let's start by just getting the total pills and shipments for each county in the U.S. for each year.  
+
+We're going to store it as an object called "arcos_county_pills_per_year".  We're going to use a function called "summarized_county_annual" and we're going to set the key as equal to the key we just stored.  
+
+```{r}
+arcos_county_pills_per_year <- summarized_county_annual(key = key) %>%
+  clean_names()
+```
+
+## Why Exploratory Data Visualizations? 
+
+When asking questions of data sets, it can be useful to see the answers as data visualizations that display inside of our R Markdown documents.  They serve a few different functions:
+
+* They can help us see trends we might miss just looking at tables.  They can lead to conclusions or lead to more, and better, questions. 
+* When we polish off our R Markdown files and show them to an editor as part of a story pitch, visualizations can help make a more effective case. 
+* They can serve as a jumping off point for a visualization we may want to produce for a final story. 
+* And, lastly, we can make production ready graphic we can publish immediately. 
+
+## First Chart 
+
+Let's start with a question.  How did the total number of pills sent to Baltimore City, Maryland each year change between 2006 and 2012? Are there any trends we can identify to pursue?
+
+Let's start by creating a subset of the data set we loaded just for Baltimore City, and store it as an object, called baltimore_city_pills_per_year.  
+
+```{r}
+baltimore_city_pills_per_year <- arcos_county_pills_per_year %>%
+  filter(buyer_state == "MD", buyer_county == "BALTIMORE CITY") %>%
+  select(year, dosage_unit)
+```
+
+Now let's build a basic line chart.  We start with the ggplot() function, with the name of our table inside of it.  Then, with a plus sign, we tell ggplot what kind of chart to draw: a line chart with the year on the x axis and total pills (dosage_unit) on the y axis.   
+
+```{r}
+  ggplot(baltimore_city_pills_per_year) +
+  geom_line(stat="identity", aes(year, dosage_unit))
+
+```
+
+Okay, not bad, but a little basic.  We can change our function to make it look nicer.  First, if you got that wierd scientific notation, let's turn it off, and run it again.  But this time, instead of a line chart, let's make it a bar chart. All we have to do is change the function to geom_bar() 
+
+```{r}
+  options(scipen=999)
+ 
+ ggplot(baltimore_city_pills_per_year) +
+  geom_bar(stat="identity", aes(year, dosage_unit))
+
+```
+
+
+Getting better.  It's a little gray.  Let's change the color to royal blue by adding some color information inside of our geom_bar() function.
+
+```{r}
+  ggplot(baltimore_city_pills_per_year) +
+  geom_bar(stat="identity", aes(year, dosage_unit), fill="royal blue") 
+  
+```
+
+Now let's clean up the axis labels with the labs() function. 
+
+```{r}
+  ggplot(baltimore_city_pills_per_year) +
+  geom_bar(stat="identity", aes(year, dosage_unit), fill="royal blue") +
+  labs(x="Year", y="Total pills") 
+  
+```
+
+And now let's add a title, subtitle and a caption.
+
+```{r}
+  ggplot(baltimore_city_pills_per_year) +
+  geom_bar(stat="identity", aes(year, dosage_unit), fill="royal blue") +
+  labs(x="Year", y="Total pills", title="In Baltimore City, opioids fall in 2007, then climb steadily through 2012", subtitle = "Total pills shipped to Baltimore City by year", caption = "Source: DEA ARCOS database, via Washington Post") 
+  
+```
+
+Better.  It would be nice to have every year identified on our x axis.  So let's do that. 
+
+```{r}
+  ggplot(baltimore_city_pills_per_year) +
+  geom_bar(stat="identity", aes(year, dosage_unit), fill="royal blue") +
+  labs(x="Year", y="Total pills", title="In Baltimore City, opioids fall in 2007, then climb steadily through 2012", subtitle = "Total pills shipped to Baltimore City by year", caption = "Source: DEA ARCOS database, via Washington Post") +
+  scale_x_continuous(breaks = c(2006, 2007, 2008, 2009, 2010, 2011, 2012)) 
+  
+  
+```
+
+Better.  Those y axis numbers are kind of a mess.  Let's add some commas to make them easier to parse.  To do that, we're going to add a handy package that works well with ggplot2, called "scales". Here's the documentation. [Link](https://github.com/r-lib/scales)
+
+```{r}
+# install.packages('scales')
+ library(scales)
+
+  ggplot(baltimore_city_pills_per_year) +
+  geom_bar(stat="identity", aes(year, dosage_unit), fill="royal blue") +
+  labs(x="Year", y="Total pills", title="In Baltimore City, opioids fall in 2007, then climb steadily through 2012", subtitle = "Total pills shipped to Baltimore City by year", caption = "Source: DEA ARCOS database, via Washington Post") +
+  scale_x_continuous(breaks = c(2006, 2007, 2008, 2009, 2010, 2011, 2012)) +
+  scale_y_continuous(labels = comma)
+```
+
+Pretty good!  This will be the final version of this graphic.  It's helped us identify an interesting trend.  If we wanted to share this, or, say, immediately post to Twitter, we could export a version of this with the ggsave() function. 
+
+```{r}
+  
+  # This is the final version of this graphic
+
+  ggplot(baltimore_city_pills_per_year) +
+  geom_bar(stat="identity", aes(year, dosage_unit), fill="royal blue") +
+  labs(x="Year", y="Total pills", title="In Baltimore City, opioids fall in 2007, then climb steadily through 2012", subtitle = "Total pills shipped to Baltimore City by year", caption = "Source: DEA ARCOS database, via Washington Post") +
+  scale_x_continuous(breaks = c(2006, 2007, 2008, 2009, 2010, 2011, 2012)) +
+  scale_y_continuous(labels = comma)
+
+  # Also saves a web version
+  ggsave("baltimore_pills.png", plot=last_plot())
+```
+
+Okay, let's suppose we want to compare the year-over-year trend in Baltimore City to several other large Maryland counties.  
+
+Let's start by saving a new table, called "maryland pills per year" in which we return year-by-year total pills for six Maryland counties, listed out in the function below. 
+
+```{r}
+
+maryland_pills_per_year <- arcos_county_pills_per_year %>%
+  filter(buyer_state == "MD", (buyer_county %in% c("ANNE ARUNDEL", "BALTIMORE CITY", "BALTIMORE", "HOWARD","MONTGOMERY", "PRINCE GEORGES"))) %>%
+  select(buyer_county, year, dosage_unit)
+```
+
+Now let's build a graphic to compare them. 
+
+```{r}
+  ggplot(maryland_pills_per_year) +
+  geom_bar(stat="identity", aes(year, dosage_unit), fill="royal blue") +
+  labs(x="Year", y="Total pills", title="Steady rise in opioids in six large Maryland counties", subtitle = "Total pills per year shipped to Anne Arundel, Baltimore, Howard,\nMontgomery, Prince George's counties and Baltimore City", caption = "Source: DEA ARCOS database, via Washington Post") +
+  scale_x_continuous(breaks = c(2006, 2007, 2008, 2009, 2010, 2011, 2012)) +
+  scale_y_continuous(labels = comma)
+  
+```
+
+The bars are all the same color.  What we see here are the totals for these six counties. Let's add another dimension to this graphic, so we can see how things changed in each county.  By adding "fill = buyer_county" to our geom_bar() function, it makes this nice color coded bar graph. 
+
+```{r}
+  ggplot(maryland_pills_per_year) +
+  geom_bar(stat="identity", aes(year, dosage_unit, fill=buyer_county)) +
+  labs(x="Year", y="Total pills", title="Steady rise in opioids in six large Maryland counties", subtitle = "Total pills per year shipped to Anne Arundel, Baltimore, Howard,\nMontgomery, Prince George's counties and Baltimore City", caption = "Source: DEA ARCOS database, via Washington Post") +
+  scale_x_continuous(breaks = c(2006, 2007, 2008, 2009, 2010, 2011, 2012)) +
+  scale_y_continuous(labels = comma)
+  
+```
+
+Let's clean it up a little by fixing the legend name, changing it from "buyer_county" to "County" by editing our labs() function
+
+```{r}
+  ggplot(maryland_pills_per_year) +
+  geom_bar(stat="identity", aes(year, dosage_unit, fill=buyer_county)) +
+  labs(x="Year", y="Total pills", title="Steady rise in opioids in six large Maryland counties", subtitle = "Total pills per year shipped to Anne Arundel, Baltimore, Howard,\nMontgomery, Prince George's counties and Baltimore City", caption = "Source: DEA ARCOS database, via Washington Post", fill="County") +
+  scale_x_continuous(breaks = c(2006, 2007, 2008, 2009, 2010, 2011, 2012)) +
+  scale_y_continuous(labels = comma)
+  
+```
+
+This isn't too bad.  But it's kind of hard to break out the trendline in each county. It's easy for P.G., because it's at the bottom. But after that, it gets hard.  We can create a version of a graphic called "small multiples" to better compare.  To do that, I add this facet_wrap() function. I'm telling it to organize it into two rows and to break it apart by buyer county.  
+
+```{r}
+  ggplot(maryland_pills_per_year) +
+  geom_bar(stat="identity", aes(year, dosage_unit, fill=buyer_county)) +
+  labs(x="Year", y="Total pills", title="Steady rise in opioids in six large Maryland counties", subtitle = "Total pills per year shipped to Anne Arundel, Baltimore, Howard,\nMontgomery, Prince George's counties and Baltimore City", caption = "Source: DEA ARCOS database, via Washington Post", fill="County") +
+  scale_x_continuous(breaks = c(2006, 2007, 2008, 2009, 2010, 2011, 2012)) +
+  scale_y_continuous(labels = comma) +
+  facet_wrap(nrow=2, . ~ buyer_county)
+  
+```
+
+It's a little easier to see the trends here.  For one, Baltimore County just had a lot more pills than any other county.  And every county except Baltimore City follows the same steady rise through 2011 before falling off.  Only Baltimore City spiked the first year, before falling off. It's worth figuring out why. 
+
+One thing. The year labels are kind of a mess here.  Let's rotate them with the theme function.
+
+```{r}
+  ggplot(maryland_pills_per_year) +
+  geom_bar(stat="identity", aes(year, dosage_unit, fill=buyer_county)) +
+  labs(x="Year", y="Total pills", title="Steady rise in opioids in six large Maryland counties", subtitle = "Total pills per year shipped to Anne Arundel, Baltimore, Howard,\nMontgomery, Prince George's counties and Baltimore City", caption = "Source: DEA ARCOS database, via Washington Post", fill="County") +
+  scale_x_continuous(breaks = c(2006, 2007, 2008, 2009, 2010, 2011, 2012)) +
+  scale_y_continuous(labels = comma) +
+  facet_wrap(nrow=2, . ~ buyer_county) + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  
+```
+
+Okay, this looks pretty good.  The legend isn't really needed, so we'll remove that with the guides() function.
+```{r}
+
+  ggplot(maryland_pills_per_year) +
+  geom_bar(stat="identity", aes(year, dosage_unit, fill=buyer_county)) +
+  labs(x="Year", y="Total pills", title="Steady rise in opioids in six large Maryland counties", subtitle = "Total pills per year shipped to Anne Arundel, Baltimore, Howard,\nMontgomery, Prince George's counties and Baltimore City", caption = "Source: DEA ARCOS database, via Washington Post", fill="County") +
+  scale_x_continuous(breaks = c(2006, 2007, 2008, 2009, 2010, 2011, 2012)) +
+  scale_y_continuous(labels = comma) +
+  facet_wrap(nrow=2, . ~ buyer_county) + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  guides(fill="none")
+  
+```
+
+Let's look at one more graph type.  We'll start with a different motivating question: which counties in Maryland had a disproportinately large number of opioids shipped to it relative to population size in 2012?
+
+Let's start by creating a slice of our data that only contains totals for each Maryland county in 2012.  
+
+```{r}
+
+maryland_pills_2012 <- arcos_county_pills_per_year %>%
+  filter(buyer_state == "MD", year=="2012") %>%
+  select(buyer_county, year, dosage_unit)
+```
+
+And then, let's use the county_population() function in the ARCOS R package to get a table with 2012 population for each Maryland county.
+
+```{r}
+maryland_population_2012 <- county_population(key = key) %>%
+  clean_names() %>%
+  filter(buyer_state == "MD", year=="2012") %>%
+  select(buyer_county, population)
+
+```
+
+Now, let's join them together, so we have a table with county, total pills in 2012 and population in 2012
+
+```{r}
+maryland_2012 <- maryland_pills_2012 %>%
+  inner_join(maryland_population_2012, by=("buyer_county")) %>%
+  select(buyer_county, dosage_unit, population)
+
+```
+
+Now let's make a scatterplot, with the 2012 population on the x axis and the total pills on the y axis.  Each dot is a county.  Its location on the grid is determined by its population and pills total. 
+
+```{r}
+
+ggplot(maryland_2012) +
+  geom_point(aes(population, dosage_unit))
+
+```
+
+Pretty plain.  Let's clean it up by adding a title and source, adding commas to the axis labels, and turning the x axis labels a bit. 
+
+```{r}
+
+ggplot(maryland_2012) +
+  geom_point(aes(population, dosage_unit)) +
+  labs(x="2012 Population", y="Total pills in 2012", title="Maryland county population and total opioids in 2012", caption = "Source: DEA ARCOS database, via Washington Post", fill="buyer_county") +
+  scale_y_continuous(labels = comma) +
+  scale_x_continuous(labels = comma) + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+  
+```
+
+Good.  Remember our question: which counties had higher levels of pill shipments relative to population.  It's a bit hard to see from this graphic. We can add a trendline, or a line of best fit, that uses linear regression to plot a path through the data with geom_smooth()
+
+```{r}
+
+ggplot(maryland_2012) +
+  geom_point(aes(population, dosage_unit)) +
+  labs(x="2012 Population", y="Total pills in 2012", title="County population and total opioids in 2012", caption = "Source: DEA ARCOS database, via Washington Post", fill="buyer_county") +
+  scale_y_continuous(labels = comma) +
+  scale_x_continuous(labels = comma) + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  geom_smooth(aes(population, dosage_unit), method = "lm", se = FALSE)
+
+
+  
+```
+
+Here's how to think about this.  Each dot is a county.  And if a county is above the line, it has a higher number of pills relative to population compared with other counties.  If it's below the line, it has a lower number of pills relative to population. Which counties are which?  Let's add some labels with geom_text.
+
+```{r}
+
+ggplot(maryland_2012) +
+  geom_point(aes(population, dosage_unit)) +
+  labs(x="2012 Population", y="Total pills in 2012", title="County population and total opioids in 2012", caption = "Source: DEA ARCOS database, via Washington Post", fill="buyer_county") +
+  scale_y_continuous(labels = comma) +
+  scale_x_continuous(labels = comma) + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  geom_smooth(aes(population, dosage_unit), method = "lm", se = FALSE) +
+  geom_text(aes(population, dosage_unit, label=buyer_county))
+
+
+```
+Okay, we have labels.  We can see Baltimore County is way above the norm.  But it's kind of a mess otherwise.  We can use a new package, called ggrepel() to clean this up. That allows us to use the geom_text_repel line below.  
+
+```{r}
+# install.packages('ggrepel')
+library(ggrepel)
+
+ggplot(maryland_2012) +
+  geom_point(aes(population, dosage_unit)) +
+  labs(x="2012 Population", y="Total pills in 2012", title="County population and total opioids in 2012", caption = "Source: DEA ARCOS database, via Washington Post", fill="buyer_county") +
+  scale_y_continuous(labels = comma) +
+  scale_x_continuous(labels = comma) + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  geom_smooth(aes(population, dosage_unit), method = "lm", se = FALSE) +
+  geom_text_repel(aes(population, dosage_unit, label=buyer_county))
+
+```
+This is better.  It's still a little hard to see some of these, though. We can modify our geom_text_repel() function to only put labels when the population is above 175K. 
+
+
+```{r}
+
+ggplot(maryland_2012) +
+  geom_point(aes(population, dosage_unit)) +
+  labs(x="2012 Population", y="Total pills in 2012", title="Maryland county population and total opioids in 2012", caption = "Source: DEA ARCOS database, via Washington Post", fill="buyer_county") +
+  scale_y_continuous(labels = comma) +
+  scale_x_continuous(labels = comma) + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  geom_smooth(aes(population, dosage_unit), method = "lm", se = FALSE) +
+  geom_text_repel(aes(population, dosage_unit, label=buyer_county),
+                  subset(maryland_2012, population > 175000))
+
+```
+This is a little cleaner.  From this, we can see that Baltimore, Baltimore City, Anne Arundel have higher number of opioids relative to population.  Montgomery and P.G. have lower numbers relative to population.  Let's adjust the title to reflect our findings.
+
+```{r}
+
+# Final Graphic
+
+ggplot(maryland_2012) +
+  geom_point(aes(population, dosage_unit)) +
+  labs(x="2012 Population", y="Total pills in 2012", title="Baltimore County, Baltimore City, Anne Arundel County \nhad high number of opioids relative to population in 2012", caption = "Source: DEA ARCOS database, via Washington Post", fill="buyer_county") +
+  scale_y_continuous(labels = comma) +
+  scale_x_continuous(labels = comma) + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  geom_smooth(aes(population, dosage_unit), method = "lm", se = FALSE) +
+  geom_text_repel(aes(population, dosage_unit, label=buyer_county),
+                  subset(maryland_2012, population > 175000))
+
+```
+
+## Tasks
+
+**Task**: In the tutorial above, you followed the steps to create the graphic with the title: 
+"In Baltimore City, opioids fall in 2007, then climb steadily through 2012".  Create the same graphic, but instead of showing Baltimore City, show Mingo County, West Virginia.  You should adjust the title to reflect what the data shows. You'll need to created a subset of the arcos_county_pills_per_year to do this. 
+
+```{r}
+
+# Create a table with Mingo, WV pills per year  
+mingo_pills_per_year <- arcos_county_pills_per_year %>%
+  filter(buyer_state == "WV", buyer_county == "MINGO") %>%
+  select(year, dosage_unit)
+
+# Make the graph
+ggplot(mingo_pills_per_year) +
+  geom_bar(stat="identity", aes(year, dosage_unit), fill="royal blue") +
+  labs(x="Year", y="Total pills", title="In Mingo County, West Virginia, opioids spiked in 2008, before falling off sharply", subtitle = "Total pills shipped to Mingo, WV by year", caption = "Source: DEA ARCOS database, via Washington Post") +
+  scale_x_continuous(breaks = c(2006, 2007, 2008, 2009, 2010, 2011, 2012)) +
+  scale_y_continuous(labels = comma)
+
+```
+
+**Task**: In the tutorial above, you followed the steps to create the graphic with the title: 
+"Baltimore County, Baltimore City, Anne Arundel County had high number of opioids relative to population in 2012".  Create the same graphic, but instead of showing Maryland counties, show West Virginia counties. Adjust the title to reflect what the data shows.   You'll need to created a subset of the arcos_county_pills_per_year to do this, as well as pull in WV 2012 population data from the ARCOS api. 
+
+```{r}
+
+# Make a dataframe with West Virginia total pills per county in 2012
+west_virginia_pills_2012 <- arcos_county_pills_per_year %>%
+  filter(buyer_state == "WV", year=="2012") %>%
+  select(buyer_county, year, dosage_unit)
+
+# Make a dataframe with West Virginia total population in 2012
+west_virginia_population_2012 <- county_population(key = key) %>%
+  clean_names() %>%
+  filter(buyer_state == "WV", year=="2012") %>%
+  select(buyer_county, population)
+
+# Make a dataframe joining them together
+west_virginia_2012 <- west_virginia_pills_2012 %>%
+  inner_join(west_virginia_population_2012)
+
+# Make the graph
+
+ggplot(west_virginia_2012) +
+  geom_point(aes(population, dosage_unit)) +
+  labs(x="2012 Population", y="Total pills in 2012", title="Raleigh County, Logan County \nhad high number of opioids relative to population in 2012", caption = "Source: DEA ARCOS database, via Washington Post", fill="buyer_county") +
+  scale_y_continuous(labels = comma) +
+  scale_x_continuous(labels = comma) + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  geom_smooth(aes(population, dosage_unit), method = "lm", se = FALSE) +
+  geom_text_repel(aes(population, dosage_unit, label=buyer_county),
+                  subset(west_virginia_2012, population > 30000))
+
+
+```
+
+
+## Submission
+
+Save the R Markdown file.  Knit it to HTML and make sure it compiles correctly. Upload to GitHub, as instructed.  Provide links to GitHub in ELMS.   
