@@ -345,9 +345,12 @@ Some guidelines:
   * [Upload your links to edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/5003898)
 
 
-*Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Analysis in R (exploratory visualization)
-* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
+*Online tutorial lab | Due by Tuesday at 11:29 a.m.*
+* Data Analysis in R (Exploratory visualization)
+  * [Download package of files you'll need to your local machine and unzip](labs/lab_06/lab_06.zip).
+  * [Watch lab video and follow along with step-by-step instructions](https://www.youtube.com/watch?v=Idb4R8dVlY0).
+  * Open Lab_06.Rmd file, listen and watch video, and follow along.  Modify code or write new code where needed. Upload to GitHub and then the links to [ELMS when done](https://umd.instructure.com/courses/1268776/assignments/5005913).
+* Optional, if you feel like you need additional help: [DataCamp, Introduction to the Tidyverse](https://www.datacamp.com/courses/introduction-to-the-tidyverse) and [Data Visualization with ggplot2 (Part 1)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-1) and [Data Visualization with ggplot2 (Part 2)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-2)
 
 *Readings for Homework*
 * None.
@@ -363,7 +366,6 @@ Some guidelines:
   * What additional data sources will be required to answer these questions.
   * What else has been written (including links) that is related to your questions.  
   * [ELMS link](https://umd.instructure.com/courses/1268776/discussion_topics/3744101?module_item_id=9725122)
-
 
 #### Week 9 - Oct 22
 
