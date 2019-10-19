@@ -117,7 +117,7 @@ When asking questions of data sets, it can be useful to see the answers as data 
 * They can help us see trends we might miss just looking at tables.  They can lead to conclusions or lead to more, and better, questions. 
 * When we polish off our R Markdown files and show them to an editor as part of a story pitch, visualizations can help make a more effective case. 
 * They can serve as a jumping off point for a visualization we may want to produce for a final story. 
-* And, lastly, we can make production ready graphic we can publish immediately. 
+* And, lastly, we can make production ready graphics we can publish immediately. 
 
 ## First Chart 
 
@@ -144,7 +144,7 @@ Okay, not bad, but a little basic.  We can change our function to make it look n
 ```{r}
   options(scipen=999)
  
- ggplot(baltimore_city_pills_per_year) +
+  ggplot(baltimore_city_pills_per_year) +
   geom_bar(stat="identity", aes(year, dosage_unit))
 
 ```
@@ -439,57 +439,9 @@ ggplot(maryland_2012) +
 
 **Task**: In the tutorial above, you followed the steps to create the graphic with the title: 
 "In Baltimore City, opioids fall in 2007, then climb steadily through 2012".  Create the same graphic, but instead of showing Baltimore City, show Mingo County, West Virginia.  You should adjust the title to reflect what the data shows. You'll need to created a subset of the arcos_county_pills_per_year to do this. 
-
-```{r}
-
-# Create a table with Mingo, WV pills per year  
-mingo_pills_per_year <- arcos_county_pills_per_year %>%
-  filter(buyer_state == "WV", buyer_county == "MINGO") %>%
-  select(year, dosage_unit)
-
-# Make the graph
-ggplot(mingo_pills_per_year) +
-  geom_bar(stat="identity", aes(year, dosage_unit), fill="royal blue") +
-  labs(x="Year", y="Total pills", title="In Mingo County, West Virginia, opioids spiked in 2008, before falling off sharply", subtitle = "Total pills shipped to Mingo, WV by year", caption = "Source: DEA ARCOS database, via Washington Post") +
-  scale_x_continuous(breaks = c(2006, 2007, 2008, 2009, 2010, 2011, 2012)) +
-  scale_y_continuous(labels = comma)
-
-```
-
 **Task**: In the tutorial above, you followed the steps to create the graphic with the title: 
 "Baltimore County, Baltimore City, Anne Arundel County had high number of opioids relative to population in 2012".  Create the same graphic, but instead of showing Maryland counties, show West Virginia counties. Adjust the title to reflect what the data shows.   You'll need to created a subset of the arcos_county_pills_per_year to do this, as well as pull in WV 2012 population data from the ARCOS api. 
 
-```{r}
-
-# Make a dataframe with West Virginia total pills per county in 2012
-west_virginia_pills_2012 <- arcos_county_pills_per_year %>%
-  filter(buyer_state == "WV", year=="2012") %>%
-  select(buyer_county, year, dosage_unit)
-
-# Make a dataframe with West Virginia total population in 2012
-west_virginia_population_2012 <- county_population(key = key) %>%
-  clean_names() %>%
-  filter(buyer_state == "WV", year=="2012") %>%
-  select(buyer_county, population)
-
-# Make a dataframe joining them together
-west_virginia_2012 <- west_virginia_pills_2012 %>%
-  inner_join(west_virginia_population_2012)
-
-# Make the graph
-
-ggplot(west_virginia_2012) +
-  geom_point(aes(population, dosage_unit)) +
-  labs(x="2012 Population", y="Total pills in 2012", title="Raleigh County, Logan County \nhad high number of opioids relative to population in 2012", caption = "Source: DEA ARCOS database, via Washington Post", fill="buyer_county") +
-  scale_y_continuous(labels = comma) +
-  scale_x_continuous(labels = comma) + 
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  geom_smooth(aes(population, dosage_unit), method = "lm", se = FALSE) +
-  geom_text_repel(aes(population, dosage_unit, label=buyer_county),
-                  subset(west_virginia_2012, population > 30000))
-
-
-```
 
 
 ## Submission
