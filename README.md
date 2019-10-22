@@ -378,7 +378,7 @@ Some guidelines:
   * Open the class_07.Rmd file in R Studio.
   * Follow the instructions step-by-step.
   * When you're finished, push changes to GitHub.
-  * [Upload your links to edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/5003898)
+  * [Upload your links to edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/5007171)
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Analysis in R (working with geographic data)
