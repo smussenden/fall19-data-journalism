@@ -350,8 +350,8 @@ Some guidelines:
   * [Download package of files you'll need to your local machine and unzip](labs/lab_06/lab_06.zip).
   * [Watch lab video and follow along with step-by-step instructions](https://www.youtube.com/watch?v=Idb4R8dVlY0).
   * Open Lab_06.Rmd file, listen and watch video, and follow along.  Modify code or write new code where needed. Upload to GitHub and then the links to [ELMS when done](https://umd.instructure.com/courses/1268776/assignments/5005913).
+* [Answer key](labs/lab_06/lab_06_key.Rmd)  
 * Optional, if you feel like you need additional help: [DataCamp, Introduction to the Tidyverse](https://www.datacamp.com/courses/introduction-to-the-tidyverse) and [Data Visualization with ggplot2 (Part 1)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-1) and [Data Visualization with ggplot2 (Part 2)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-2)
-  * [Answer key](labs/lab_06/lab_06_key.Rmd)  
 
 *Readings for Homework*
 * None.
