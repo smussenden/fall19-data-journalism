@@ -351,6 +351,7 @@ Some guidelines:
   * [Watch lab video and follow along with step-by-step instructions](https://www.youtube.com/watch?v=Idb4R8dVlY0).
   * Open Lab_06.Rmd file, listen and watch video, and follow along.  Modify code or write new code where needed. Upload to GitHub and then the links to [ELMS when done](https://umd.instructure.com/courses/1268776/assignments/5005913).
 * Optional, if you feel like you need additional help: [DataCamp, Introduction to the Tidyverse](https://www.datacamp.com/courses/introduction-to-the-tidyverse) and [Data Visualization with ggplot2 (Part 1)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-1) and [Data Visualization with ggplot2 (Part 2)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-2)
+  * [Answer key](labs/lab_06/lab_06_key.Rmd)  
 
 *Readings for Homework*
 * None.
@@ -370,21 +371,27 @@ Some guidelines:
 #### Week 9 - Oct 22
 
 *Tuesday Class*
-* Discussion:
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* Discussion: None.
+* In-class lab: finding stories in opioid data, with R and the Tidyverse and exploratory visualizations.
+  * Clone your class GitHub repo to your desktop.
+  * [Download this ZIP file](https://github.com/smussenden/fall19-data-journalism/blob/master/in_class_assignments/class_07/class_07.zip), which contains an R Markdown document and opioid data. Open it up, put it inside your class assignments folder.  Unzip the data.
+  * Open the class_07.Rmd file in R Studio.
+  * Follow the instructions step-by-step.
+  * When you're finished, push changes to GitHub.
+  * [Upload your links to edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/5003898)
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * Data Analysis in R (working with geographic data)
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-*
+* None.
 
 *Forum Posts | Due by Sunday at 11:59 p.m.*
-*
+* None.
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
-*
+* None.  You should be working on your data analysis project though, since an update will be due the following week.
 
 #### Week 10 - Oct 29
 

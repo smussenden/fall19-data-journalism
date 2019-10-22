@@ -1,0 +1,158 @@
+---
+title: "Class 07 | R continued"
+author: "Sean Mussenden"
+date: "10/18/2019"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE, paged.print=TRUE)
+```
+
+## Objective
+
+The purpose of this in-class assignment is to allow you to do some exploratory visualizations, including one to help with your final data analysis project. 
+
+## Tasks, Turning it In, Getting Help
+
+At several points throughout this document, you will see the word **Task**.  
+
+That indicates I'm expecting you to modify the file I've given you, usually by creating a codeblock and writing some custom code. 
+
+When you are finished, you should save your R markdown file and Knit it as an HTML file. 
+
+You should upload it to GitHub, using GitHub desktop. 
+
+And the links to your project is what you'll post on ELMS. 
+
+Need help?  You are welcome to do the following things:
+
+* Refer to the previous week's lab.
+* Use Google or search Stack Overflow. Try searching for your error message or translating your problem into basic terms.
+* Check out the excellent [R for Data Science](https://r4ds.had.co.nz/index.html)
+* Take a look at the [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) and [Tidyverse documentation](https://www.tidyverse.org/).
+  * [RStudio cheatsheet](https://www.rstudio.com/resources/cheatsheets/#ide)
+  * [Readr and Tidyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf) and [Readr documentation](https://readr.tidyverse.org/) and [Tidyr documentation](https://tidyr.tidyverse.org/reference/index.html).
+  * [Dplyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) and [Dplyr documentation](https://dplyr.tidyverse.org/)
+  * [Lubridate cheatsheet](https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf) and [Lubridate documentation](https://lubridate.tidyverse.org/).
+  * [GGPlot cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf) and [GGplot Documentation](https://ggplot2.tidyverse.org/reference/)
+  * [GitHub desktop help](https://help.github.com/en/desktop/getting-started-with-github-desktop)
+* If you're really stuck, message me on ELMS. 
+
+## Setup
+
+Take the following steps to set up your document:
+
+1. Download the ZIP file and open the folder inside of your class assignments folder.  It should contain this document, class_07.Rmd. 
+2. Open this file in RStudio.
+3. Rename this file "class_07_FIRSTNAME_LASTNAME.Rmd".
+5. Create a new R project inside of this folder, which will set the working directory in this folder.   
+
+## Load Packages
+
+We're loading four packages today: the Tidyverse (for general data science goodness and visualizations), janitor (for data cleaning), arcos (for loading WaPo opioid data), scales (for cleaning up visualization axes), ggrepel (for better scatterplot point labels). 
+
+We're also going to load a new package, [tidycensus](https://walkerke.github.io/tidycensus/index.html), for pulling in data from the U.S. Census.  
+
+**Task**: In the code block below, load the six packages we'll need for today. Install packages if necessary. 
+```{r}
+
+library(tidyverse)
+library(janitor)
+library(arcos)
+library(scales)
+library(ggrepel)
+library(tidycensus)
+
+```
+
+## Set ARCOS R Package API Key
+
+For this exercise, we will be working with subsets of the DEA's ARCOS database, which documented shipments of 76 billion opioid pills between 2006 and 2012, during the peak of the opioid epidemic. 
+
+The data was obtained after a lengthy legal battle by the Washington Post and the Charleston Gazette-Mail, and released by the Washington Post in raw and aggregated form. [Washington Post "Digging into the DEA's pain pill database" page](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/).
+
+A data dictionary is available here: [ARCOS Registrant Handbook](https://www.deadiversion.usdoj.gov/arcos/handbook/full.pdf).
+
+We're going to load opioid data exclusively from the arcos R package API [ARCOS API](https://wpinvestigative.github.io/arcos/) produced by the Washington Post, instead of uploading csvs and tsvs. 
+
+Remember, we need to store a password of sorts -- called an API key -- that will give us permission to access their data.  Here's a list of [API keys that will work](https://github.com/wpinvestigative/arcos-api/blob/master/keys/keys.txt).  
+
+Store the key first. 
+
+```{r}
+# store one of our API keys as an object called key
+key <- "uO4EK6I"
+```
+
+## Load Data
+
+Load the data you'll need for this package and clean up the column names.
+
+```{r}
+arcos_county_pills_per_year <- summarized_county_annual(key = key) %>%
+  clean_names()
+
+```
+
+## Build Exploratory Visualizations
+
+**Task**: Build an exploratory visualization to show year-over-year pill totals in Logan County, West Virginia between 2006 and 2012. It should have the following attributes:
+  * Chart Type: a bar chart, with one bar per year between 2006 and 2012. Make the bars forest green. 
+  * Axes: years on the x axis, pill totals on the y axis, with proper axis labels. The number for each year should be shown. Put commas in the pill totals on the y axis, so they're readable.   
+  * Text: put a descriptive title, subtitle and source line.  The title should describe the main takeaway.
+
+You should also write up a few sentences explaining the trend in a bit more detail.
+
+**Task**: Build an exploratory visualization to show how year-over-year pill totals in Logan County, West Virginia between 2006 and 2012 compare to five other West Virginia counties with high levels of opioid shipments. It should have the following attributes:
+  * Chart Type: six "small multiple" bar charts, arranged in a 3 x 2 grid.  There should be one bar chart per county. 
+  * Counties: one chart per county for the following counties: Kanawha, Cabell, Mingo, Raleigh, Logan and Wood.
+  * Axes: years on the x axis, pill totals on the y axis, with proper axis labels. The number for each year should be shown. Put commas in the pill totals on the y axis, so they're readable. Rotate the year labels so they're readable.    
+  * Text: put a descriptive title, subtitle and source line.  The title should describe the main takeaway.
+  
+You should also write up a few sentences explaining the trends in a bit more detail.
+
+**Task (This one is more challenging)**: Build a scatterplot that explores the relationship between the following two factors for Maryland counties: the pills per person rate (not total pills, but pills per person) for a county in 2012 and the county's median household income in 2012.  
+
+It should have the following attributes:
+* each point labeled with the county name. 
+* a blue "line of best fit" running through the data showing the trend line.  
+* a title that explains what you're seeing in the data.  Is there a trend?
+
+To get the data we're going to use for median household income, we're going to use the tidycensus package in R, which allows us to pull data directly from the U.S. Census' API. 
+
+Here's the code you'll need to pull it in. 
+
+```{r}
+
+#Get Median Household Income Data for each Maryland County from Tidycensus 
+# Help using TidyCensus, including how to find variables of interest. https://walkerke.github.io/tidycensus/articles/basic-usage.html
+
+# Define census api key.  I'm including mine here.  You may need to get your own. https://api.census.gov/data/key_signup.html
+
+census_api_key("549950d36c22ff16455fe196bbbd01d63cfbe6cf")
+
+# Store a table with the median household income value for each county using the get_acs() function.  ACS is short for American Community Survey, one of two main census products. In the table that's loaded in, the :estimate" is the median household income for that county, averaged over 5 years ending in 2012. 
+
+county_median_household_income <- get_acs(geography = "county", variables = c("B19013_001"), survey="acs5", year = 2012)
+
+# How did I get the variables?  I pulled in a table from the tidycensus package that lists all of the thousands of variables available through the census.  Load the table below and view it.  Use filters in the R Viewer window to find things you might want to use later. You can also find table and variable numbers at https://data.census.gov/cedsci/.
+
+acs_variables <- load_variables(2012, "acs5", cache = TRUE)
+
+# Filter just for Maryland counties
+md_county_median_household_income <- county_median_household_income %>%
+  filter(str_detect(NAME, ", Maryland"))
+
+
+```
+
+**Task**: Thinking ahead to your final data analysis project, build one exploratory visualization of your own choosing that might help you identify some interesting trend in the data. For many of you, this is a good opportunity to explore the tidycensus package.
+
+## Submission
+
+Save the R Markdown file.  Knit it to HTML and make sure it compiles correctly. Upload to GitHub, as instructed.  Provide links to GitHub in ELMS.   
