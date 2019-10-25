@@ -44,9 +44,13 @@ options(scipen = 999)
 
 ```{r}
 
+
+pharmacies <- pharm_tracts(key=key)
+
+addresses <- buyer_addresses(key=key)
 data <- buyer_details(key=key, state="MD")
 
-:k j0data <- combined_buyer_annual(key=key)
+data <- combined_buyer_annual(key=key)
 buyer_details()
 # Load list of total pills by county by year (2006 to 2012)
 county_pills_per_year <- summarized_county_annual(key = key) %>%
