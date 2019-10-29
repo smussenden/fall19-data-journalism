@@ -343,6 +343,7 @@ Some guidelines:
   * Follow the instructions step-by-step.
   * When you're finished, push changes to GitHub.
   * [Upload your links to edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/5003898)
+  * [Answer key](in_class_assignments/class_06/key_class_06.Rmd)  
 
 
 *Online tutorial lab | Due by Tuesday at 11:29 a.m.*
@@ -379,10 +380,16 @@ Some guidelines:
   * Follow the instructions step-by-step.
   * When you're finished, push changes to GitHub.
   * [Upload your links to edited Rmd file and html file to ELMS](https://umd.instructure.com/courses/1268776/assignments/5007171)
+  *  [Answer key](in_class_assignments/class_07/key_class_07.Rmd)  
+
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Analysis in R (working with geographic data)
-* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
+* Data Analysis in R (visualizing geographic data)
+  * [Download package of files you'll need to your local machine and unzip](labs/lab_07/lab_07.zip).
+  * [Watch lab video and follow along with step-by-step instructions](https://www.youtube.com/watch?v=trsqB0HdNPk&t=4s).
+  * Open Lab_07.Rmd file, listen and watch video, and follow along.  Modify code or write new code where needed. Upload to GitHub and then the links to [ELMS when done](https://umd.instructure.com/courses/1268776/assignments/5007179?module_item_id=9730193).
+* [Answer key TK]()  
+* Optional, if you feel like you need additional help: [DataCamp, Introduction to the Tidyverse](https://www.datacamp.com/courses/introduction-to-the-tidyverse) and [Data Visualization with ggplot2 (Part 1)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-1) and [Data Visualization with ggplot2 (Part 2)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-2) and [Working with geospatial data in R](https://www.datacamp.com/courses/working-with-geospatial-data-in-r)
 
 *Readings for Homework*
 * None.
@@ -396,21 +403,23 @@ Some guidelines:
 #### Week 10 - Oct 29
 
 *Tuesday Class*
-* Discussion:
-* In-class lab: finding stories in opioid data, with basic spreadsheet techniques
+* Discussion: None.
+* In-class lab: finding stories in opioid data, with mapping.
+  * There is no separate in-class lab this week.  We're going to work through the take home lab on visualizing geographic data together. See links above.  
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Functions
-* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
+* None. You should be working hard on your final data analysis project file due this week.
 
 *Readings for Homework*
-*
+* None.
 
 *Forum Posts | Due by Sunday at 11:59 p.m.*
-*
+* None.
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
-* Update on exploratory analysis and draft markdown file.
+* Forum post update on exploratory analysis and draft markdown file.
+  * In less than 300 words, describe what you've done so far, what you've found so far, and where you plan to go next.
+  * Also provide a link to your class GitHub repo, where you've created a well commented R Markdown file that shows your initial attempts at loading, cleaning, understanding and analyzing the data. It should contain at least 15 specific questions, answers and code to produce the answers those questions.  Make sure the repo is public. 
 
 #### Week 11 - Nov 5
 
@@ -419,7 +428,7 @@ Some guidelines:
 * In-class lab: finding stories in opioid data
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Cleaning in R, Working with Strings
+* Data Cleaning in R, Working with Strings, Functions
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*

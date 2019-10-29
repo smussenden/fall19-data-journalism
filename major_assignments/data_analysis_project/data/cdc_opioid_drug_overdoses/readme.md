@@ -28,3 +28,8 @@ The information included is:
 
 Note:
 * The rate in some small counties may not be reported for privacy reasons or because the estimate was deemed unreliable by the CDC.
+
+# NeoNatal Absitenance https://www.cdc.gov/mmwr/volumes/65/wr/mm6531a2.htm https://www.rand.org/pubs/tools/TL327/tool.html https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6089335/
+
+# AIDS
+https://aidsvu.org/resources/#/2008
