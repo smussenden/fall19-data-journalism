@@ -44,6 +44,7 @@ options(scipen = 999)
 
 ```{r}
 
+deaths <- read_tsv("../../major_assignments/data_analysis_project/data/cdc_opioid_drug_overdoses/2006-2012.txt")
 
 pharmacies <- pharm_tracts(key=key)
 

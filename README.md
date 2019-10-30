@@ -388,7 +388,7 @@ Some guidelines:
   * [Download package of files you'll need to your local machine and unzip](labs/lab_07/lab_07.zip).
   * [Watch lab video and follow along with step-by-step instructions](https://www.youtube.com/watch?v=trsqB0HdNPk&t=4s).
   * Open Lab_07.Rmd file, listen and watch video, and follow along.  Modify code or write new code where needed. Upload to GitHub and then the links to [ELMS when done](https://umd.instructure.com/courses/1268776/assignments/5007179?module_item_id=9730193).
-* [Answer key TK]()  
+  * [Answer key](labs/lab_07/lab_07_key.Rmd)  
 * Optional, if you feel like you need additional help: [DataCamp, Introduction to the Tidyverse](https://www.datacamp.com/courses/introduction-to-the-tidyverse) and [Data Visualization with ggplot2 (Part 1)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-1) and [Data Visualization with ggplot2 (Part 2)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-2) and [Working with geospatial data in R](https://www.datacamp.com/courses/working-with-geospatial-data-in-r)
 
 *Readings for Homework*
@@ -418,7 +418,7 @@ Some guidelines:
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * Forum post update on exploratory analysis and draft markdown file.
-  * In less than 300 words, describe what you've done so far, what you've found so far, and where you plan to go next. You should pull this from your Markdown file. Is there something you're having problems with, either conceptually or technically? Post it here. 
+  * In less than 300 words, describe what you've done so far, what you've found so far, and where you plan to go next. You should pull this from your Markdown file. Is there something you're having problems with, either conceptually or technically? Post it here.
   * Also provide a link to your class GitHub repo, where you've created a well commented R Markdown file that shows your initial attempts at loading, cleaning, understanding and analyzing the data. It should contain at least 15 specific questions, answers and code to produce the answers those questions.  Make sure the repo is public.
 
 #### Week 11 - Nov 5
