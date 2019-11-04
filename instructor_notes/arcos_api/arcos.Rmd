@@ -40,7 +40,18 @@ options(scipen = 999)
 ```
 
 ## Load Data
+```{r}
 
+aa <- county_raw(state="MD", county="Anne Arundel", key=key)
+
+tracts <- pharm_tracts(state="MD", county="ANNE ARUNDEL", key=key)
+
+pharmacies <- buyer_addresses(state="MD", county="ANNE ARUNDEL", key=key)
+
+aa_x <- aa %>%
+  inner_join(tracts, by=c("BUYER_DEA_NO"))
+
+```
 
 ```{r}
 

@@ -417,9 +417,10 @@ Some guidelines:
 * None.
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
-* Forum post update on exploratory analysis and draft markdown file.
+* Forum post update on exploratory analysis and draft markdown file. [ELMS link](https://umd.instructure.com/courses/1268776/discussion_topics/3758225)
   * In less than 300 words, describe what you've done so far, what you've found so far, and where you plan to go next. You should pull this from your Markdown file. Is there something you're having problems with, either conceptually or technically? Post it here.
   * Also provide a link to your class GitHub repo, where you've created a well commented R Markdown file that shows your initial attempts at loading, cleaning, understanding and analyzing the data. It should contain at least 15 specific questions, answers and code to produce the answers those questions.  Make sure the repo is public.
+
 
 #### Week 11 - Nov 5
 
