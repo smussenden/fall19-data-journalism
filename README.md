@@ -425,21 +425,24 @@ Some guidelines:
 #### Week 11 - Nov 5
 
 *Tuesday Class*
-* Discussion:
-* In-class lab: finding stories in opioid data
+* Discussion: One-on-one discussion of findings from analysis project assignments. Where to go next? 
+* In-class lab: Continued work on final analysis project.
+    * In class today, you will talk with me and continue working on your analysis project.
+    * At the end of class, submit a response to your original forum post with a brief update on what you did in class. [Link](https://umd.instructure.com/courses/1268776/discussion_topics/3758225?module_item_id=9740066)
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Cleaning in R, Working with Strings, Functions
+* Working with strings and functions; relationship tests;
 * Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
 
 *Readings for Homework*
-*
+* None.
 
 *Forum Posts | Due by Sunday at 11:59 p.m.*
-*
+* None.
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
-* Update on post-request follow-up for data acquisition project.
+* Brief update on post-request follow-up for data acquisition project. Describe outreach or responses you've gotten from your agency in 100 words or less. [Link](https://umd.instructure.com/courses/1268776/discussion_topics/3759290)
+* If you choose, update your analysis GitHub repo and respond to forum post saying what you did. [Link](https://umd.instructure.com/courses/1268776/discussion_topics/3758225?module_item_id=9740066)
 
 #### Week 12 - Nov 12
 
