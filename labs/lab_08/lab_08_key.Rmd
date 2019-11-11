@@ -88,6 +88,7 @@ library(tidycensus)
 library(scales)
 library(mapview)
 library(ggthemes)
+library(corrr)
 
 ```
 
@@ -112,46 +113,136 @@ key <- "uO4EK6I"
 
 ## Load ARCOS data
 
-Our goal today will be to build several maps that show which counties and states received more pills than other parts of the country, adjusted for population. So, to do that, we'll need to acquire both pill shipment data and population data, then calculate the pills per person statistic.  
 
-The ARCOS API has a table with total pills for each county for each year between 2006 and 2012.  Let's pull that down and clean and standardize the column headers with clean_names() . Remember to include the key. 
 
 ```{r}
 
 arcos_county_pills_per_year <- summarized_county_annual(key = key) %>%
   clean_names()
 
-```
-
-The ARCOS API also has a table with county population estimates for each year between 2006 and 2012.  Let's pull that down and clean and standardize the names. Remember to include the key. 
-
-```{r}
 arcos_county_population_per_year <- county_population(key = key) %>%
   clean_names()
-```
 
-As we saw in previous labs, there's an inconsistent number of records between the two tables.  This is because there are some counties in the population table that aren't in the pills table, and vice versa.  We can see what these are using the anti_join() function from the Tidyverse. Note: we need to join by the countyfips code and year.  
-
-```{r}
-# 999 records in our population table without a countyfips+year match in our pills table
-not_in_pills <- arcos_county_population_per_year %>%
-  anti_join(arcos_county_pills_per_year, by=c("countyfips","year"))
-
-# 595 records in our pills table without a countyfips+year match in population table.  
-not_in_population <- arcos_county_pills_per_year %>%
-  anti_join(arcos_county_population_per_year, by=c("countyfips","year"))
-```
-
-**Task**: Examine the not_in_population table.  Write a few sentences explaining patterns you see in which records show up in the pills table, but not in population table.  How could this cause problems for you in the future? 
-
-Okay, let's put them together. Remember we need to join them on both countyfips and year.  We're also going to throw in buyer_county and buyer_state, which exist in both tables, so we don't get the buyer_county.x and buyer_county.y weirdness. 
-
-We're going to inner join here with population on the left side, because we want a consistent set of U.S. counties for when we do mapping later. And we're going to make a judgment call that it's okay to exclude pill shipments for which there were no assigned counties, which is what we're doing when we do the left join. 
-
-```{r}
 pills_population <- arcos_county_population_per_year %>%
-  left_join(arcos_county_pills_per_year, by = c("countyfips", "year", "buyer_county","buyer_state")) 
+  left_join(arcos_county_pills_per_year, by = c("countyfips", "year", "buyer_county","buyer_state")) %>%
+  group_by(countyfips, buyer_county, buyer_state) %>%
+  summarise(average_pills_per_year = mean(dosage_unit),
+            average_population_per_year = mean(population)) %>%
+  mutate(average_pills_per_person = round(average_pills_per_year/average_population_per_year,2))
+
 ```
+
+# Load Death Rate Data
+
+```{r}
+opioid_deaths <- read_tsv("data/2006-2012.txt") %>%
+  clean_names() %>%
+  filter(!str_detect(age_adjusted_rate, "Unreliable|Suppressed|Missing")) %>%
+  select(county_code, county, deaths, age_adjusted_rate) %>%
+  mutate(deaths = as.numeric(deaths),
+         age_adjusted_rate = as.numeric(age_adjusted_rate))
+
+```
+
+# Join 
+
+End up with about 1066 records.  For smallest counties, where weren't lot of pill shipments, death rate data is unreliable. 
+
+```{r}
+death_rate_pills <- pills_population %>%
+  inner_join(opioid_deaths, by=c("countyfips" = "county_code"))
+
+```
+
+# Examine Table
+
+
+# Explore relationship
+Fairly tightly packed, but lots of exceptions, line moving up
+
+```{r}
+ggplot(death_rate_pills) +
+  geom_point(aes(average_pills_per_person, age_adjusted_rate)) +
+  geom_smooth(aes(average_pills_per_person, age_adjusted_rate), method = "lm", se = FALSE)  +
+  scale_y_continuous(labels = comma) +
+  scale_x_continuous(labels = comma)  +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(x="Average Annual Pills Per Person", y="age_adjusted Annual Opioid Death Rate", title="", caption = "Source: DEA ARCOS database, via Washington Post")
+```
+
+# Exact Correlation
+
+```{r}
+
+death_rate_pills %>%
+  ungroup() %>%
+  select(age_adjusted_rate, average_pills_per_person) %>%
+  correlate()
+
+```
+
+```{r}
+death_rate_pills %>%
+  ungroup() %>%
+  select_if(is.numeric) %>%
+  correlate()
+
+```
+
+# Now let's pull in census data 
+
+```{r}
+census_api_key("549950d36c22ff16455fe196bbbd01d63cfbe6cf")
+# acs_variables <- load_variables(2017, "acs5" )
+county_median_household_income <- get_acs(geography = "county", 
+              variables="B19013_001", year=2012, geometry = FALSE)
+
+```
+
+# Join it to our other data
+
+```{r}
+death_rate_pills_income <- death_rate_pills %>%
+  inner_join(county_median_household_income, by=c("countyfips" = "GEOID")) %>%
+  rename(median_household_income = estimate)
+
+glimpse(death_rate_pills_income)
+```
+
+# Task: make a scatterplot for deaths vs income
+
+```{r}
+ggplot(death_rate_pills_income) +
+  geom_point(aes(median_household_income, age_adjusted_rate)) +
+  geom_smooth(aes(median_household_income, age_adjusted_rate), method = "lm", se = FALSE)  +
+  scale_y_continuous(labels = comma) +
+  scale_x_continuous(labels = comma)  +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(x="Average Annual Pills Per Person", y="age_adjusted Annual Opioid Death Rate", title="", caption = "Source: DEA ARCOS database, via Washington Post")
+```
+
+# Task: make a scatterplot for shipments v income
+
+```{r}
+ggplot(death_rate_pills_income) +
+  geom_point(aes(average_pills_per_person, age_adjusted_rate)) +
+  geom_smooth(aes(average_pills_per_person, age_adjusted_rate), method = "lm", se = FALSE)  +
+  scale_y_continuous(labels = comma) +
+  scale_x_continuous(labels = comma)  +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(x="Average Annual Pills Per Person", y="age_adjusted Annual Opioid Death Rate", title="", caption = "Source: DEA ARCOS database, via Washington Post")
+```
+
+# Build a table that has all three. 
+
+```{r}
+death_rate_pills_income %>%
+  ungroup() %>%
+  select(median_household_income, age_adjusted_rate, average_pills_per_person) %>%
+  correlate()
+```
+
+# Task: Go out and get one more census variable. What is it
 
 Now we're going to clean up our data set a bit by first creating a new column with the state code, by taking the first two digits from our countyfips column, using str_sub() from the stringr package. We'll need this to map states later on. 
 
