@@ -42,7 +42,7 @@ options(scipen = 999)
 ## Load Data
 ```{r}
 
-aa <- county_raw(state="MD", county="Anne Arundel", key=key)
+aa <- county_raw(state="WV", county="Mingo", key=key)
 
 tracts <- pharm_tracts(state="MD", county="ANNE ARUNDEL", key=key)
 
