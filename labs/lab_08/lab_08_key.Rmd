@@ -1,5 +1,5 @@
 ---
-title: "Lab 07 | R continued"
+title: "Lab 08 | R continued"
 author: "Sean Mussenden"
 date: "10/26/2019"
 output:
@@ -112,7 +112,6 @@ key <- "uO4EK6I"
 ```
 
 ## Load ARCOS data
-
 
 
 ```{r}
@@ -244,328 +243,86 @@ death_rate_pills_income %>%
 
 # Task: Go out and get one more census variable. What is it
 
-Now we're going to clean up our data set a bit by first creating a new column with the state code, by taking the first two digits from our countyfips column, using str_sub() from the stringr package. We'll need this to map states later on. 
+# For Loops
+
+Repeatable 
 
 ```{r}
 
-pills_population <- pills_population %>%
-   mutate(statefips = str_sub(countyfips, 1,2)) %>%
-   select(statefips, countyfips, buyer_county, buyer_state,year, population,dosage_unit) 
+statelist <- c("Maryland", "Virginia","Texas")
+
+for (state in statelist) {
+  print(state)
+}
 
 ```
 
-Good. Now we have a nice table we can use to build our maps.   
-
-Before we do that, we'll need to get some shapefiles, or collections of coordinates to draw the map, be it states or counties. 
-
-## Load Shapefiles
-
-There are lots of places to get shapefiles for all sorts of geographies.  The U.S. Census is one of the best! They have a repository called [TIGER](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html) where you can get a lot.  Luckily for us, the tidycensus package allows us to pull in this data directly.
-
-First, we need to store our API Key. You can use mine for now, but best to [get your own](https://api.census.gov/data/key_signup.html). 
-
 ```{r}
-# Define API Key
-census_api_key("549950d36c22ff16455fe196bbbd01d63cfbe6cf")
+statelist <- c("Maryland", "Virginia","Texas")
 
-# If you need to look up variables, this is how you do it
-# acs_variables <- load_variables(2017, "acs5" )
+for (name in statelist) {
+  print(name)
+}
 
 ```
 
-The tidycensus allows us to pull in information from the census by many different geographies -- and pull in the "geometry" for the geographic units we define with it. 
-
-We're going to pull in four sets of data here.
-
-First, lets pull in county and state.  The "variable" here is just a count of total population, but it doesn't really matter.  We just want the geometry, which we get by selecting gemoetry=TRUE.  
-
 ```{r}
 
-county_geodata <- get_acs(geography = "county", 
-              variables = "B01001_001", geometry = TRUE)
-
-state_geodata <- get_acs(geography = "state", 
-              variables = "B01001_001", geometry = TRUE)
+arcos_state_pills_per_year <- arcos_county_pills_per_year %>%
+  group_by(buyer_state, year) %>%
+  summarise(total_pills = sum(dosage_unit))
 
 ```
 
-Let's take a look at these files.  Warning, if you're working on a slow machine, don't view it, as it *may* crash your R instance.  Just watch the video. The last column has geometry information, a collection of lat and long points that form a polygon shape. 
+``` {r}
 
-We're also going to pull down "shifted" geometry, because it will help us make better maps.  Instead of putting Hawaii and Alaska in their usual spots on the globe -- which makes the map unncessarily large -- it moves them into a spot right near the continental U.S. You've seen maps like this. I'll show you an example in a second. 
-
-```{r}
-
-county_geodata_shifted <- get_acs(geography = "county", 
-              variables = "B01001_001", geometry = TRUE, shift_geo = TRUE)
-
-state_geodata_shifted <- get_acs(geography = "state", 
-              variables = "B01001_001", geometry = TRUE, shift_geo = TRUE)
-
-```
-
-## Look at our shapefiles
-
-Let's take a look at the columns in our shapefiles.  We can View, but if you're computer is too slow to View, run the code below.  Unfortunately, we can't use glimpse() or summary() on the file now that it contains geo information, for some reason.
-
-```{r}
-
-print(head(state_geodata_shifted))
-
-```
-
-
-## Build a simple map just from shapefiles
-
-Let's make a simple map just from our population shapefiles to see how ggplot2 treats geospatial data. 
-
-Three lines of code is all we need.  First, the dataframe we're doing this to, which contains our spatial information.  Then we tell it to make a ggplot graphic, using our population information (the variable is called "estimate" in our table) to fill in the shapes with a color gradient.  Then geom_sf() says "take the information in the geometry column" and draw a map!
-
-```{r}
-state_geodata_shifted %>%
-  ggplot(aes(fill = estimate)) + 
-  geom_sf() 
-
-# Turn off scientific notation if your legend looks weird
-#options(scipen=999)
-
-```
-
-Nice! Okay, just like with ggplot2 in the last lab, we can keep adding stuff to our function to fix the styling. I don't know about you, but those geographic coordinates are useless information, so we can get rid of those.  Fortunately, the theme_map() function that's part of ggthemes package will take care of it.  
-
-```{r}
-state_geodata_shifted %>%
-  ggplot(aes(fill = estimate)) + 
-  geom_sf() + 
-  theme_map()
-```
-
-I don't love those state line borders.  Let's set the width (lwd) to 0. 
-
-```{r}
-state_geodata_shifted %>%
-  ggplot(aes(fill = estimate)) + 
-  geom_sf(lwd = 0) + 
-  theme_map() 
-```
-
-Now, let's clean up the legend title, put commas in the legend labels, and move the legend to the right. 
-
-```{r}
-state_geodata_shifted %>%
-  ggplot(aes(fill = estimate)) + 
-  geom_sf(lwd = 0) + 
-  theme_map() + 
-  labs(fill='Population') +
-  scale_fill_continuous(labels = comma) +
-  theme(legend.position="right")
-
-```
-
-Let's give it a title, subtitle and source. 
-
-```{r}
-state_geodata_shifted %>%
-  ggplot(aes(fill = estimate)) + 
-  geom_sf(lwd = 0) + 
-  theme_map() + 
-  labs(fill='Population',title="California, Texas have largest populations", subtitle = "2017 population, U.S. Census", caption = "Source: U.S. Census ACS") +
-  scale_fill_continuous(labels = comma) +
-  theme(legend.position="right")
-```
-
-And lastly, let's give it a cooler color scheme, [viridis](https://ggplot2.tidyverse.org/reference/scale_viridis.html).  
-
-```{r}
-state_geodata_shifted %>%
-  ggplot(aes(fill = estimate)) + 
-  geom_sf(lwd = 0) + 
-  theme_map() + 
-  labs(fill='Population',title="California, Texas have largest populations", subtitle = "2017 population, U.S. Census", caption = "Source: U.S. Census ACS") +
-  theme(legend.position="right") +
-  scale_fill_viridis_c(option = "magma",labels = comma)
-
-# Also try "plasma", "viridis", "cividis"
-```
-
-Note: we're just scratching the surface here of all the options for mapping in ggplot2. [Link](https://ggplot2.tidyverse.org/reference/index.html).  And there are other mapping libraries we can use. 
-
-## Simple Interactive Map
-
-Before we move on, I want to show you how we can create a simple interactive map we can use to further explore the data with the mapview library.  
-
-After we've loaded the mapview package, the function we use is called "mapview".  We feed it the name of our data set, the name of the variable we want to visualize and indicate if we want a legend.  That's pretty much it. 
-
-```{r}
-
-mapview(state_geodata_shifted, zcol = "estimate", legend = TRUE)
-
-```
-
-## Pills per person state map
-
-Okay, so now our goal is to look for regional trends in opioid shipment rates by building a state map that shows pills per person shipped per year.
-
-Remember our pills_population table we made above?  Let's make a state table looking at state totals in 2009. 
-
-First, we filter just for 2009. Then we group by the state fips code and buyer state.  Then we add up all of the pills shipped to that state in 2009 and the population for that state in 2009, creating two new columns.   
-
-```{r}
-
-pills_population_state_2009 <- pills_population %>%
-  filter(year==2009) %>%
-  group_by(statefips, buyer_state) %>%
-  summarise(total_pills=sum(dosage_unit, na.rm = TRUE),
-            total_population=sum(population, na.rm=TRUE)) %>%
-  mutate(pills_per_person=total_pills/total_population)
-
-```
-
-Now, let's join it to our shapefile data for our states, using the GEOID from our shapefile and statefips, the column we created with the state code. 
-
-```{r}
-
-geo_pills_population_state_2009 <- state_geodata_shifted %>%
- inner_join(pills_population_state_2009, by=c("GEOID" = "statefips"))
-
-```
-
-Okay, first, let's build an interactive version of the map.
-
-**Task**: Using the mapview() function we used above, show an interactive map that shades each state according to the pills per person rate in 2009. 
-
-```{r}
-mapview(geo_pills_population_state_2009, zcol = "pills_per_person", legend = TRUE)
-```
-
-Now let's plot a basic version.
-
-```{r}
-geo_pills_population_state_2009 %>%
-  ggplot(aes(fill = pills_per_person)) + 
-  geom_sf() 
-
-```
-
-**Task**: stylize the map, making it look like the final population map we created in the first part of the exercise with two changes: *center the legend on the bottom of the graphic*, instead of at right. You might try searching for legend.position on Google. And write up a headline, subtitle and source appropriate for the chart.  
-
-```{r}
-geo_pills_population_state_2009 %>%
-  ggplot(aes(fill = pills_per_person)) + 
-  geom_sf(lwd = 0) + 
-  theme_map() + 
-  labs(fill='Pills per Person (2009)',title="Appalachia saw high rates of opioid shipments", subtitle = "In 2009, the number of opioids shipped per person was highest in West Virginia, Kentucky", caption = "Source: ARCOS database") +
-  theme(legend.position="bottom") +
-  scale_fill_viridis_c(option = "magma",labels = comma) 
-```
-
-## Facets 
-
-Let's say we want to create a single map for each year between 2006 and 2012, to see how the rate of pills per person changed over time in each state. 
-
-First, we'll group by statefips, buyer state and year.  Then, we'll calculate total pills and total population for each state for each year, before piping those columns into our pills per person calculation.
-
-That will give us one pills_per_person rate per state per year. 
-
-```{r}
-pills_population_state <- pills_population %>%
-  group_by(statefips, buyer_state, year) %>%
-  summarise(total_pills=sum(dosage_unit, na.rm = TRUE),
-            total_population=sum(population, na.rm=TRUE)) %>%
-  mutate(pills_per_person=total_pills/total_population)
-
-```
-
-Now, let's join it to our shapefile data for our states, using the GEOID from our shapefile and statefips, the column we created with the state code. 
-
-```{r}
-
-geo_pills_population_state <- state_geodata_shifted %>%
- inner_join(pills_population_state, by=c("GEOID" = "statefips"))
-
-```
-
-And now, let's plot it. This is the same as above, but I've added one line: facet_wrap(~year, nrow=2).
-
-This says: make one chart for each year, using the year column and organize the grid into two rows. 
-
-```{r}
-
-geo_pills_population_state %>%
-  ggplot(aes(fill = pills_per_person)) + 
-  facet_wrap(~year, nrow=2) +
-  geom_sf(lwd = 0) + 
-  theme_map() + 
-  labs(fill='Pills per Person',title="", subtitle = "", caption = "Source: ARCOS database") +
-  theme(legend.position="bottom") +
-  scale_fill_viridis_c(option = "magma",labels = comma) 
-
-```
-
-**Task**: copy the code above and paste it below.  Modify the title and subtitle to describe the trend you identify with the map.  What happens between 2006 and 2012?  
-
-```{r}
-
-geo_pills_population_state %>%
-  ggplot(aes(fill = pills_per_person)) + 
-  facet_wrap(~year, nrow=2) +
-  geom_sf(lwd = 0) + 
-  theme_map() + 
-  labs(fill='Pills per Person',title="Starting slow, pill shipments rapidly increase between 2006 and 2012 ", subtitle = "Pills per person shipped to each state, 2006 to 2012", caption = "Source: ARCOS database") +
-  theme(legend.position="bottom") +
-  scale_fill_viridis_c(option = "magma",labels = comma) 
-
-```
-
-**Task**: Make a single INTERACTIVE map that is colored based on the number of pills per person in each county in 2009. Provide a short writeup on what you find.What trends do you see, beyond Appalachia? Note: the map will probably open in a web broswer. 
-
-```{r}
-
-# Filter pills population table just for 2009.  
-pills_population_county_2009 <- pills_population %>%
-  filter(year == 2009) %>%
-  group_by(countyfips, buyer_county, buyer_state) %>%
-  summarise(pills_per_person = dosage_unit/population)
-
-# Join it to county shifted shapefile 
-geo_pills_population_county_2009 <- county_geodata_shifted %>%
-  left_join(pills_population_county_2009, by=c("GEOID" = "countyfips"))
-
-# View interactive map
-mapview(geo_pills_population_county_2009, zcol = "pills_per_person", legend = TRUE)
-
-```
-
-**Task**: Make a static facet map, with one map per year between 2006 and 2012, *showing only Maryland counties*, colored based on the number of pills per person in each county in each year.  Provide a short writeup on what you find. What trends do you see?
-
-
-```{r}
-
-# Filter pills population table just for Maryland.  
-pills_population_county_maryland <- pills_population %>%
+arcos_state_pills_per_year %>%
   filter(buyer_state == "MD") %>%
-  group_by(countyfips, buyer_county, buyer_state, year) %>%
-  summarise(total_pills=sum(dosage_unit, na.rm = TRUE),
-            total_population=sum(population, na.rm=TRUE)) %>%
-  mutate(pills_per_person=total_pills/total_population)
+  ggplot() + 
+  geom_bar(stat="identity", aes(year, total_pills), fill="royal blue") +
+  labs(x="Year", y="Total pills", title="") +
+  scale_x_continuous(breaks = c(2006, 2007, 2008, 2009, 2010, 2011, 2012)) +
+  scale_y_continuous(labels = comma)
 
-# Join it to county shifted shapefile 
-geo_pills_population_county_maryland <- county_geodata_shifted %>%
-  inner_join(pills_population_county_maryland, by=c("GEOID" = "countyfips"))
+```
+```{r}
 
-# Draw the facet map
-geo_pills_population_county_maryland %>%
-  ggplot(aes(fill = pills_per_person)) + 
-  facet_wrap(~year, nrow=2) +
-  geom_sf(lwd = 0) + 
-  theme_map() + 
-  labs(fill='Pills per Person',title="Starting slow, pill shipments rapidly increase between 2006 and 2012 ", subtitle = "Pills per person shipped to Maryland counties, 2006 to 2012", caption = "Source: ARCOS database") +
-  theme(legend.position="bottom") +
-  scale_fill_viridis_c(option = "magma",labels = comma) 
+arcos_state_pills_per_year %>%
+  filter(buyer_state == "MD" | buyer_state == "TX" | buyer_state == "VA") %>%
+  ggplot() + 
+  geom_bar(stat="identity", aes(year, total_pills), fill="royal blue") +
+  facet_grid(. ~ buyer_state) +
+  labs(x="Year", y="Total pills", title="") +
+  scale_x_continuous(breaks = c(2006, 2007, 2008, 2009, 2010, 2011, 2012)) +
+  scale_y_continuous(labels = comma)
 
+```
+
+```{r}
+
+statelist <- c("MD", "VA","TX")
+
+for (state in statelist) {
+
+plot <- arcos_state_pills_per_year %>%
+  filter(buyer_state == state) %>%
+  ggplot() + 
+  geom_bar(stat="identity", aes(year, total_pills), fill="royal blue") +
+  facet_grid(. ~ buyer_state) +
+  labs(x="Year", y="Total pills", title="") +
+  scale_x_continuous(breaks = c(2006, 2007, 2008, 2009, 2010, 2011, 2012)) +
+  scale_y_continuous(labels = comma)
+
+print(plot)
+
+}
 
 
 
 ```
+
+# Task: what other cases could using a forloop be good for.  
+
 
 ## Submission
 
