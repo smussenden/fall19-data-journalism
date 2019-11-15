@@ -425,7 +425,7 @@ Some guidelines:
 #### Week 11 - Nov 5
 
 *Tuesday Class*
-* Discussion: One-on-one discussion of findings from analysis project assignments. Where to go next? 
+* Discussion: One-on-one discussion of findings from analysis project assignments. Where to go next?
 * In-class lab: Continued work on final analysis project.
     * In class today, you will talk with me and continue working on your analysis project.
     * At the end of class, submit a response to your original forum post with a brief update on what you did in class. [Link](https://umd.instructure.com/courses/1268776/discussion_topics/3758225?module_item_id=9740066)
@@ -466,7 +466,7 @@ Some guidelines:
 #### Week 13 - Nov 19
 
 *Tuesday Class*
-* Presentations: Data acquisition project.
+* Presentations:
 * In-class lab:
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
@@ -480,7 +480,7 @@ Some guidelines:
 *
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
-*
+* Slide deck for data acquisition project presentation.
 
 #### Week 14 - Nov 26
 
