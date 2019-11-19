@@ -132,6 +132,24 @@ Miller - Still has to do pretty much all the work.  And need to remind him that 
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
 * Slide deck for data acquisition project presentation.
+*
+
+https://docs.google.com/presentation/d/1_nba_Hrl6WGuSgH4nBip1GWpZO2oh-DlkV2YwaKjHiQ/edit#slide=id.g75784daa40_0_5
+
+
+
+
+## Presentation and Slide Deck
+
+You will make a verbal presentation to the class (5 minutes) on your project. During the presentations, we will discuss your experiences and what steps might help to pry the data from reluctant gatekeepers.  You should include the following elements, with exactly one slide for each one.
+
+* About the database:  Describe the database you sought and whom you sought it from.
+* About the law: How did you determine that these are public records?
+* About the negotiation: Tell us about your contacts with the agency. Did officials put up barriers to access or accommodate you? Did they object to releasing the data in electronic form? What was the outcome?
+* Looking ahead: If you have not obtained the data, what steps would you or someone else need to take to perfect the request?
+* Lessons learned: What did you learn from this project that you might be able to apply to future reporting efforts and that would be useful for other students to know?  Did you learn anything about yourself? Your insights here are an important feature of the assignment.
+
+
 
 #### Week 14 - Nov 26
 

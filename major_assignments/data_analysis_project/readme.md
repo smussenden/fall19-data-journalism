@@ -64,8 +64,7 @@ You should approach the assignment with several motivating questions (or even hy
   * In less than 300 words, describe what you've done so far, what you've found so far, and where you plan to go next. You should pull this from your Markdown file. Is there something you're having problems with, either conceptually or technically? Post it here.
   * Also provide a link to your class GitHub repo, where you've created a well commented R Markdown file that shows your initial attempts at loading, cleaning, understanding and analyzing the data. It should contain at least 15 specific questions, answers and code to produce the answers those questions.  Make sure the repo is public.
 
-
-**Week 13:** a link to your repo with updated data analysis. It should contain at least 30 specific questions, answers and code to produce the answers to those questions.  
+**Week 14:** a link to your repo with updated data analysis. It should contain at least 30 specific questions, answers and code to produce the answers to those questions.  
 
 **Week 15:** Story pitch memo and a clean GitHub repo with R Markdown file that you used to produce the findings detailed in your memo.
 
