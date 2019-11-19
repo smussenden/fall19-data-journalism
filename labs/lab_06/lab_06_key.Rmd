@@ -345,8 +345,7 @@ Pretty plain.  Let's clean it up by adding a title and source, adding commas to 
 
 ```{r}
 
-ggplot(maryland_2012) +
-  geom_point(aes(population, dosage_unit)) +
+     pulation, dosage_unit)) +
   labs(x="2012 Population", y="Total pills in 2012", title="Maryland county population and total opioids in 2012", caption = "Source: DEA ARCOS database, via Washington Post", fill="buyer_county") +
   scale_y_continuous(labels = comma) +
   scale_x_continuous(labels = comma) +
