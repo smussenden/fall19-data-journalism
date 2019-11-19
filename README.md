@@ -447,65 +447,64 @@ Some guidelines:
 #### Week 12 - Nov 12
 
 *Tuesday Class*
-* Discussion:
-* In-class lab: finding stories in opioid data
+* Discussion: No class.  Sean was out sick.
+* In-class lab: No class. Sean was out sick.
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Acquisition in R (Working with APIs)
-* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
+* No lab: Sean was out sick.
 
 *Readings for Homework*
-*
+* None.
 
 *Forum Posts | Due by Sunday at 11:59 p.m.*
-*
+* None.
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
-* Slide deck for data acquisition project presentation.
+* None.
 
 #### Week 13 - Nov 19
 
 *Tuesday Class*
-* Presentations:
-* In-class lab:
+* Discussion: Update on plan for end of semester.
+* In-class lab: None. Work on final analysis project.
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Acquisition in R (Working with Databases)
-* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
+* Optional lab: correlations and functions. Only if you need help for final project.
 
 *Readings for Homework*
-*
+* None.
 
 *Forum Posts | Due by Sunday at 11:59 p.m.*
-*
+* None.
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
-* Slide deck for data acquisition project presentation.
+* Slide deck for data acquisition project presentation. Make a [copy of this template](https://docs.google.com/presentation/d/1_nba_Hrl6WGuSgH4nBip1GWpZO2oh-DlkV2YwaKjHiQ/edit#slide=id.g75784daa40_0_5), follow the instructions on the deck on how to structure your presentation and the slides.  [Post the link to your slides to ELMS](https://umd.instructure.com/courses/1268776/discussion_topics/3769299).
 
 #### Week 14 - Nov 26
 
 *Tuesday Class*
 * Presentations: Data acquisition project.
-* In-class lab: finding stories in opioid data
+* In-class lab: none.
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
-* Data Acquisition in R (Basic Web scraping)
-* Optional, if you feel like you need additional help: [DataCamp](https://www.datacamp.com/home)
+* None. Work on final project.
 
 *Readings for Homework*
-*
+* None.
 
 *Forum Posts | Due by Sunday at 11:59 p.m.*
-*
+* None.
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
-* Update on targeted data analysis, draft markdown file, supporting research and reporting.
+* Forum post update on exploratory analysis and draft markdown file. [ELMS link](https://umd.instructure.com/courses/1268776/discussion_topics/3769308)
+  * In less than 300 words, describe what you've done so far, what you've found so far, and where you plan to go next. You should pull this from your Markdown file. Is there something you're having problems with, either conceptually or technically? Post it here.
+  * Also provide a link to your class GitHub repo, where you've created a well commented R Markdown file that shows your initial attempts at loading, cleaning, understanding and analyzing the data. It should contain at least 30 specific questions, answers and code to produce the answers those questions.  Make sure the repo is public.
 
 #### Week 15 - Dec 3
 
 *Tuesday Class*
-* Discussion:
-* In-class lab: finding stories in opioid data
+* Discussion: none.
+* In-class lab: work on final data analysis project.
 
 *Online tutorial lab | Due by Sunday at 11:59 p.m.*
 * None, work on final project.
@@ -517,9 +516,9 @@ Some guidelines:
 * None
 
 *Major Assignment Milestones | Due by Sunday at 11:59 p.m.*
-* Story pitch memo due and "pitch your editor" short presentation due.   
+* Story pitch memo due and markdown file due.   
 
-####Week 16 (Exam Block) - Week of Dec 10
+####Week 16 (Exam Block) - Week of Dec 10 (Thursday, December 12 1:30-3:30pm)
 
 *Class*
-* Story pitch presentations
+* Story pitch presentations.

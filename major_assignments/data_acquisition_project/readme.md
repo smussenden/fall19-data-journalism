@@ -83,9 +83,9 @@ Here are the milestones you'll need to follow:
 * Week 7 - Draft of public records request due by Sunday and link to Google spreadsheet contact log.  
 * Week 8 - Send public records request by Sunday.
 * Week 11 - Forum post with update on post-request reporting due by Sunday and link to Google spreadsheet contact log.
-* Week 12 - Slide deck for project presentation due by Sunday and link to Google spreadsheet contact log.
-* Week 13 - Half of class project presentations.
-* Week 14 - Half of class project presentations.
+* Week 13 - Slide deck for project presentation due by Sunday and link to Google spreadsheet contact log.
+* Week 14 - Project presentations.
+
 
 ## Contact log
 
