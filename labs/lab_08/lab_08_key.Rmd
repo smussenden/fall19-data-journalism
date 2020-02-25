@@ -17,20 +17,10 @@ knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE, paged.print=TRU
 
 The purpose of this lab is to continue learning a journalistic approach to data analysis in R. 
 
-We will continue to do things learned in previous labs:
+We will continue to do things learned in previous labs, and also learn today:
 
-* Writing R code for data analysis and exploration in the R Studio environment, using R projects (.Rproj) and R markdown files (.Rmd).  
-* Loading, cleaning, making sense of and analyzing data using the Tidyverse framework of packages by selecting certain columns, sorting and filtering
-* Create new columns in our data set based on information in other columns.   
-* Summarizing data by grouping and calculating min, max, median and mean values.    
-* Store changes on GitHub.
-* Join together two related data sets on a common field.  
-* Do some additional data cleaning, including fixing dates so we can work with them. 
-* To make visualizations.
-
-Today, we'll also learn:
-
-* To do some basic mapping using the GGPlot2 package. 
+* To explore relationships between two variables with both graphs and with a statistical test.
+* To use functions to make it easy to do repeatable tasks.
 
 ## How this works, tasks, turning it in, getting help
 
@@ -58,6 +48,7 @@ Need help?  You are welcome to do the following things:
   * [GGPlot cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf) and [GGplot Documentation](https://ggplot2.tidyverse.org/reference/)
   * [Mapping Tutorials](https://walkerke.github.io/tidycensus/articles/spatial-data.html)
   * [GitHub desktop help](https://help.github.com/en/desktop/getting-started-with-github-desktop)
+  * [Corrr Package](https://github.com/tidymodels/corrr)
 * If you're really stuck, message me on ELMS. 
 
 ## Setup
@@ -67,27 +58,27 @@ Take the following steps to set up your document:
 1. Download the ZIP file and open the folder on your desktop. 
 2. Create a new folder in your git repo and move it in there. Unzip the folder.
 3. Open this file in RStudio.
-4. Rename this file "lab_07_FIRSTNAME_LASTNAME.Rmd".
+4. Rename this file "lab_08_FIRSTNAME_LASTNAME.Rmd".
 5. Create a new R project inside of this folder, which will set the working directory in this folder.   
 
 ## Load Packages
 
-We're loading seven packages today. five of these we've loaded previously: the Tidyverse (for general data science goodness and visualizing charts and maps), janitor (for data cleaning), arcos (for loading WaPo opioid data) and tidycensus (for loading census data) and scales for cleaning up axis labels and legends.
+We're loading seven packages today. 
 
-We're also going to load two new packages: [mapview](https://r-spatial.github.io/mapview/) (for making interactive maps) and [ggthemes](https://rdrr.io/cran/ggthemes/) (for doing cool styling stuff).  
+Five of these we've loaded previously: the Tidyverse (for general data science goodness and visualizing charts and maps), janitor (for data cleaning), arcos (for loading WaPo opioid data) and tidycensus (for loading census data) and scales for cleaning up axis labels and legends.
+
+We're also going to load one new package: [corrr](https://github.com/tidymodels/corrr), which is a package that helps us calculate the correlation coefficient between two variables, for examining relationships. .  
 
 **Task**: In the code block below, load the packages we'll need for today. 
 
 ```{r}
 
-# Load Tidyverse, janitor and arcos, tidycensus, mapview, ggthemes, scales
+# Load Tidyverse, janitor and arcos, tidycensus, scales and corrr
 library(tidyverse)
 library(janitor)
 library(arcos)
 library(tidycensus)
 library(scales)
-library(mapview)
-library(ggthemes)
 library(corrr)
 
 ```
@@ -113,6 +104,7 @@ key <- "uO4EK6I"
 
 ## Load ARCOS data
 
+Now let's load the ARCOS data 
 
 ```{r}
 
